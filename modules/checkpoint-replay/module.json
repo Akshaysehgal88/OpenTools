@@ -1,0 +1,10 @@
+{
+  "format": "opentools.module.v1",
+  "id": "checkpoint-replay",
+  "title": "Checkpoint replay",
+  "description": "Qualify checkpoint compatibility and selected restored observations with explicit external state, prefix identity, native controls and full-cost review.",
+  "stages": ["simulation", "functional-verification", "debug"],
+  "workflow": "SKILL.md",
+  "helpers": [{"path": "checkpoint_replay.py", "purpose": "Check saved state/prefix compatibility and qualify complete selected-observable control/restored journals without native execution.", "requirements": ["Python 3.10+ standard library"]}, {"path": "examples/verilator/run_example.py", "purpose": "Opt-in native save/restore qualification for the supplied synchronous C++ harness, including explicit negative and sampling-cost controls.", "requirements": ["Linux, Python 3.10+, Verilator 5.020, GCC with C++17, GNU Make; existing runtime supplied explicitly"]}],
+  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "checkpoint_replay.py", "replay_core.py", "example.json", "record.template.json", "examples/create_example.py", "examples/verilator/README.md", "examples/verilator/top.sv", "examples/verilator/runner.cpp", "examples/verilator/run_example.py", "tests/test_replay.py"]
+}

@@ -1,0 +1,47 @@
+{
+  "format": "opentools.module.v1",
+  "id": "descriptor-layout-check",
+  "title": "Descriptor layout check",
+  "description": "Investigate whether hardware and firmware agree on field representation, ABI and shared binary layout.",
+  "stages": [
+    "design",
+    "firmware",
+    "integration-verification"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "layout_check.py",
+      "purpose": "Compare explicit layouts and value-bit mappings for direct object copy.",
+      "requirements": [
+        "Python 3.10+"
+      ]
+    },
+    {
+      "path": "layout_capture.py",
+      "purpose": "Capture qualified Slang hardware and native GCC C layouts.",
+      "requirements": [
+        "Python 3.10+",
+        "pyslang 12.0.0",
+        "Qualified native GCC/Linux target; see FORMAT.md"
+      ]
+    }
+  ],
+  "files": [
+    "AI_USAGE.md",
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "example.json",
+    "examples/c-profile.json",
+    "examples/descriptor.h",
+    "examples/descriptor.sv",
+    "examples/pairing.json",
+    "layout_capture.py",
+    "layout_check.py",
+    "layout_core.py",
+    "record.template.json",
+    "requirements-hardware.txt",
+    "tests/test_layout.py"
+  ]
+}

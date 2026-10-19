@@ -1,0 +1,15 @@
+{
+  "example_kind": "navigation; not a helper input",
+  "generate": "python examples/create_example.py demo",
+  "inputs": [
+    "demo/universe.json",
+    "demo/changes.json",
+    "demo/mapping.json",
+    "demo/policy.json"
+  ],
+  "actual_feedback_examples": [
+    "demo/targeted-results.json",
+    "demo/full-results.json"
+  ],
+  "limits": "Synthetic; no native execution. Full comparison exposes a failure outside selection. See examples/verilator for actual owned native campaigns."
+}

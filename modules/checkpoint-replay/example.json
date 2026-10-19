@@ -1,0 +1,7 @@
+{
+  "example_kind": "synthetic",
+  "generator": "examples/create_example.py",
+  "scenario": "Bound checkpoint/request, declared captured state and matching selected observations at capture plus every step from 4 through 6.",
+  "expected_status": "matched_selected_observables",
+  "note": "Generate actual profile/checkpoint/request/run records and non-executable synthetic files. For native save/restore use examples/verilator/run_example.py. Matching is limited to the selected boundary, channels and horizon."
+}

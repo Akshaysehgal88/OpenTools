@@ -1,0 +1,2 @@
+# Optional cross-check of an actual saved native manifest; not required by the reader.
+siliconcompiler==0.38.11

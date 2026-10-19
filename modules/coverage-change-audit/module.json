@@ -1,0 +1,42 @@
+{
+  "format": "opentools.module.v1",
+  "id": "coverage-change-audit",
+  "title": "Coverage change audit",
+  "description": "Distinguish newly exercised behavior from changes to coverage definitions, options and denominator.",
+  "stages": [
+    "functional-verification",
+    "coverage"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "coverage_audit.py",
+      "purpose": "Compare qualified normalized coverage records and reviewed correspondence.",
+      "requirements": [
+        "Python 3.10+"
+      ]
+    },
+    {
+      "path": "ucis_import.py",
+      "purpose": "Read the qualified native UCIS XML profile with explicit semantic context.",
+      "requirements": [
+        "Python 3.10+",
+        "requirements-ucis.txt; see FORMAT.md"
+      ]
+    }
+  ],
+  "files": [
+    "AI_USAGE.md",
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "coverage_audit.py",
+    "coverage_core.py",
+    "example.json",
+    "examples/create_example.py",
+    "record.template.json",
+    "requirements-ucis.txt",
+    "tests/test_coverage.py",
+    "ucis_import.py"
+  ]
+}

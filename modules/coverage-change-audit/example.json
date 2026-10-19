@@ -1,0 +1,11 @@
+{
+  "record_type": "opentools.coverage-change-audit.v1",
+  "example_kind": "synthetic",
+  "metric_definition": "Equally weighted bins, one hit required per bin, no instance aggregation.",
+  "baseline": {"run_ref": "run:A", "raw_bins": 200, "raw_hit_bins": 180, "excluded_bins": 0, "effective_bins": 200, "effective_hit_bins": 180, "score_percent": 90},
+  "current": {"run_ref": "run:B", "raw_bins": 200, "raw_hit_bins": 180, "excluded_bins": 20, "effective_bins": 180, "effective_hit_bins": 180, "score_percent": 100},
+  "newly_hit_bins": 0,
+  "exclusion_changes": [{"count": 20, "previously_hit": false, "review_ref": "review:example-exclusions"}],
+  "conclusion": "The effective score increased because 20 unhit bins were excluded. No additional bins were exercised.",
+  "unknowns": ["The acceptability of the exclusions is outside this arithmetic example."]
+}

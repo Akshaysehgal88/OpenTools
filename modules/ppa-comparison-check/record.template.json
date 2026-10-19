@@ -1,0 +1,13 @@
+{
+  "record_type": "opentools.ppa-comparison-check.v1",
+  "claim": null,
+  "metric": {"name": null, "definition": null, "unit": null},
+  "intended_changes": [],
+  "required_common_conditions": [],
+  "baseline": {"run_ref": null, "report_ref": null, "configuration_ref": null, "value": null},
+  "current": {"run_ref": null, "report_ref": null, "configuration_ref": null, "value": null},
+  "condition_differences": [],
+  "unknowns": [],
+  "supported_conclusion": null,
+  "extensions": {}
+}

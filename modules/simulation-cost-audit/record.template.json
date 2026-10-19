@@ -1,0 +1,14 @@
+{
+  "record_type": "opentools.simulation-cost-audit.v1",
+  "task": null,
+  "run_ref": null,
+  "configuration_ref": null,
+  "total_wall_seconds": null,
+  "exclusive_wall_intervals": [],
+  "unallocated_wall_seconds": null,
+  "overlapping_resource_observations": [],
+  "simulation_progress": {"unit": null, "amount": null, "evidence_ref": null},
+  "unknowns": [],
+  "proposed_intervention": null,
+  "extensions": {}
+}

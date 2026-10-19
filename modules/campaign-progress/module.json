@@ -1,0 +1,10 @@
+{
+  "format": "opentools.module.v1",
+  "id": "campaign-progress",
+  "title": "Campaign progress",
+  "description": "Review objective-specific progress, qualified effective exposure, required execution and remaining obligations without automatic job control.",
+  "stages": ["verification", "simulation", "formal", "validation", "characterization"],
+  "workflow": "SKILL.md",
+  "helpers": [{"path": "campaign_progress.py", "purpose": "Summarize bound cumulative exports and separate named coverage, qualified event exposure, native states and resource observations.", "requirements": ["Python 3.10+ standard library"]}],
+  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "DECISION.md", "progress_core.py", "campaign_progress.py", "record.template.json", "example.json", "examples/create_example.py", "examples/verilator/README.md", "examples/verilator/run_example.py", "examples/verilator/top.sv", "examples/verilator/runner.cpp", "tests/test_progress.py"]
+}

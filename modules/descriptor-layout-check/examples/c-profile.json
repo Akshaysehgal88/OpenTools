@@ -1,0 +1,10 @@
+{
+  "fields": [
+    {"name": "address"},
+    {"name": "length"},
+    {"name": "opcode", "encodings": {"OP_READ": "OP_READ", "OP_WRITE": "OP_WRITE"}},
+    {"name": "reserved"},
+    {"name": "padding"}
+  ],
+  "defines": {}
+}

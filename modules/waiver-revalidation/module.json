@@ -1,0 +1,57 @@
+{
+  "format": "opentools.module.v1",
+  "id": "waiver-revalidation",
+  "title": "Waiver revalidation",
+  "description": "Investigate whether a recorded waiver still applies to the current findings, premises and configuration.",
+  "stages": [
+    "design",
+    "verification",
+    "lint"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "waiver_revalidate.py",
+      "purpose": "Compare supported saved waiver populations and explicit premises.",
+      "requirements": [
+        "Python 3.10+"
+      ]
+    },
+    {
+      "path": "verilator_capture.py",
+      "purpose": "Capture the qualified native Verilator waiver profile.",
+      "requirements": [
+        "Python 3.10+",
+        "Verilator 5.020; see FORMAT.md"
+      ]
+    },
+    {
+      "path": "waiver_assist.py",
+      "purpose": "Prepare facts and check AI review binding/structure without verifying prose.",
+      "requirements": [
+        "Python 3.10+"
+      ]
+    }
+  ],
+  "files": [
+    "AI_USAGE.md",
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "example.json",
+    "examples/baseline.json",
+    "examples/current.json",
+    "examples/native/configuration.json",
+    "examples/native/top.sv",
+    "examples/native/waiver.vlt",
+    "examples/notes.json",
+    "examples/policy.json",
+    "record.template.json",
+    "tests/test_ai_review.py",
+    "tests/test_waiver.py",
+    "verilator_capture.py",
+    "waiver_assist.py",
+    "waiver_core.py",
+    "waiver_revalidate.py"
+  ]
+}

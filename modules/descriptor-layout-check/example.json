@@ -1,0 +1,11 @@
+{
+  "record_type": "opentools.descriptor-layout-check.v1",
+  "example_kind": "synthetic",
+  "interface_ref": "dma-command:example-v1",
+  "hardware": {"layout_export_ref": "hardware-layout.json", "size_bytes": 32, "fields": [{"name": "length", "offset_bytes": 24, "width_bits": 32}]},
+  "software": {"target_abi": "explicit-example-abi", "layout_export_ref": "compiler-layout.json", "size_bytes": 32, "fields": [{"name": "length", "offset_bytes": 8, "width_bits": 32}]},
+  "exchange_representation": {"byte_order": "little-endian", "bit_mapping_ref": "mapping:example", "alignment_bytes": 8, "direct_object_copy": true},
+  "field_pairings": [{"hardware": "length", "software": "length"}],
+  "mismatches": [{"field": "length", "property": "offset_bytes", "hardware": 24, "software": 8}],
+  "unknowns": ["Other fields and runtime behavior are outside this illustrative slice."]
+}

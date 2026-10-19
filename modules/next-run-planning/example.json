@@ -1,0 +1,7 @@
+{
+  "example_kind": "synthetic",
+  "generator": "examples/create_example.py",
+  "scenario": "An existing correlated journal answers acceptance versus noncompletion; separate examples preserve an unexecuted proposal, inconclusive late trace and divergent replay.",
+  "expected_inspection_status": "recorded_outcome",
+  "note": "Generate actual plan/result records for the optional helper. Hypotheses, evidence and outcomes are synthetic; no simulation launches and passing structure does not verify interpretation."
+}

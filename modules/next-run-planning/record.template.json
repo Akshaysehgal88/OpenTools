@@ -1,0 +1,34 @@
+{
+  "format": "opentools.experiment-plan.v1",
+  "plan_ref": "replace:plan",
+  "investigation_ref": null,
+  "original_run_ref": null,
+  "observation": {
+    "statement": null,
+    "evidence_ref": null
+  },
+  "question": null,
+  "hypotheses": [],
+  "variables": [],
+  "required_observations": [],
+  "outcomes": [],
+  "next_action": {
+    "kind": "request_context",
+    "summary": null,
+    "rationale": null,
+    "alternatives": [],
+    "evidence_ref": null
+  },
+  "stopping_condition": null,
+  "reproduction": {
+    "kind": "evidence_only",
+    "basis_ref": null,
+    "limits": []
+  },
+  "prior_search": {
+    "performed": null,
+    "scope_ref": null,
+    "evidence_ref": null
+  },
+  "unknowns": []
+}

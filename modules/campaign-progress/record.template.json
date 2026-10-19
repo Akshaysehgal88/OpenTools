@@ -1,0 +1,23 @@
+{
+  "format": "opentools.campaign-contract.v1",
+  "campaign_ref": null,
+  "scope_ref": null,
+  "configuration_ref": null,
+  "model_ref": null,
+  "population_ref": null,
+  "population_complete": null,
+  "required_run_refs": [],
+  "evidence_ref": null,
+  "objectives": [],
+  "policy": {
+    "ref": null,
+    "evidence_ref": null,
+    "allowed_recommendations": [
+      "continue",
+      "inspect_effectiveness",
+      "redirect",
+      "seek_policy"
+    ],
+    "limits": []
+  }
+}

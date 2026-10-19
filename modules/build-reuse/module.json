@@ -1,0 +1,10 @@
+{
+  "format": "opentools.module.v1",
+  "id": "build-reuse",
+  "title": "Build reuse",
+  "description": "Explain artifact reuse eligibility from captured inputs, flow-specific phase evidence and verified files, preserving unknown closure and separate results.",
+  "stages": ["simulation", "functional-verification", "build"],
+  "workflow": "SKILL.md",
+  "helpers": [{"path": "build_reuse.py", "purpose": "Compare resolved build records and inspect a qualified Verilator timestamp inventory without changing builds or caches.", "requirements": ["Python 3.10+ standard library; native inventory producer declaration 5.020"]}],
+  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "build_reuse.py", "reuse_core.py", "verilator_evidence.py", "examples/create_example.py", "example.json", "record.template.json", "tests/test_reuse.py"]
+}

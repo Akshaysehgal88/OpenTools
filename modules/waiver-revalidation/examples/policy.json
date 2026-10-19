@@ -1,0 +1,4 @@
+{
+  "format": "opentools.waiver-policy.v1",
+  "waivers": [{"id": "debug-receiver", "premises": [{"key": "DEBUG_EN", "equals": 0, "evidence_ref": "example:reviewed-waiver-premise"}]}]
+}

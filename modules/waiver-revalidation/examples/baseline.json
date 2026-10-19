@@ -1,0 +1,12 @@
+{
+  "format": "opentools.waiver-snapshot.v1",
+  "run_id": "synthetic:baseline",
+  "scope": "example/soc",
+  "configuration_ref": "example:configuration-A",
+  "configuration": {"DEBUG_EN": 0},
+  "tool": {"name": "example-export", "version": "1", "ruleset": "example-rules-v1"},
+  "identity_basis": "explicit-example-identities.v1",
+  "population_complete": true,
+  "waivers": [{"id": "debug-receiver", "definition_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "complete": true,
+    "findings": [{"id": "receiver-0", "object": "soc.debug_rx0", "rule": "EXAMPLE_RULE", "message": "Synthetic finding for receiver 0", "evidence_ref": "example:baseline-export#receiver-0"}]}]
+}

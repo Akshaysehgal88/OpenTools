@@ -1,0 +1,12 @@
+{
+  "record_type": "opentools.simulation-cost-audit.v1",
+  "example_kind": "synthetic",
+  "task": "Run the selected SoC stimulus and retain its result.",
+  "run_ref": "run:example",
+  "total_wall_seconds": 7200,
+  "exclusive_wall_intervals": [{"stage": "queue-wait", "seconds": 1200, "evidence_ref": "scheduler:example"}, {"stage": "build", "seconds": 2400, "evidence_ref": "build-log:example"}, {"stage": "initialization", "seconds": 3000, "evidence_ref": "milestones:example"}, {"stage": "active-stimulus", "seconds": 600, "evidence_ref": "milestones:example"}],
+  "unallocated_wall_seconds": 0,
+  "overlapping_resource_observations": [],
+  "unknowns": ["CPU and trace I/O attribution were not measured.", "Checkpoint compatibility has not been qualified."],
+  "proposed_intervention": "Investigate build reuse and initialization-prefix reuse separately, then measure the complete task."
+}

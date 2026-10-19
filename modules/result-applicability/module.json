@@ -1,0 +1,37 @@
+{
+  "format": "opentools.module.v1",
+  "id": "result-applicability",
+  "title": "Result applicability",
+  "description": "Establish whether saved evidence corresponds to the requested build, checker, runtime inputs and claim.",
+  "stages": [
+    "verification",
+    "integration",
+    "handoff"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "applicability_check.py",
+      "purpose": "Inspect qualified SiliconCompiler JSON and compare bounded result correspondence.",
+      "requirements": [
+        "Python 3.10+; SiliconCompiler is not required for reading saved JSON"
+      ]
+    }
+  ],
+  "files": [
+    "AI_USAGE.md",
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "applicability_check.py",
+    "applicability_core.py",
+    "example.json",
+    "examples/create_example.py",
+    "examples/create_sc_example.py",
+    "record.template.json",
+    "requirements-native-example.txt",
+    "sc_import.py",
+    "tests/test_applicability.py",
+    "tests/test_sc_import.py"
+  ]
+}

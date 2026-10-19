@@ -1,0 +1,10 @@
+{
+  "example_kind": "navigation, not a helper input",
+  "generate": "python examples/create_example.py demo",
+  "inputs": [
+    "demo/contract.json",
+    "demo/before.json",
+    "demo/after.json"
+  ],
+  "limits": "Synthetic coverage plateau with effective stress progress still short of the independent target; no native run. See examples/verilator for real simulation exports."
+}

@@ -1,0 +1,17 @@
+{
+  "format": "opentools.layout-pair.v1",
+  "interface_ref": "synthetic-descriptor-v1",
+  "hardware_configuration_ref": "example-default",
+  "software_configuration_ref": "example-default",
+  "representation": "direct-object-copy",
+  "hardware_byte_order": "little",
+  "required_alignment_bytes": 8,
+  "evidence_ref": "example-interface-policy",
+  "fields": [
+    {"hardware": "address", "software": "address"},
+    {"hardware": "length", "software": "length"},
+    {"hardware": "opcode", "software": "opcode", "encodings": [{"hardware": "OP_READ", "software": "OP_READ"}, {"hardware": "OP_WRITE", "software": "OP_WRITE"}]},
+    {"hardware": "reserved", "software": "reserved"},
+    {"hardware": "padding", "software": "padding"}
+  ]
+}

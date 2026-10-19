@@ -1,0 +1,24 @@
+{
+  "format": "opentools.experiment-result.v1",
+  "result_ref": "replace:result",
+  "plan_sha256": null,
+  "state": "not_executed",
+  "actual_route": "request_context",
+  "execution": {
+    "attempted": false,
+    "run_ref": null,
+    "exit_code": null,
+    "evidence_ref": null
+  },
+  "outcome_id": null,
+  "actual_variables": [],
+  "observations": [],
+  "correspondence": {
+    "status": "unknown",
+    "evidence_ref": null,
+    "limits": []
+  },
+  "interpretation": null,
+  "remaining_unknowns": [],
+  "cost_observations": []
+}

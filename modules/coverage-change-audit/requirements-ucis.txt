@@ -1,0 +1,2 @@
+# Optional native XML reader; core comparison uses only Python's standard library.
+pyucis==0.2.0.22787133465

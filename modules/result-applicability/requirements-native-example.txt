@@ -1,0 +1,2 @@
+# Only for creating a native example; the reader/comparator use the standard library.
+siliconcompiler==0.38.11

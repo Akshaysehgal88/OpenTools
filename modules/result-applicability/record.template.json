@@ -1,0 +1,13 @@
+{
+  "record_type": "opentools.result-applicability.v1",
+  "requested_claim": null,
+  "requested_scope_ref": null,
+  "result": {"artifact_ref": null, "run_ref": null, "native_status": null},
+  "observed_execution": {"executable_ref": null, "build_manifest_ref": null, "runtime_inputs_ref": null, "tool_ref": null, "dependency_capture_complete": null},
+  "claim_relevant_fields": [],
+  "mismatches": [],
+  "reuse_rule_ref": null,
+  "unknowns": [],
+  "applicability": null,
+  "extensions": {}
+}

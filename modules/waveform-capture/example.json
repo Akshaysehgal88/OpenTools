@@ -1,0 +1,7 @@
+{
+  "example_kind": "synthetic",
+  "generator": "examples/create_example.py",
+  "scenario": "Explicit 2 ns edge relation converts cycles 55-125 into native ticks 110-250; a local alias resolves a supplied acceptance net.",
+  "expected_status": "renderable",
+  "note": "Generate actual plan/inventory records and a non-executable demonstration binary. Readiness is not scope adequacy, causality or reproduction proof. Native execution is in examples/verilator/run_example.py."
+}

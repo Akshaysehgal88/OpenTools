@@ -1,0 +1,48 @@
+{
+  "format": "opentools.capture-plan.v1",
+  "plan_ref": "replace:plan",
+  "question": null,
+  "original_run_ref": null,
+  "inventory_sha256": null,
+  "operation": "capture_time",
+  "waveform_format": "vcd",
+  "window": {
+    "start": {
+      "value": null,
+      "unit": null
+    },
+    "end": {
+      "value": null,
+      "unit": null
+    },
+    "evidence_ref": null
+  },
+  "failure": {
+    "time": {
+      "value": null,
+      "unit": null
+    },
+    "evidence_ref": null
+  },
+  "clock": null,
+  "objects": [],
+  "history": {
+    "method": "replay_from_reset",
+    "available_from": null,
+    "evidence_ref": null
+  },
+  "correspondence": {
+    "status": "unknown",
+    "evidence_ref": null
+  },
+  "intent": "reproduce",
+  "run": {
+    "stop": {
+      "value": null,
+      "unit": null
+    },
+    "argv": [],
+    "evidence_ref": null
+  },
+  "expansion": []
+}

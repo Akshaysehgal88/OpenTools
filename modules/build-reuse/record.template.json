@@ -1,0 +1,85 @@
+{
+  "format": "opentools.build-record.v1",
+  "record_ref": "replace:record",
+  "profile_sha256": null,
+  "basis": {
+    "commands": [
+      {
+        "cwd": null,
+        "argv": [
+          "replace-with-actual-build-executable"
+        ],
+        "evidence_ref": null
+      }
+    ],
+    "dependencies": [],
+    "configuration": null,
+    "environment": null,
+    "toolchain": [],
+    "options": []
+  },
+  "coverage": {
+    "sources": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "filelists": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "includes": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "generated": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "configuration": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "linked_models": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "toolchain": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "environment": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "resolution": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "options": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "artifacts": {
+      "complete": null,
+      "evidence_ref": null
+    }
+  },
+  "capture": {
+    "consumed_bytes": {
+      "complete": null,
+      "evidence_ref": null
+    },
+    "request_resolved": {
+      "complete": null,
+      "evidence_ref": null
+    }
+  },
+  "build": {
+    "complete": null,
+    "exit_code": null,
+    "evidence_ref": null,
+    "artifacts": []
+  },
+  "run_ref": "replace:run",
+  "result_ref": "replace:result"
+}

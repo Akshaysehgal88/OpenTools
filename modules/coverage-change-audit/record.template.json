@@ -1,0 +1,14 @@
+{
+  "record_type": "opentools.coverage-change-audit.v1",
+  "metric_definition": null,
+  "baseline": {"run_ref": null, "model_ref": null, "configuration_ref": null, "export_ref": null, "population_complete": null, "tool_reported_score": null},
+  "current": {"run_ref": null, "model_ref": null, "configuration_ref": null, "export_ref": null, "population_complete": null, "tool_reported_score": null},
+  "matched_item_changes": [],
+  "added_obligations": [],
+  "removed_or_unmatched_obligations": [],
+  "exclusion_changes": [],
+  "scoring_changes": [],
+  "unknowns": [],
+  "conclusion": null,
+  "extensions": {}
+}

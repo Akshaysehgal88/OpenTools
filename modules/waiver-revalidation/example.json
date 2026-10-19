@@ -1,0 +1,12 @@
+{
+  "record_type": "opentools.waiver-revalidation.v1",
+  "example_kind": "synthetic",
+  "waiver_ref": "waiver:debug-receiver",
+  "rationale": "Reviewed for the configuration in which the debug feature is disabled.",
+  "baseline": {"run_ref": "run:A", "configuration_ref": "config:A", "tool_ref": "lint-tool:example-edition", "export_ref": "baseline-matches.json", "population_complete": true, "matched_objects": ["soc.debug_rx0"]},
+  "current": {"run_ref": "run:B", "configuration_ref": "config:B", "tool_ref": "lint-tool:example-edition", "export_ref": "current-matches.json", "population_complete": true, "matched_objects": ["soc.debug_rx0", "soc.debug_rx1"]},
+  "explicit_premises": [{"name": "DEBUG_EN", "required_value": 0, "observed_value": 1, "evidence_ref": "config:B#DEBUG_EN"}],
+  "findings": ["Recorded premise does not hold.", "The native export includes one additional matched receiver."],
+  "unknowns": ["Whether the exception remains acceptable requires engineering review."],
+  "review_disposition": "review-required"
+}

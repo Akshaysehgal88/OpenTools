@@ -1,0 +1,8 @@
+{
+  "example_kind": "synthetic",
+  "generator": "examples/create_example.py",
+  "scenario": "Seed 17 to 29 consumed after launch, unchanged declared build boundary and verified artifact bytes.",
+  "expected_status": "eligible_within_declared_scope",
+  "result_reuse": "not_established",
+  "note": "Run the generator for actual records, bound profile and a non-executable demonstration artifact. This navigation record is not a build input."
+}

@@ -1,0 +1,6 @@
+{
+  "format": "opentools.waiver-notes.v1",
+  "waiver_id": "debug-receiver",
+  "rationale": "This exception was recorded for DEBUG_EN=0, when the debug receiver was described as inactive. The current applicability question concerns the original rationale and any additional receiver now suppressed.",
+  "evidence_ref": "synthetic:waiver-owner-record"
+}

@@ -1,0 +1,11 @@
+{
+  "record_type": "opentools.result-applicability.v1",
+  "example_kind": "synthetic",
+  "requested_claim": "The ECC-enabled configuration passed the selected data-integrity regression.",
+  "result": {"artifact_ref": "result:regression-A", "run_ref": "run:A", "native_status": "passed"},
+  "claim_relevant_fields": [{"field": "ECC_EN", "requested": 1, "observed": 0, "evidence_ref": "build-manifest:A#ECC_EN"}],
+  "mismatches": ["The supplied result used ECC_EN=0."],
+  "reuse_rule_ref": null,
+  "unknowns": ["Checker sufficiency for the requested claim has not been established."],
+  "applicability": "not-directly-applicable-to-requested-configuration"
+}

@@ -1,0 +1,13 @@
+{
+  "record_type": "opentools.waiver-revalidation.v1",
+  "waiver_ref": null,
+  "rationale": null,
+  "owner_ref": null,
+  "baseline": {"run_ref": null, "configuration_ref": null, "tool_ref": null, "export_ref": null, "population_complete": null, "matched_objects": []},
+  "current": {"run_ref": null, "configuration_ref": null, "tool_ref": null, "export_ref": null, "population_complete": null, "matched_objects": []},
+  "explicit_premises": [],
+  "findings": [],
+  "unknowns": [],
+  "review_disposition": null,
+  "extensions": {}
+}

@@ -1,0 +1,13 @@
+{
+  "record_type": "opentools.ppa-comparison-check.v1",
+  "example_kind": "synthetic",
+  "claim": "An RTL optimization improved timing under fixed constraints.",
+  "metric": {"name": "worst_setup_slack", "definition": "Setup slack reported at the same implementation stage and selected corner.", "unit": "ns"},
+  "intended_changes": ["RTL revision"],
+  "required_common_conditions": ["clock period", "library/corner", "analysis constraints", "implementation stage"],
+  "baseline": {"run_ref": "run:A", "value": -0.4, "clock_period_ns": 10},
+  "current": {"run_ref": "run:B", "value": 0.2, "clock_period_ns": 12},
+  "condition_differences": [{"field": "clock_period_ns", "classification": "additional-experimental-variable", "baseline": 10, "current": 12}],
+  "supported_conclusion": "The two runs reported different slack under different clock periods. The delta does not isolate the RTL optimization's effect.",
+  "unknowns": ["Other required common conditions need independent inspection."]
+}

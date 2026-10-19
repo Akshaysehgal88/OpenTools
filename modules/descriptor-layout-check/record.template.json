@@ -1,0 +1,11 @@
+{
+  "record_type": "opentools.descriptor-layout-check.v1",
+  "interface_ref": null,
+  "hardware": {"source_ref": null, "configuration_ref": null, "frontend_ref": null, "layout_export_ref": null, "size_bytes": null, "fields": []},
+  "software": {"source_ref": null, "compiler_ref": null, "target_abi": null, "layout_export_ref": null, "size_bytes": null, "fields": []},
+  "exchange_representation": {"byte_order": null, "bit_mapping_ref": null, "alignment_bytes": null, "direct_object_copy": null},
+  "field_pairings": [],
+  "mismatches": [],
+  "unknowns": [],
+  "extensions": {}
+}
