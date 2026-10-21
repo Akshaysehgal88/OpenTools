@@ -109,3 +109,7 @@ Use the [erratum/workaround profile](profiles/erratum-workaround/README.md) befo
 applying, removing or carrying forward a supplied workaround. It keeps underlying
 conditions, observed efficacy, dependent premises and current approval evidence
 separate. The native example qualifies a synthetic notice and owned model only.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

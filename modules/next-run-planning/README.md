@@ -57,3 +57,7 @@ A zero status does not establish that an interpretation is true or another run u
 ```sh
 python -m unittest discover -s tests -v
 ```
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

@@ -100,3 +100,7 @@ python -m unittest discover -s modules/waiver-revalidation/tests -v
 
 Set `OPENTOOLS_VERILATOR` to Verilator 5.020 to enable native tests.
 Reference: [Verilator control files](https://verilator.org/guide/latest/control.html).
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

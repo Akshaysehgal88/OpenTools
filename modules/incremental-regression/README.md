@@ -55,3 +55,7 @@ python -m unittest discover -s tests -v
 
 Core tests run on Windows/Linux. Native qualification is limited to the documented
 Verilator fixture; production selection quality needs validation in the adopting flow.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

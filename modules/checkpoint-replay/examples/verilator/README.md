@@ -102,3 +102,7 @@ models and process checkpoint mechanisms need their own capability/state review.
 Cross-host or ABI transfer is not qualified. Include relevant runtime/ABI identity
 in the captured/requested configuration and qualify that transfer before use;
 portable Python records do not make native serialized bytes platform-independent.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

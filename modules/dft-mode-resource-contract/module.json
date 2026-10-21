@@ -47,6 +47,7 @@
     "tests/test_resources.py",
     "profiles/at-speed-handoff/FORMAT.md",
     "profiles/at-speed-handoff/GUIDE.md",
+    "profiles/at-speed-handoff/README.md",
     "profiles/at-speed-handoff/WORKFLOW.md",
     "profiles/at-speed-handoff/examples/cells.lef",
     "profiles/at-speed-handoff/examples/cells.lib",

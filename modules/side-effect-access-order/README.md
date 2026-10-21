@@ -67,3 +67,7 @@ before comparing retained diagnostic evidence with a pre-silicon expectation.
 It composes the existing receipt/epoch review with device/image/reset conditions
 and source-read time correspondence. Raw values and comparison validity remain
 separate; the native example qualifies owned emulation only.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

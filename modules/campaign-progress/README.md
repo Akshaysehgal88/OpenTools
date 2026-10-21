@@ -68,3 +68,7 @@ python -m unittest discover -s tests -v
 ```
 
 Core tests run on Windows/Linux. Native support is limited to the documented fixture.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

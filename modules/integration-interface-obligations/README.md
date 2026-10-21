@@ -65,3 +65,7 @@ python -m unittest discover -s tests -v
 Optional native simulation tests use `OPENTOOLS_INTERFACE_NATIVE`; see the recipe.
 See [AI usage](AI_USAGE.md), [formats](FORMAT.md) and the
 [project-local installer](../../INSTALL.md). DVIT/context sources are optional.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

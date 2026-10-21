@@ -50,3 +50,7 @@ new artifacts. Native static reports and their consumed source/load basis are
 separate evidence. See [FORMAT.md](FORMAT.md) for the batch reader's qualification
 and the [OpenROAD IR documentation](https://openroad.readthedocs.io/en/latest/main/src/psm/README.html)
 for native commands; supported options follow the installed pinned tool.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

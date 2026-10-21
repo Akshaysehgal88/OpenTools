@@ -34,3 +34,7 @@ that condition. A primary fix can also invalidate a dependent clock premise.
 The notice and event-delivery model are synthetic. This profile does not discover
 real errata or qualify silicon, firmware ISA execution, power behavior or safety.
 See [FORMAT.md](FORMAT.md) for native and predicate boundaries.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

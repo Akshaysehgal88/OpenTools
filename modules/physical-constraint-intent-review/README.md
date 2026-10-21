@@ -51,3 +51,7 @@ The exporter reads native objects, records selected timing paths, runs
 `check_placement` and saves a new database copy. It does not alter placements or
 constraints. Use its facts in the AI workflow; the batch reader has a separate
 qualified loader boundary described in [FORMAT.md](FORMAT.md).
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

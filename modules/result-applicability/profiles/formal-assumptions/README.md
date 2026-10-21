@@ -64,3 +64,7 @@ and real witnesses on Linux or Windows. Other tests use synthetic parser fixture
 and do not claim solver execution. This profile does not automatically remove
 assumptions, accept proofs or certify composition, physical clocks/resets,
 liveness, property sufficiency or signoff.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

@@ -33,3 +33,7 @@ silicon root-cause diagnosis. Use existing native tools beyond the helper profil
 Install the parent module through the project-local installer. Optional
 [context sources](../../../../CONTEXT_PORT.md) may supply scoped evidence
 relationships; the workflow works without DVIT and never installs it.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

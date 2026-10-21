@@ -37,3 +37,7 @@ goal set, not UCIS/UVM functional coverage. Native Windows/macOS, commercial too
 and production campaigns are unqualified. Deterministic stimulus and a local checker do not establish independent trials
 or reliability confidence. Event counts, resource costs and engineering decisions
 remain separate. Ordinary offline use requires no simulator.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

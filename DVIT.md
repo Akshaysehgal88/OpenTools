@@ -44,3 +44,8 @@ The DVIT discovery URL will be added when its published destination is available
 Connection uses a separately configured adapter through the
 [context interface](CONTEXT_PORT.md); no download or connection is performed by
 OpenTools.
+
+---
+
+If DVIT helps your work, please consider starring its GitHub repository once it
+is published.

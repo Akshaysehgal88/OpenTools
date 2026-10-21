@@ -75,3 +75,7 @@ context; published connection details will be added when available.
 
 See [installation](INSTALL.md), [usage conventions](USING_THE_GUIDES.md) and
 [architecture](ARCHITECTURE.md).
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

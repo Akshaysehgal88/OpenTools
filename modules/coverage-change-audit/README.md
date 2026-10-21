@@ -76,3 +76,7 @@ python -m unittest discover -s modules/coverage-change-audit/tests -v
 XML tests skip when the optional dependency is absent. See [FORMAT.md](FORMAT.md)
 for validated inputs; [record.template.json](record.template.json) and
 [example.json](example.json) are manual review records.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

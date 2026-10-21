@@ -64,3 +64,7 @@ Slang tests skip without the optional package. Native simulation tests require
 `OPENTOOLS_CONTRACT_NATIVE` and, for extracted kits, `VERILATOR_ROOT`; see the recipe.
 The workflow is independently usable through the [project-local installer](../../INSTALL.md).
 DVIT and [context adapters](../../CONTEXT_PORT.md) are optional.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

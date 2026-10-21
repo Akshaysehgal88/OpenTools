@@ -70,3 +70,7 @@ Optional API cross-checks use `OPENTOOLS_SC_MANIFEST` and
 [requirements-native-test.txt](requirements-native-test.txt).
 See [FORMAT.md](FORMAT.md); the [manual template](record.template.json) and
 [manual example](example.json) use separate formats.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

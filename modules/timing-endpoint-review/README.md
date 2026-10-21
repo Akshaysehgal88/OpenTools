@@ -71,3 +71,7 @@ OPENTOOLS_STA_ENDPOINT_NATIVE=/path/to/endpoint-runs \
 ```
 
 Without a native archive, input tests run and the native-corpus class is skipped.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

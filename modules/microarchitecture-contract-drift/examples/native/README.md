@@ -27,3 +27,7 @@ must be requalified for another flow. The portable helper needs no simulator.
 Enable the integration test with `OPENTOOLS_CONTRACT_NATIVE` set to the native
 executable, and `VERILATOR_ROOT` for an extracted kit. Optional
 `OPENTOOLS_CONTRACT_OUTPUT` retains its six case directories at a new chosen path.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

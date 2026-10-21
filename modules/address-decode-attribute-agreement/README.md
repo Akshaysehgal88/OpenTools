@@ -60,3 +60,7 @@ python -m unittest discover -s tests -v
 Enable native tests with `OPENTOOLS_ADDRESS_NATIVE`; see the recipe. The workflow
 works with ordinary exports through the [project-local installer](../../INSTALL.md).
 DVIT and [context sources](../../CONTEXT_PORT.md) are optional.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

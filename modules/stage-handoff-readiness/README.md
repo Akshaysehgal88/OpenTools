@@ -32,3 +32,7 @@ qualify silicon readiness, ECC, cache/MMU behavior or an undocumented ROM sequen
 Install this module with the repository's [project-local installer](../../INSTALL.md).
 Optional [context sources](../../CONTEXT_PORT.md) may add scoped requirements or
 artifact relationships. No AI SDK or DVIT installation is required.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

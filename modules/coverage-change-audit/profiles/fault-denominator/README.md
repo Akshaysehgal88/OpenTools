@@ -35,3 +35,7 @@ Qualification covers declared injection sites, not all netlist pins. Finite
 untestability and response equivalence apply only to the exact legal input space.
 Commercial ATPG, transition/delay faults, scan protocols, production collapse
 rules and signoff need their actual native evidence and separate qualification.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

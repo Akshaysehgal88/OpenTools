@@ -80,3 +80,7 @@ OPENTOOLS_STA_EXCEPTION_EXAMPLES=/path/to/runs \
 ```
 
 Without a native archive, input tests run and the native-corpus class is skipped.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

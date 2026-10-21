@@ -55,3 +55,7 @@ Concrete controller/sequence references:
 [OpenTitan PLIC](https://opentitan.org/book/hw/top_earlgrey/ip_autogen/rv_plic/doc/theory_of_operation.html),
 [OpenTitan power manager](https://opentitan.org/book/hw/top_earlgrey/ip_autogen/pwrmgr/doc/theory_of_operation.html).
 Their implementation rules are design-specific.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

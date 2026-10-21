@@ -52,3 +52,7 @@ drain intent and dependent consumers. Nothing installs or downloads DVIT.
 
 Reference: [OpenTitan power-manager operation](https://opentitan.org/book/hw/top_earlgrey/ip_autogen/pwrmgr/doc/theory_of_operation.html).
 Its sequence and abort rules are design-specific, not universal assumptions here.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

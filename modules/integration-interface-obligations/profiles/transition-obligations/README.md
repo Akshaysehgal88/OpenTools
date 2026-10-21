@@ -44,3 +44,7 @@ this helper's explicit contract.
 Install the parent `integration-interface-obligations` module through the repository's
 project-local installer. Optional [context sources](../../../../CONTEXT_PORT.md) can
 provide scoped protocol, owner and obligation relationships. Nothing installs DVIT.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

@@ -46,3 +46,7 @@ tools for those claims; the AI workflow is broader than this helper's profile.
 Install the parent `data-ownership-visibility-handoff` module through the repository's
 project-local installer. Optional [context sources](../../../../CONTEXT_PORT.md) may
 supply scoped model, path, ordering and completion relationships. Nothing installs DVIT.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

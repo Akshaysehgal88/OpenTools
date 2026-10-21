@@ -47,3 +47,7 @@ An available action left unscheduled is distinct from no enabled progress.
 Install through the repository's project-local installer. Optional
 [context sources](../../CONTEXT_PORT.md) may add scoped ownership, release and
 mode relationships. Nothing downloads or installs DVIT.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

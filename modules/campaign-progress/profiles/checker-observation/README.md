@@ -44,3 +44,7 @@ wrong-event and wrong-ID checkers, faults, stalls, reset cancellation and short
 windows. A separately expressed finite model checks every native sample/action;
 it is fixture qualification, not a general functional oracle. Set
 `OPENTOOLS_OBSERVATION_EXAMPLE` to retained output to enable native regression tests.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

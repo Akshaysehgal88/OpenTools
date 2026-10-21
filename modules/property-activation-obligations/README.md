@@ -57,3 +57,7 @@ records. The native profile covers stable-before-edge scalar same-cycle checking
 it does not establish arbitrary SVA adequacy, asynchronous reset behavior,
 physical clock safety, unbounded proof or signoff. The AI workflow can use broader
 company-native methods while preserving those methods' evidence limits.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

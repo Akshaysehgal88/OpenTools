@@ -36,3 +36,7 @@ finding,3 invalid input/I/O. Findings retain concurrent gaps. `--output` require
 a new file. Install the parent module with the project-local installer.
 Your existing AI host is sufficient; optional [context sources](../../../../CONTEXT_PORT.md)
 may add scoped relationships. Nothing installs DVIT or another model service.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

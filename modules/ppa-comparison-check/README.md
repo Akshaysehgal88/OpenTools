@@ -71,3 +71,7 @@ Set `OPENTOOLS_ORFS_METADATA` to the pinned artifact for its integration test
 (SHA-256 `26fee48996075b7ecfe43805d9da105b209d082991fa4dd24cb2f859bab79e86`).
 See [FORMAT.md](FORMAT.md); the [manual template](record.template.json) and
 [manual example](example.json) use separate formats.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

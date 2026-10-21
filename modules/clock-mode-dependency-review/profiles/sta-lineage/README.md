@@ -50,3 +50,7 @@ opentools_export_clocks run_ref {reset_n boot_sel clock_enable} capture/D clocks
 The trace retains resolved native constructor arguments. The exporter also works
 without a trace to inspect final collections, but cannot recover absent creation
 history. See [FORMAT.md](FORMAT.md) for ABI, lifecycle and batch-reader limits.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

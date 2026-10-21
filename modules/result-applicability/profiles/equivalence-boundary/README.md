@@ -57,3 +57,7 @@ witness. Control interfaces include 8- and 32-bit selections. The example runs t
 native tasks and fourteen reviews; finite references qualify small examples, not
 replace native verdicts. Set `OPENTOOLS_EQUIVALENCE_EXAMPLE` to its output directory
 to enable saved-native tests. Synthetic approvals in fixtures are not real approvals.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

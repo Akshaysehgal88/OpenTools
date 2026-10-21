@@ -53,3 +53,7 @@ its own authority and dirty-state handling; it is not a universal repair for los
 retention. Install through the repository's project-local installer. Optional
 [context sources](../../CONTEXT_PORT.md) may supply scoped bundle, restore-order
 and consumer relationships. Nothing installs or downloads DVIT.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

@@ -57,3 +57,7 @@ The AI workflow can review broader company-native abstractions. This helper
 qualifies a stateless finite class, not arbitrary abstraction soundness, sequential
 or memory refinement, liveness or signoff. It does not automatically refine cuts,
 remove premises or accept proofs.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

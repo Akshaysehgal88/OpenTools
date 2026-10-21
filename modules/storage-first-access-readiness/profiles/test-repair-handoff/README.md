@@ -37,3 +37,7 @@ Other macros, fuse layouts, MBIST algorithms, multiple repair entries, reset
 retention, physical X/power behavior and timing need their own native evidence.
 The helper does not certify production fault coverage or memory signoff. Use the
 same workflow with the team's tools and preserve unsupported claims as open items.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

@@ -56,3 +56,7 @@ For a real clock-control example, see
 [OpenTitan clock-manager operation](https://opentitan.org/book/hw/top_earlgrey/ip_autogen/clkmgr/doc/theory_of_operation.html).
 Its implementation and clock-group rules are design-specific; they are not
 assumptions imposed by this tool.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

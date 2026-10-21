@@ -31,3 +31,7 @@ Qualified with Verilator 5.020, Linux, GCC 13.3 and Make 4.3. The fixture uses m
 production dependency completeness or miss probability. Native Windows/macOS,
 UVM, commercial simulators and DVSim export adaptation are not qualified. The
 portable selector requires no simulator.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

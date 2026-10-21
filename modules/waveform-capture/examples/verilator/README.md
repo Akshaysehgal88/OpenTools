@@ -79,3 +79,7 @@ OPENTOOLS_WAVEFORM_NATIVE=/path/to/verilator_bin VERILATOR_ROOT=/path/to/share/v
 Qualified native execution uses Linux, Verilator 5.020, GCC 13.3, Make 4.3 and
 PyVCD 0.5.0. Windows supports the portable helper/optional VCD import tests. Native
 macOS/Windows, commercial simulators and actual GTKWave GUI loading are untested.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

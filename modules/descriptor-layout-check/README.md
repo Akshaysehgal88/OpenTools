@@ -67,3 +67,7 @@ python -m unittest discover -s modules/descriptor-layout-check/tests -v
 
 Native tests skip without their frontend environment. The [manual template](record.template.json)
 and [manual mismatch example](example.json) are separate from executable formats.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

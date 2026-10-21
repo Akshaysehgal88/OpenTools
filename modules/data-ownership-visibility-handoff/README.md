@@ -50,3 +50,7 @@ For domain-specific ordering claims and model/observation evidence, use the
 [ordering-boundary profile](profiles/ordering-boundary/README.md). Its owned native
 path actually gates publication; it does not turn this helper's logical ordering
 marker into an ISA or platform guarantee. Run the profile tests separately.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

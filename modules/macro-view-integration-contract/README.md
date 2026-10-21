@@ -39,3 +39,7 @@ activity. They cover wrong supply, changed characterization voltage, pin directi
 orientation, obstruction window, timing endpoints, footprint and instance wiring.
 They do not qualify memory behavior, clock safety, characterized timing, routability
 or DRC/LVS. Licensed views stay in the adopting environment.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

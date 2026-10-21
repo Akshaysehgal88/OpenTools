@@ -62,3 +62,7 @@ Core tests run on Windows/Linux. Enable the native inventory test on Linux with
 `OPENTOOLS_REUSE_NATIVE` pointing to Verilator 5.020 and `VERILATOR_ROOT` set to its
 runtime directory. The native test environment uses GCC 13.3 and Make 4.3.
 See the [manual record](record.template.json) and [example](example.json).
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

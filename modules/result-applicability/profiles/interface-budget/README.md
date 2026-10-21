@@ -41,3 +41,7 @@ skip when the corpus is absent. The first reader scope is one mapped scalar
 interface, one mode/corner and selected max setup paths in explicit ns/pF. It
 does not establish hold, all-path closure, functional equivalence, extracted RC,
 frequency capability or signoff. It writes no design constraints or jobs.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

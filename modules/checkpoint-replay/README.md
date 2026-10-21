@@ -63,3 +63,7 @@ python -m unittest discover -s tests -v
 Portable tests run on Windows/Linux. Native support is limited to the documented
 Linux harness. See the [manual record](record.template.json) and [example](example.json).
 Reference: [Verilator 5.020 save/restore](https://github.com/verilator/verilator/blob/v5.020/docs/guide/simulating.rst#saverestore).
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

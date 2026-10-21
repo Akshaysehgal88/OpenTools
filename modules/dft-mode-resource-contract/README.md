@@ -64,3 +64,7 @@ and finite observed levels do not replace that evidence.
 Install this module alone with the [project-local installer](../../INSTALL.md).
 Optional DVIT or other scoped context uses the [context interface](../../CONTEXT_PORT.md).
 No model API or DVIT connection is required.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

@@ -45,3 +45,7 @@ approval is still required to bridge changed global identities.
 
 See [FORMAT.md](FORMAT.md) for the qualified helper boundary. Complete equivalence,
 parasitics, routing, power behavior and production signoff require their own evidence.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

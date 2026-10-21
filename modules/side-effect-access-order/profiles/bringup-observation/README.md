@@ -35,3 +35,7 @@ The producer models sampled sticky status, POR/warm reset, read effects and a ho
 capture buffer. Model identities and timestamps are emulated observations.
 It does not qualify real silicon, instruments, firmware ISA execution, physical
 reset/power sequencing, clock synchronization or root cause.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

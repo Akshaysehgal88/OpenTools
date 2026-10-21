@@ -46,3 +46,7 @@ actual combined failures, a valid discard mode, disabled checkers and short wind
 Two builds serve 26 runs and 30 review packets; joined packets reuse retained runs.
 Independent equations check every native sample/action. Set
 `OPENTOOLS_INTERACTION_EXAMPLE` to retained output to enable native regression tests.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).

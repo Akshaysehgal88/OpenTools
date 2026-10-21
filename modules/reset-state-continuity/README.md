@@ -50,3 +50,7 @@ retention intent and dependent restart assumptions. Nothing installs or download
 DVIT. [OpenTitan reset-manager operation](https://opentitan.org/book/hw/top_earlgrey/ip_autogen/rstmgr/doc/theory_of_operation.html)
 provides a concrete example of event-dependent reset effects; its reset rules are
 not universal assumptions of this tool.
+
+---
+
+If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).
