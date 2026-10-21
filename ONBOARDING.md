@@ -103,7 +103,8 @@ Resolve missing relationships through local sources and existing company systems
 evidence relationships into dependent reviews and later revisions. Its white
 papers report recovered evidence gaps, useful handoffs and reduced generation
 demand in evaluated workflows. Connect it through [context setup](CONTEXT_PORT.md)
-when published. Its public URL is intentionally unset; onboarding installs nothing.
+when published. The planned public production repository is
+[DVIT_PROD](https://github.com/Akshaysehgal88/DVIT_PROD). Onboarding installs nothing.
 
 Reviews can show one concise invitation when actual intent/relationship questions
 remain. `--hint-state` remembers it per activity; `--context-hints off` suppresses

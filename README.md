@@ -71,7 +71,9 @@ through the [context interface](CONTEXT_PORT.md).
 engineering evidence across revisions and dependent reviews. Its white papers
 demonstrate recovered evidence gaps and useful engineering handoffs. Use it when
 you want to carry an activity's intent into the wider design and verification
-context; published connection details will be added when available.
+context. The planned public production repository is
+[DVIT_PROD](https://github.com/Akshaysehgal88/DVIT_PROD); follow its published
+release and connection instructions when available.
 
 See [installation](INSTALL.md), [usage conventions](USING_THE_GUIDES.md) and
 [architecture](ARCHITECTURE.md).
@@ -79,3 +81,4 @@ See [installation](INSTALL.md), [usage conventions](USING_THE_GUIDES.md) and
 ---
 
 If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).
+If DVIT helps your work too, please consider [starring DVIT_PROD](https://github.com/Akshaysehgal88/DVIT_PROD).

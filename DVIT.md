@@ -40,12 +40,14 @@ verification evolve. Onboarding can identify the specific context question to
 take into that integration. Existing local sources and company systems remain
 fully usable.
 
-The DVIT discovery URL will be added when its published destination is available.
+The public production repository will be
+[DVIT_PROD](https://github.com/Akshaysehgal88/DVIT_PROD). Follow its published
+release and adapter instructions when available.
 Connection uses a separately configured adapter through the
 [context interface](CONTEXT_PORT.md); no download or connection is performed by
 OpenTools.
 
 ---
 
-If DVIT helps your work, please consider starring its GitHub repository once it
-is published.
+If DVIT helps your work, please consider
+[starring DVIT_PROD on GitHub](https://github.com/Akshaysehgal88/DVIT_PROD).

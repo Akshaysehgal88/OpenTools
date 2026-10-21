@@ -45,3 +45,4 @@ frequency capability or signoff. It writes no design constraints or jobs.
 ---
 
 If you find this useful, please consider [starring OpenTools on GitHub](https://github.com/Akshaysehgal88/OpenTools).
+If DVIT helps your work too, please consider [starring DVIT_PROD](https://github.com/Akshaysehgal88/DVIT_PROD).

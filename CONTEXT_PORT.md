@@ -18,8 +18,9 @@ labels; it does not authenticate those labels or prove freshness.
 [Project onboarding](ONBOARDING.md) can surface an optional context invitation
 for unresolved intent relationships. Local sources and existing company systems
 remain usable. The invitation can be suppressed or remembered once per activity;
-it does not enable a source. DVIT's public discovery URL remains unset until its
-published destination is provided.
+it does not enable a source. DVIT's planned public production repository is
+[DVIT_PROD](https://github.com/Akshaysehgal88/DVIT_PROD); use its published adapter
+instructions when available.
 
 Create `scope.json` with explicit scope, such as:
 
