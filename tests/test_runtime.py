@@ -59,6 +59,8 @@ class PackagingTests(unittest.TestCase):
                 result = install(self.project, host, ["result-applicability"])
                 target = Path(result["target"])
                 self.assertTrue((target / "SKILL.md").is_file())
+                for notice_name in ("LICENSE", "NOTICE", "BRANDING.txt"):
+                    self.assertEqual((target / notice_name).read_bytes(), (ROOT / notice_name).read_bytes())
                 self.assertTrue((target / "modules/result-applicability/applicability_check.py").is_file())
                 self.assertFalse((target / ".local").exists())
                 self.assertFalse((target / ".git").exists())

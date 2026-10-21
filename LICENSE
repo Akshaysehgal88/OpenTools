@@ -1,0 +1,188 @@
+DVIT Utilities Source-Available License
+Version 1.0 — 21 October 2026
+License identifier: LicenseRef-DVIT-Utilities-1.0
+
+Copyright (c) 2026 Akshay Sehgal. All rights reserved except as expressly
+granted below. This is a custom source-available license, not an
+OSI-approved open-source license.
+
+1. Parties and scope
+
+"Licensor" means Akshay Sehgal. "You" means the person or legal entity
+exercising the permissions in this license.
+
+"Utilities" means the original code, helpers, AI workflow instructions,
+templates, examples and documentation supplied under this license, and
+modified versions or substantial portions of those materials. It does not
+include separately licensed third-party materials, your own inputs, or the
+separate DVIT platform merely because it is mentioned or linked here.
+
+The original project, repository and DVIT relationship are identified in
+the accompanying NOTICE. The official DVIT repository is:
+https://github.com/Akshaysehgal88/DVIT_PROD
+
+2. Free permissions
+
+Subject to this license, Licensor grants you a worldwide, non-exclusive,
+royalty-free copyright license to use, run, study, copy and modify the
+Utilities; make free forks and redistributions; and incorporate the
+Utilities into Independent Products as defined in section 3.
+
+These permissions include personal, educational, research and business
+use, including internal company use and use by contractors on a company's
+behalf. You may use your own AI tools, EDA tools and other software with
+the Utilities. No DVIT account, subscription or connection is required.
+
+Where needed to exercise these permissions, Licensor also grants a patent
+license limited to claims Licensor owns or controls that are necessarily
+infringed by the unmodified Utilities, subject to the same conditions.
+No rights in third-party patents are granted.
+
+3. Commercial products and services you may create
+
+You may use the Utilities to design, develop, test, verify, manufacture,
+operate or support products and services for which you charge money.
+You may sell your independently created hardware, software, reports,
+analyses and other outputs. You keep your rights in your own work.
+
+An "Independent Product" has substantial functionality and value beyond
+the Utilities and is not an offering of the Utilities themselves. It may
+incorporate the Utilities as an incidental supporting component, provided
+customers are not offered the Utilities, or their material functionality,
+as a standalone tool, separately marketed feature, or reusable service
+for the customers' own workflows. This permission includes distributing
+such a component within an otherwise qualifying paid Independent Product.
+
+Renaming a Utility, changing its interface, adding an AI or API wrapper,
+hosting it, or making only minor changes does not, by itself, create an
+Independent Product. Section 4 controls an offering that falls within
+its restrictions even if the offering includes additional software.
+
+You may charge for genuine consulting, engineering, training, integration
+or support work that uses the Utilities, provided the charge is for your
+own work and does not condition access to, or supply of, the Utilities
+on payment. Delivering your professional work and its results is permitted;
+selling a proxy or self-service interface to the Utilities is not.
+
+4. Activities requiring separate written permission
+
+Without Licensor's prior written permission, you may not:
+
+(a) Sell, rent, commercially sublicense or otherwise charge for copies,
+    downloads, licenses, installations or distributions of the Utilities.
+
+(b) Commercially repackage, rebrand or redistribute the Utilities, a fork,
+    or a modified version as a paid utility, tool suite, plugin, agent
+    skill, software package or similar offering.
+
+(c) Offer paid access to a material part of any Utility's functionality,
+    including through SaaS, hosting, managed services, APIs, AI agents,
+    subscriptions, paid tiers, paywalls or customer-operated interfaces.
+
+(d) Bundle a restricted offering with another paid product or service to
+    avoid these restrictions. Calling the Utilities "free" within a paid
+    bundle does not create permission. Section 3 expressly permits only
+    the qualifying Independent Products and professional services it
+    describes.
+
+These restrictions apply to direct and indirect charges, including charges
+collected through another person or entity. Free forks, free packages and
+free access remain permitted if all other conditions are met.
+
+Only Licensor, or someone expressly authorized by Licensor in writing,
+may grant exceptions to these restrictions. A separate commercial
+agreement controls the exceptions it expressly grants. Ask Akshay Sehgal
+through https://github.com/Akshaysehgal88 and obtain an authenticated
+written approval identifying the permitted offering. Silence, a public
+repository, a star, a fork or an accepted contribution is not approval.
+
+5. Attribution, original repository and modified copies
+
+Every redistribution of all or a substantial portion of the Utilities,
+including within an Independent Product, must retain:
+
+(a) This license, the accompanying NOTICE and BRANDING.txt;
+(b) The original copyright and "Created by Akshay Sehgal" attribution;
+(c) The original repository URL and official DVIT repository URL in NOTICE;
+(d) The stated project relationship with DVIT, without implying that
+    Licensor or DVIT created, approved or supports your modifications.
+
+Keep existing notices in source copies. For binary or embedded copies,
+include readable copies of these documents in the distributed package or
+its accompanying legal documentation. For permitted hosted access, provide
+a readily accessible legal or credits page with these documents.
+
+Identify modified versions and their maintainer prominently in the fork's
+README or equivalent documentation. You may credit your own contributions
+alongside the original credit, but must not replace the original credit,
+replace the original repository link with your fork's link, or represent
+your fork as the official project.
+
+Recipients receive rights to the Utilities directly under this license.
+You may apply separate terms to your independent work, but may not relicense
+the Utilities or impose terms that contradict this license. You need not
+publish private modifications or your Independent Product's source code.
+
+6. Ownership, branding and outputs
+
+Licensor retains ownership of Licensor's original Utilities. This license
+transfers no ownership. Contributors retain ownership of their own original
+contributions unless a separate written agreement states otherwise.
+
+DVIT, including the identifying spelling Dvit, is a project and brand owned
+by Akshay Sehgal. Use of the Utilities does not grant ownership of DVIT or
+any rights in its separate platform, code, services or branding beyond the
+limited attribution and reference permissions in BRANDING.txt.
+
+This license does not claim ownership of your inputs, designs, products,
+data, reports or results, or impose these terms on outputs merely because
+they were produced using the Utilities. If an output reproduces a
+substantial portion of the Utilities, that portion remains subject to this
+license. Independently created software that does not copy protected
+material from the Utilities is outside this license.
+
+7. Third-party materials and existing rights
+
+Separately identified third-party software, data and other materials remain
+under their own licenses. You must comply with those licenses. Licensor
+grants only rights Licensor is entitled to grant. This license does not
+withdraw permissions validly granted under an earlier or separate license,
+or restrict rights you have under applicable law independently of it.
+
+8. Term and breach
+
+These permissions last for the applicable copyright term unless terminated
+for breach. They cannot be withdrawn solely because Licensor later changes
+the terms for a different release.
+
+Your permissions terminate automatically if you breach this license. If
+you stop the breach and remedy its effects within 30 days after your first
+written notice of that breach from Licensor, your permissions are
+reinstated. A repeated breach after reinstatement requires Licensor's
+written approval for reinstatement. Reinstatement does not waive claims
+for earlier breaches. Compliant recipients' independent permissions are
+not terminated solely because their distributor breached this license.
+
+9. No warranty; limitation of liability
+
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, THE UTILITIES ARE PROVIDED
+"AS IS" AND "AS AVAILABLE", WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
+TITLE, NON-INFRINGEMENT, ACCURACY OR FITNESS FOR ENGINEERING SIGNOFF OR
+INVESTMENT DECISIONS. YOU ARE RESPONSIBLE FOR VALIDATING THEIR RESULTS.
+
+TO THE EXTENT PERMITTED BY APPLICABLE LAW, LICENSOR AND CONTRIBUTORS ARE
+NOT LIABLE FOR CLAIMS, DAMAGES OR OTHER LIABILITY ARISING FROM THE
+UTILITIES OR THEIR USE, INCLUDING LOST PROFITS, LOST DATA, BUSINESS
+INTERRUPTION OR INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES.
+NOTHING EXCLUDES LIABILITY THAT APPLICABLE LAW DOES NOT ALLOW TO BE
+EXCLUDED.
+
+10. General terms
+
+Exercising permissions granted here is subject to these conditions. No
+additional rights are implied. Failure to enforce a term is not a waiver.
+If a provision is unenforceable, the remaining provisions remain effective
+to the extent permitted by law. Later license or branding-policy revisions
+do not automatically change the terms applicable to a copy you received.
+No automatic conversion to an open-source license is promised.

@@ -53,6 +53,14 @@ local source-bound profiles. It validates native extraction with the team's tool
 before relying on new mappings. This is separate from copying the package or
 supplying model API credentials.
 
+## License and attribution
+
+Full and selected-module installations include [LICENSE](LICENSE),
+[NOTICE](NOTICE) and [BRANDING.txt](BRANDING.txt). Keep these with redistributed
+copies to preserve the license, original credit and DVIT branding terms.
+The utility license does not grant rights in the separate DVIT platform.
+Third-party materials retain their own licenses.
+
 ## Verify, update and remove
 
 ```sh

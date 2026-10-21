@@ -10,7 +10,8 @@ from .common import file_hash, inside, read_json, require, shape, write_json
 
 HOST_DIRS = {"codex": ".agents/skills", "claude": ".claude/skills", "generic": ".opentools/skills"}
 RECEIPT = "opentools-install.json"
-ROOT_FILES = ("opentools.py", "SKILL.md", "USING_THE_GUIDES.md", "ARCHITECTURE.md", "INSTALL.md", "CONTEXT_PORT.md",
+ROOT_FILES = ("LICENSE", "NOTICE", "BRANDING.txt",
+              "opentools.py", "SKILL.md", "USING_THE_GUIDES.md", "ARCHITECTURE.md", "INSTALL.md", "CONTEXT_PORT.md",
               "opentools_runtime/__init__.py", "opentools_runtime/common.py", "opentools_runtime/catalog.py",
               "opentools_runtime/install.py", "opentools_runtime/context.py", "opentools_runtime/cli.py",
               "context_examples/provider.py", "context_examples/create_demo.py",

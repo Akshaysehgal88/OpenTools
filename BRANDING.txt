@@ -1,0 +1,89 @@
+DVIT Branding and Attribution Terms
+Version 1.0 — 21 October 2026
+
+1. Owner and official sources
+
+DVIT, including the identifying spelling Dvit, is a project and brand owned
+by Akshay Sehgal. References to associated names, logos and visual identity
+in these terms cover only rights Akshay Sehgal owns or is entitled to
+license. These terms do not claim ownership of unrelated third-party marks
+and do not assert that any mark is registered.
+
+Official DVIT production and public repository:
+https://github.com/Akshaysehgal88/DVIT_PROD
+
+The original repository for each Utility is identified in its NOTICE.
+A Utility's public release does not transfer ownership of DVIT or grant
+rights in the separate DVIT platform, services or code.
+
+2. Required attribution
+
+Retain the original NOTICE, including "Created by Akshay Sehgal", its
+original repository URL, the DVIT repository URL and the stated relationship
+with DVIT. Preserve these with the software as required by LICENSE.
+
+You may add your own name and fork URL, clearly identified as additions.
+You must distinguish your modifications from Akshay Sehgal's original work.
+Required historical credit must not suggest he authored your additions.
+
+3. References allowed without separate permission
+
+You may use the names Akshay Sehgal and DVIT in plain text to provide
+required credit, identify the original project, link to official sources,
+accurately describe compatibility or integration, or discuss the projects.
+Use only as much branding as needed and avoid suggesting endorsement.
+
+Examples, when factually accurate:
+  "Uses utilities created by Akshay Sehgal. Original source: [original URL]."
+  "Compatible with DVIT. Independent integration; not endorsed by DVIT."
+
+These permissions do not require or authorize use of a logo. Linking to
+DVIT does not mean you have licensed or installed the DVIT platform.
+
+4. Forks and unofficial distributions
+
+Use your own distinct name and identity for a modified project. Preserve
+the original name within attribution and historical notices. In your
+README, landing page or equivalent project description, identify the fork
+and its maintainer prominently. Use this notice or an accurate equivalent:
+
+  "Unofficial fork maintained by [maintainer]. Based on utilities created
+  by Akshay Sehgal: [original repository URL]. DVIT is owned by Akshay
+  Sehgal: https://github.com/Akshaysehgal88/DVIT_PROD. This fork is not
+  endorsed, maintained or supported by Akshay Sehgal or DVIT."
+
+A faithful, unmodified free mirror may identify what it mirrors, but must
+clearly say it is an unofficial mirror and link to the original source.
+Attribution requirements do not require a public badge on every screen,
+credit on every generated report, or a transfer of your own product brand.
+
+5. Branding uses requiring written permission
+
+Except for required attribution, factual references above, or use permitted
+independently by law, obtain Akshay Sehgal's prior written permission to:
+
+(a) Use a DVIT logo, badge or visual identity as branding for your offering;
+(b) Use DVIT, Dvit or a confusingly similar project identity as your product,
+    service, company, package, domain or account name;
+(c) Describe your offering as official, authorized, certified, endorsed,
+    sponsored or maintained by DVIT or Akshay Sehgal;
+(d) Use Akshay Sehgal's name, likeness or signature to suggest endorsement.
+
+You must not remove original credit, claim ownership of the original work
+or DVIT, or imply that your fork replaces the official repository.
+
+6. Permission, legal rights and relationship to LICENSE
+
+Request permission from Akshay Sehgal through:
+https://github.com/Akshaysehgal88
+
+Obtain authenticated written approval specifying its scope. Permission to
+use a brand does not grant permission to sell the Utilities or offer paid
+access. A software license does not grant unrestricted branding permission.
+
+These terms do not limit truthful reference, commentary, fair use or other
+rights available independently under applicable law. LICENSE governs
+software permissions and remedies; these terms govern branding and the
+limited branding permissions given here. They do not expand the software
+permissions or transfer ownership. A later policy revision does not
+automatically change permissions granted with this version.

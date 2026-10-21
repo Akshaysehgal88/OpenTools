@@ -5,6 +5,11 @@ Each module includes an AI workflow, an optional command-line helper, input
 formats, examples and tests. Use them with your existing simulator, build system
 and AI subscription.
 
+Created by **Akshay Sehgal**, owner of [DVIT](https://github.com/Akshaysehgal88/DVIT_PROD).
+
+**Source-available:** [DVIT Utilities License v1.0](LICENSE) ·
+[Attribution](NOTICE) · [Branding terms](BRANDING.txt).
+
 ## Start here
 
 ```sh
@@ -77,6 +82,21 @@ release and connection instructions when available.
 
 See [installation](INSTALL.md), [usage conventions](USING_THE_GUIDES.md) and
 [architecture](ARCHITECTURE.md).
+
+## License and credit
+
+Original repository: [Akshaysehgal88/OpenTools](https://github.com/Akshaysehgal88/OpenTools).
+
+Released under the custom [DVIT Utilities Source-Available License](LICENSE).
+Use and modify the tools for personal or business work, including qualifying
+commercial products. Free forks are allowed with the original credit and links.
+Selling or commercially repackaging the tools, or offering paid access to their
+functionality, requires Akshay Sehgal's separate written permission. See the
+license for the product, service and redistribution boundaries.
+
+Keep [NOTICE](NOTICE) with copies and follow the [DVIT branding terms](BRANDING.txt).
+This is source-available software; its resale restrictions mean it is not
+OSI-approved open-source software.
 
 ---
 
