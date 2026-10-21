@@ -1,0 +1,1 @@
+Selected configuration-bus crossing: review applicability only while source data is stable throughout the destination observation window and the source is ready before destination activity. This owned synthetic definition grants no engineering approval.

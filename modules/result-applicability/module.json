@@ -2,11 +2,15 @@
   "format": "opentools.module.v1",
   "id": "result-applicability",
   "title": "Result applicability",
-  "description": "Establish whether saved evidence corresponds to the requested build, checker, runtime inputs and claim.",
+  "description": "Establish whether saved evidence covers the requested build, scope and claim, including formal premises and equivalence/ECO boundaries.",
   "stages": [
     "verification",
+    "formal",
     "integration",
-    "handoff"
+    "handoff",
+    "STA scenario planning",
+    "STA interface budget handoff",
+    "erratum/workaround maintenance"
   ],
   "workflow": "SKILL.md",
   "helpers": [
@@ -15,6 +19,48 @@
       "purpose": "Inspect qualified SiliconCompiler JSON and compare bounded result correspondence.",
       "requirements": [
         "Python 3.10+; SiliconCompiler is not required for reading saved JSON"
+      ]
+    },
+    {
+      "path": "profiles/formal-assumptions/formal_review.py",
+      "purpose": "Read qualified saved SBY evidence and review one property's premises, producer support and required activation.",
+      "requirements": [
+        "Python 3.10+; native tools are not required for saved-data review"
+      ]
+    },
+    {
+      "path": "profiles/equivalence-boundary/equivalence_review.py",
+      "purpose": "Read qualified saved Yosys equivalence evidence and review ECO, point-map and mode applicability.",
+      "requirements": [
+        "Python 3.10+; native tools are not required for saved-data review"
+      ]
+    },
+    {
+      "path": "profiles/eco-evidence/eco_review.py",
+      "purpose": "Review a bounded physical ECO, selected report dependencies and supplied evidence reuse conditions.",
+      "requirements": [
+        "Python 3.10+ for saved-data review; native example collection has separately configured tools"
+      ]
+    },
+    {
+      "path": "profiles/timing-scenarios/scenario_review.py",
+      "purpose": "Reconcile independent timing-scenario obligations with qualified native model/mode/clock/RC evidence and preserve original timing outcomes.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved OpenROAD scenario corpus and original applicability/requirements sources"
+      ]
+    },
+    {
+      "path": "profiles/interface-budget/budget_review.py",
+      "purpose": "Review original block/top timing allocations against native reference edges, models, loads, mapped cones and selected paths.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved three-view native corpus and original interface budget sources"
+      ]
+    },
+    {
+      "path": "profiles/erratum-workaround/erratum_review.py",
+      "purpose": "Review supplied erratum conditions, selected workaround efficacy, dependent premises and current approval correspondence.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved owned-model evidence and independent notice/approval sources"
       ]
     }
   ],
@@ -28,10 +74,108 @@
     "example.json",
     "examples/create_example.py",
     "examples/create_sc_example.py",
+    "profiles/eco-evidence/FORMAT.md",
+    "profiles/eco-evidence/README.md",
+    "profiles/eco-evidence/REVIEW.md",
+    "profiles/eco-evidence/WORKFLOW.md",
+    "profiles/eco-evidence/eco_common.py",
+    "profiles/eco-evidence/eco_core.py",
+    "profiles/eco-evidence/eco_records.py",
+    "profiles/eco-evidence/eco_review.py",
+    "profiles/eco-evidence/examples/cells.lef",
+    "profiles/eco-evidence/examples/cells.lib",
+    "profiles/eco-evidence/examples/create_example.py",
+    "profiles/eco-evidence/examples/fixture.py",
+    "profiles/eco-evidence/examples/main.cpp",
+    "profiles/eco-evidence/examples/models.sv",
+    "profiles/eco-evidence/examples/reference_model.py",
+    "profiles/eco-evidence/examples/run_native.py",
+    "profiles/eco-evidence/export_eco.tcl",
+    "profiles/eco-evidence/native_eco.py",
+    "profiles/eco-evidence/tests/test_eco.py",
+    "profiles/equivalence-boundary/FORMAT.md",
+    "profiles/equivalence-boundary/NATIVE.md",
+    "profiles/equivalence-boundary/README.md",
+    "profiles/equivalence-boundary/REVIEW.md",
+    "profiles/equivalence-boundary/WORKFLOW.md",
+    "profiles/equivalence-boundary/capture-context.template.json",
+    "profiles/equivalence-boundary/equivalence_core.py",
+    "profiles/equivalence-boundary/equivalence_review.py",
+    "profiles/equivalence-boundary/examples/create_example.py",
+    "profiles/equivalence-boundary/examples/implementation_arithmetic.v",
+    "profiles/equivalence-boundary/examples/implementation_control.v",
+    "profiles/equivalence-boundary/examples/reference_arithmetic.v",
+    "profiles/equivalence-boundary/examples/reference_control.v",
+    "profiles/equivalence-boundary/intent.template.json",
+    "profiles/equivalence-boundary/tests/test_equivalence.py",
+    "profiles/equivalence-boundary/yosys_equivalence.py",
+    "profiles/formal-assumptions/FORMAT.md",
+    "profiles/formal-assumptions/NATIVE.md",
+    "profiles/formal-assumptions/README.md",
+    "profiles/formal-assumptions/REVIEW.md",
+    "profiles/formal-assumptions/WORKFLOW.md",
+    "profiles/formal-assumptions/capture-context.template.json",
+    "profiles/formal-assumptions/examples/create_example.py",
+    "profiles/formal-assumptions/examples/finite_reference.py",
+    "profiles/formal-assumptions/examples/stream.sv",
+    "profiles/formal-assumptions/examples/wake.sv",
+    "profiles/formal-assumptions/formal_core.py",
+    "profiles/formal-assumptions/formal_review.py",
+    "profiles/formal-assumptions/sby_capture.py",
+    "profiles/formal-assumptions/tests/test_formal.py",
     "record.template.json",
     "requirements-native-example.txt",
     "sc_import.py",
     "tests/test_applicability.py",
-    "tests/test_sc_import.py"
-  ]
+    "tests/test_sc_import.py",
+    "profiles/timing-scenarios/FORMAT.md",
+    "profiles/timing-scenarios/README.md",
+    "profiles/timing-scenarios/WORKFLOW.md",
+    "profiles/timing-scenarios/examples/cells.lef",
+    "profiles/timing-scenarios/examples/cells.low_voltage.lib",
+    "profiles/timing-scenarios/examples/cells.nominal.lib",
+    "profiles/timing-scenarios/examples/create_example.py",
+    "profiles/timing-scenarios/examples/fixture.py",
+    "profiles/timing-scenarios/examples/reference_model.py",
+    "profiles/timing-scenarios/examples/run_native.py",
+    "profiles/timing-scenarios/export_scenario.tcl",
+    "profiles/timing-scenarios/loader.tcl",
+    "profiles/timing-scenarios/native_scenario.py",
+    "profiles/timing-scenarios/scenario_common.py",
+    "profiles/timing-scenarios/scenario_core.py",
+    "profiles/timing-scenarios/scenario_review.py",
+    "profiles/timing-scenarios/tests/test_scenarios.py",
+    "profiles/interface-budget/FORMAT.md",
+    "profiles/interface-budget/README.md",
+    "profiles/interface-budget/WORKFLOW.md",
+    "profiles/interface-budget/budget_common.py",
+    "profiles/interface-budget/budget_core.py",
+    "profiles/interface-budget/budget_review.py",
+    "profiles/interface-budget/examples/cells.lef",
+    "profiles/interface-budget/examples/cells.lib",
+    "profiles/interface-budget/examples/create_example.py",
+    "profiles/interface-budget/examples/fixture.py",
+    "profiles/interface-budget/examples/reference_model.py",
+    "profiles/interface-budget/examples/run_native.py",
+    "profiles/interface-budget/export_budget.tcl",
+    "profiles/interface-budget/loader.tcl",
+    "profiles/interface-budget/native_budget.py",
+    "profiles/interface-budget/tests/test_budget.py",
+    "profiles/erratum-workaround/FORMAT.md",
+    "profiles/erratum-workaround/README.md",
+    "profiles/erratum-workaround/WORKFLOW.md",
+    "profiles/erratum-workaround/erratum_common.py",
+    "profiles/erratum-workaround/erratum_core.py",
+    "profiles/erratum-workaround/erratum_review.py",
+    "profiles/erratum-workaround/examples/create_example.py",
+    "profiles/erratum-workaround/examples/device.cpp",
+    "profiles/erratum-workaround/examples/fixture.py",
+    "profiles/erratum-workaround/examples/reference_model.py",
+    "profiles/erratum-workaround/examples/run_native.py",
+    "profiles/erratum-workaround/native_erratum.py",
+    "profiles/erratum-workaround/predicates.py",
+    "profiles/erratum-workaround/tests/test_erratum.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

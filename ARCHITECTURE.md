@@ -26,6 +26,23 @@ helper's profile. Preserve machine findings and distinguish source observations,
 interpretation, proposals and accepted policy. A hash or valid record does not
 establish source truth or engineering sufficiency.
 
+## Shared onboarding and intent
+
+[Onboarding](ONBOARDING.md) inventories selected artifact trees and executable
+locations without executing project code. Each module can declare an
+`adoption.json` contract with activity-specific intent questions, evidence roles,
+native references and revalidation conditions. Discovery remains dynamic.
+
+The host AI resolves source meaning and validates native entity/export mappings.
+The common [intent records](INTENT.md) retain the original question, independently
+sourced obligations, applicability, observations and method checks. Sealing binds
+selected bytes; reuse checks current scope and sources. Explicit revisions retain
+earlier intent. A bound profile is a review input, not engineering approval.
+
+Native adapters keep tool/version-specific semantics. A proposed company adapter
+can be useful after source/native validation without implying bundled commercial
+support. The layer makes no model calls and executes no archived EDA commands.
+
 ## Host integration
 
 The Python 3.10+ standard-library [installer](INSTALL.md) exports a self-contained

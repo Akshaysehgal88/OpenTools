@@ -1,0 +1,111 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "integration-interface-obligations",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Integration interface obligations",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / functional-verification",
+      "decision": "Review endpoint meanings and transient ownership/completion obligations using connected ports, source contracts and native events.",
+      "intent_questions": [
+        "What do request receipt, completion, cancellation and ownership transfer mean to both sides of this interface?",
+        "Which actual elaborated endpoints, clocks, polarity and event histories implement each independent obligation?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "RECORD.md",
+        "SKILL.md",
+        "examples/NATIVE.md",
+        "examples/create_inputs.py",
+        "examples/handshake.sv",
+        "examples/run_native.py",
+        "port_capture.py",
+        "requirements-native.txt",
+        "tests/test_ports.py"
+      ]
+    },
+    {
+      "id": "transition-obligations",
+      "title": "Protocol transition and completion obligations",
+      "entry": "profiles/transition-obligations/WORKFLOW.md",
+      "stage": "Protocol integration",
+      "decision": "Review protocol transition and completion obligations through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which distinct participants, ownership rights, data and completion obligations must precede the accepted transition?",
+        "Which native identity/epoch-tagged receipts and actual old/new permissions show that each obligation was discharged?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "port_capture.py",
+        "profiles/transition-obligations/AI_USAGE.md",
+        "profiles/transition-obligations/FORMAT.md",
+        "profiles/transition-obligations/README.md",
+        "profiles/transition-obligations/WORKFLOW.md",
+        "profiles/transition-obligations/examples/NATIVE.md",
+        "profiles/transition-obligations/examples/create_example.py",
+        "profiles/transition-obligations/examples/ownership_transfer.sv",
+        "profiles/transition-obligations/examples/reference_model.py",
+        "profiles/transition-obligations/examples/run_native.py",
+        "profiles/transition-obligations/tests/test_transition.py",
+        "profiles/transition-obligations/transition_core.py",
+        "profiles/transition-obligations/transition_review.py"
+      ]
+    }
+  ]
+}

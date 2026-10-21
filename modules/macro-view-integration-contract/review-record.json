@@ -1,0 +1,17 @@
+{
+  "format": "opentools.macro-intake-review-record.v1",
+  "workflow_stage": "physical macro view intake and replacement",
+  "requested_claim": null,
+  "instance_and_configuration": null,
+  "accepted_revision_and_corner": null,
+  "independent_requirements": [],
+  "native_view_artifacts": [],
+  "pin_and_supply_correspondence": [],
+  "geometry_orientation_and_access": [],
+  "native_results": [],
+  "findings": [],
+  "missing_evidence": [],
+  "corrective_actions": [],
+  "downstream_revalidation": [],
+  "acceptance": {"state": "pending", "owner": null, "evidence": []}
+}

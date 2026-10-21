@@ -5,6 +5,11 @@ description: Investigate whether expensive simulation prefixes can be reused fai
 
 # Checkpoint replay
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead with the engineer's question and current simulator/runner. Use
 [README.md](README.md), [FORMAT.md](FORMAT.md) and original native evidence. The
 saved-record helper and small native recipe are optional instruments; they do not

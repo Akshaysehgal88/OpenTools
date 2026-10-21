@@ -1,0 +1,59 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "next-run-planning",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Next-run planning",
+      "entry": "SKILL.md",
+      "stage": "verification / simulation / formal / debug / validation",
+      "decision": "Choose a discriminating next investigation step using prior evidence, explicit controls, attainable observations and an outcome-to-decision map.",
+      "intent_questions": [
+        "What unresolved engineering hypothesis would this run distinguish, and what existing evidence already answers it?",
+        "Which controls and expected discriminating observations preserve the original requirement without merely seeking another pass?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "RECORD.md",
+        "SKILL.md",
+        "example.json",
+        "examples/INVESTIGATIONS.md",
+        "examples/create_example.py",
+        "experiment_core.py",
+        "experiment_ledger.py",
+        "record.template.json",
+        "result.template.json",
+        "tests/test_experiments.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "reset-state-continuity",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Reset sequencing and state continuity",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / firmware",
+      "decision": "Review selected reset state by owner, clearing and retention, restart prerequisites and surviving pending work.",
+      "intent_questions": [
+        "Which state and pending work must clear, survive or replay across this particular reset?",
+        "Which actual reset leaves, producer/consumer ownership and receiving prerequisites implement that continuity contract?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "examples/NATIVE.md",
+        "examples/create_example.py",
+        "examples/reset_path.sv",
+        "examples/run_native.py",
+        "reset_core.py",
+        "reset_review.py",
+        "tests/test_reset.py"
+      ]
+    }
+  ]
+}

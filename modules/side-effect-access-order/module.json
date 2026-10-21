@@ -1,0 +1,89 @@
+{
+  "format": "opentools.module.v1",
+  "id": "side-effect-access-order",
+  "title": "Side-effect and access-order review",
+  "description": "Review register side effects, caller intent and selected diagnostic evidence across destructive reads and recovery.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "firmware",
+    "bring-up evidence interpretation"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "access_review.py",
+      "purpose": "Review accepted quiescent register accesses and per-access intent.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "rdl_effects.py",
+      "purpose": "Capture effective properties of selected ordinary SystemRDL registers.",
+      "requirements": [
+        "Python 3.10+",
+        "systemrdl-compiler==1.32.2 (optional)"
+      ]
+    },
+    {
+      "path": "profiles/diagnostic-validity/diagnostic_review.py",
+      "purpose": "Review a selected diagnostic observation and saved capture against independent cause/epoch/consumer requirements.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "profiles/bringup-observation/bringup_review.py",
+      "purpose": "Compare retained diagnostic receipts with independent device,image,reset and source-time expectations.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved device-emulation corpus and original observation question"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "access_core.py",
+    "access_review.py",
+    "rdl_effects.py",
+    "requirements-rdl.txt",
+    "requirements-example.txt",
+    "examples/effects.rdl",
+    "examples/access_tb.sv",
+    "examples/create_example.py",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_access.py",
+    "profiles/diagnostic-validity/AI_USAGE.md",
+    "profiles/diagnostic-validity/FORMAT.md",
+    "profiles/diagnostic-validity/README.md",
+    "profiles/diagnostic-validity/REVIEW.md",
+    "profiles/diagnostic-validity/WORKFLOW.md",
+    "profiles/diagnostic-validity/diagnostic_core.py",
+    "profiles/diagnostic-validity/diagnostic_review.py",
+    "profiles/diagnostic-validity/examples/NATIVE.md",
+    "profiles/diagnostic-validity/examples/create_example.py",
+    "profiles/diagnostic-validity/examples/diagnostic_path.sv",
+    "profiles/diagnostic-validity/examples/reference_model.py",
+    "profiles/diagnostic-validity/examples/run_native.py",
+    "profiles/diagnostic-validity/tests/test_diagnostic.py",
+    "profiles/bringup-observation/FORMAT.md",
+    "profiles/bringup-observation/README.md",
+    "profiles/bringup-observation/WORKFLOW.md",
+    "profiles/bringup-observation/bringup_common.py",
+    "profiles/bringup-observation/bringup_core.py",
+    "profiles/bringup-observation/bringup_review.py",
+    "profiles/bringup-observation/examples/create_example.py",
+    "profiles/bringup-observation/examples/device.cpp",
+    "profiles/bringup-observation/examples/fixture.py",
+    "profiles/bringup-observation/examples/reference_model.py",
+    "profiles/bringup-observation/examples/run_native.py",
+    "profiles/bringup-observation/native_bringup.py",
+    "profiles/bringup-observation/tests/test_bringup.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

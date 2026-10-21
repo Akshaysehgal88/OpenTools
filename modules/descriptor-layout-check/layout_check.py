@@ -36,11 +36,13 @@ def main(argv=None):
             capture.add_argument("--source", action="append", required=True)
             capture.add_argument("--top", required=True); capture.add_argument("--type", required=True)
             capture.add_argument("--parameters", help="JSON object of integer top parameter overrides")
+            capture.add_argument("--parameter-fact", action="append", help="Observe a resolved integral parameter; at most five")
         else:
             capture.add_argument("--header", required=True); capture.add_argument("--struct", required=True)
             capture.add_argument("--profile", required=True); capture.add_argument("--gcc", default="gcc")
             capture.add_argument("--complete-fields", action="store_true")
             capture.add_argument("--timeout", type=float, default=60)
+            capture.add_argument("--constant", action="append", help="Observe an integral C constant identifier; at most five")
     args = parser.parse_args(argv)
     try:
         outputs = [Path(p).resolve() for p in (getattr(args, k, None) for k in ("output", "json_out", "markdown_out")) if p]
@@ -56,11 +58,12 @@ def main(argv=None):
         if args.action == "capture-hardware":
             snapshot = hardware(args.source, args.dependency, args.top, args.type,
                                 read_json(args.parameters) if args.parameters else {}, args.interface_ref, args.configuration_ref,
-                                args.complete_inputs, evidence)
+                                args.complete_inputs, evidence, observed_parameters=args.parameter_fact)
         else:
             require(math.isfinite(args.timeout) and args.timeout > 0, "Timeout must be finite and positive")
             snapshot = software(args.header, args.dependency, args.struct, read_json(args.profile), args.gcc,
-                                args.interface_ref, args.configuration_ref, args.complete_inputs, args.complete_fields, evidence, args.timeout)
+                                args.interface_ref, args.configuration_ref, args.complete_inputs, args.complete_fields, evidence, args.timeout,
+                                constants=args.constant)
         write(args.output, dumps(snapshot))
         print(f"Captured {len(snapshot['fields'])} fields; output={args.output}")
         return 0 if snapshot["inputs_complete"] and snapshot["fields_complete"] else 2

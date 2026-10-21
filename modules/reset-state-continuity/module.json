@@ -1,0 +1,36 @@
+{
+  "format": "opentools.module.v1",
+  "id": "reset-state-continuity",
+  "title": "Reset sequencing and state continuity",
+  "description": "Review selected reset state by owner, clearing and retention, restart prerequisites and surviving pending work.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "firmware"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "reset_review.py",
+      "purpose": "Review a sampled reset journal against explicit state, release and pending-work continuity policy.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "reset_core.py",
+    "reset_review.py",
+    "examples/create_example.py",
+    "examples/reset_path.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_reset.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

@@ -1,0 +1,61 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "power-delivery-scenario-basis",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Power-delivery scenario basis",
+      "entry": "SKILL.md",
+      "stage": "physical-design / power-integrity / integration",
+      "decision": "Review whether retained static IR evidence covers the requested physical supply, sources, corner, loading and operating scenario.",
+      "intent_questions": [
+        "Which supply/source mapping, corner, load, activity and state/concurrency assumptions define the original analysis question?",
+        "Which actual physical connectivity and native electrical reports apply, and does the required claim need static, transient or lifetime evidence?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "FORMAT.md",
+        "README.md",
+        "REVIEW.md",
+        "SKILL.md",
+        "examples/create_example.py",
+        "examples/fixture.py",
+        "examples/reference_model.py",
+        "examples/run_native.py",
+        "export_supply.tcl",
+        "loader.tcl",
+        "native_supply.py",
+        "supply_common.py",
+        "supply_core.py",
+        "supply_review.py",
+        "tests/test_supply.py"
+      ]
+    }
+  ]
+}

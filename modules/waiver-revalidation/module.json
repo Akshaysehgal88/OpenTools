@@ -6,7 +6,9 @@
   "stages": [
     "design",
     "verification",
-    "lint"
+    "lint",
+    "DFT scan insertion and closure",
+    "STA exception closure"
   ],
   "workflow": "SKILL.md",
   "helpers": [
@@ -31,6 +33,27 @@
       "requirements": [
         "Python 3.10+"
       ]
+    },
+    {
+      "path": "profiles/crossing-premises/crossing_capture.py",
+      "purpose": "Add source-stability and reset-readiness observations to selected crossing waiver snapshots.",
+      "requirements": [
+        "Python 3.10+ standard library; explicit normalized population and bound settled-event journal"
+      ]
+    },
+    {
+      "path": "profiles/scan-population/scan_population.py",
+      "purpose": "Review independent required state against native scan membership and current exclusions; compare selected exclusion drift.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved OpenROAD inventory and explicit independent state/exclusion sources"
+      ]
+    },
+    {
+      "path": "profiles/timing-exception/sta_exception.py",
+      "purpose": "Review native setup false-path endpoint reach against independent intent, mode/clock premises and reviewed correspondence.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved OpenROAD setup-exception archive and original rationale/intent"
+      ]
     }
   ],
   "files": [
@@ -52,6 +75,51 @@
     "verilator_capture.py",
     "waiver_assist.py",
     "waiver_core.py",
-    "waiver_revalidate.py"
-  ]
+    "waiver_revalidate.py",
+    "profiles/crossing-premises/GUIDE.md",
+    "profiles/crossing-premises/FORMAT.md",
+    "profiles/crossing-premises/crossing_capture.py",
+    "profiles/crossing-premises/examples/create_example.py",
+    "profiles/crossing-premises/examples/exception.txt",
+    "profiles/crossing-premises/examples/crossing_path.sv",
+    "profiles/crossing-premises/examples/run_native.py",
+    "profiles/crossing-premises/tests/test_crossing.py",
+    "profiles/scan-population/FORMAT.md",
+    "profiles/scan-population/GUIDE.md",
+    "profiles/scan-population/WORKFLOW.md",
+    "profiles/scan-population/examples/cells.lef",
+    "profiles/scan-population/examples/cells.lib",
+    "profiles/scan-population/examples/create_example.py",
+    "profiles/scan-population/examples/fixture.py",
+    "profiles/scan-population/examples/reference_inventory.py",
+    "profiles/scan-population/examples/run_native.py",
+    "profiles/scan-population/native_inventory.py",
+    "profiles/scan-population/population_core.py",
+    "profiles/scan-population/scan_common.py",
+    "profiles/scan-population/scan_population.py",
+    "profiles/scan-population/templates/context.json",
+    "profiles/scan-population/templates/contract.json",
+    "profiles/scan-population/templates/exclusions.json",
+    "profiles/scan-population/templates/population.json",
+    "profiles/scan-population/tests/test_population.py",
+    "profiles/timing-exception/FORMAT.md",
+    "profiles/timing-exception/README.md",
+    "profiles/timing-exception/WORKFLOW.md",
+    "profiles/timing-exception/examples/cells.lef",
+    "profiles/timing-exception/examples/cells.lib",
+    "profiles/timing-exception/examples/create_example.py",
+    "profiles/timing-exception/examples/fixture.py",
+    "profiles/timing-exception/examples/reference_model.py",
+    "profiles/timing-exception/examples/run_native.py",
+    "profiles/timing-exception/export_reach.tcl",
+    "profiles/timing-exception/loader.tcl",
+    "profiles/timing-exception/native_reach.py",
+    "profiles/timing-exception/reach_common.py",
+    "profiles/timing-exception/reach_core.py",
+    "profiles/timing-exception/sta_exception.py",
+    "profiles/timing-exception/tests/test_reach.py",
+    "profiles/timing-exception/trace_exception.tcl",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

@@ -1,0 +1,172 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "side-effect-access-order",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Side-effect and access-order review",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / firmware / bring-up evidence interpretation",
+      "decision": "Review register side effects, caller intent and selected diagnostic evidence across destructive reads and recovery.",
+      "intent_questions": [
+        "What operation did the caller intend and which register causes or fields does it own?",
+        "Which actual access, lane, clear/reset and observation semantics determine side effects before recovery or acknowledgement?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "access_core.py",
+        "access_review.py",
+        "examples/NATIVE.md",
+        "examples/access_tb.sv",
+        "examples/create_example.py",
+        "examples/run_native.py",
+        "rdl_effects.py",
+        "requirements-example.txt",
+        "requirements-rdl.txt",
+        "tests/test_access.py"
+      ]
+    },
+    {
+      "id": "diagnostic-validity",
+      "title": "Error recovery and diagnostic validity",
+      "entry": "profiles/diagnostic-validity/WORKFLOW.md",
+      "stage": "Recovery and diagnostics",
+      "decision": "Review error recovery and diagnostic validity through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which fault, incident epoch and observation window must this diagnostic consumer answer?",
+        "Which actual read response and saved capture survive destructive accesses and reset, rather than substituting a later zero for historical absence?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "access_core.py",
+        "access_review.py",
+        "profiles/diagnostic-validity/AI_USAGE.md",
+        "profiles/diagnostic-validity/FORMAT.md",
+        "profiles/diagnostic-validity/README.md",
+        "profiles/diagnostic-validity/REVIEW.md",
+        "profiles/diagnostic-validity/WORKFLOW.md",
+        "profiles/diagnostic-validity/diagnostic_core.py",
+        "profiles/diagnostic-validity/diagnostic_review.py",
+        "profiles/diagnostic-validity/examples/NATIVE.md",
+        "profiles/diagnostic-validity/examples/create_example.py",
+        "profiles/diagnostic-validity/examples/diagnostic_path.sv",
+        "profiles/diagnostic-validity/examples/reference_model.py",
+        "profiles/diagnostic-validity/examples/run_native.py",
+        "profiles/diagnostic-validity/tests/test_diagnostic.py",
+        "rdl_effects.py"
+      ]
+    },
+    {
+      "id": "bringup-observation",
+      "title": "Bring-up observation validity",
+      "entry": "profiles/bringup-observation/WORKFLOW.md",
+      "stage": "Bring-up evidence interpretation",
+      "decision": "Review bring-up observation validity through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which original pre-silicon expectation, device/image/reset conditions and source-time window define this comparison?",
+        "Which actual diagnostic receipt and clock/reset correlation make the observation comparable, rather than merely returning the expected bits?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "access_core.py",
+        "access_review.py",
+        "profiles/bringup-observation/FORMAT.md",
+        "profiles/bringup-observation/README.md",
+        "profiles/bringup-observation/WORKFLOW.md",
+        "profiles/bringup-observation/bringup_common.py",
+        "profiles/bringup-observation/bringup_core.py",
+        "profiles/bringup-observation/bringup_review.py",
+        "profiles/bringup-observation/examples/create_example.py",
+        "profiles/bringup-observation/examples/device.cpp",
+        "profiles/bringup-observation/examples/fixture.py",
+        "profiles/bringup-observation/examples/reference_model.py",
+        "profiles/bringup-observation/examples/run_native.py",
+        "profiles/bringup-observation/native_bringup.py",
+        "profiles/bringup-observation/tests/test_bringup.py",
+        "rdl_effects.py"
+      ]
+    }
+  ]
+}

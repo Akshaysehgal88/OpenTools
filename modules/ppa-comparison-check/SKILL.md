@@ -5,6 +5,11 @@ description: Qualify reported power, timing and area comparisons against a state
 
 # PPA comparison check
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead with the engineering question. Bundled scripts are optional instruments, not
 the boundary of your analysis: use the user's native tools or another validated,
 source-backed method when appropriate. Keep that method's evidence separate from

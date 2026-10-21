@@ -1,0 +1,63 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "physical-constraint-intent-review",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Physical constraint intent review",
+      "entry": "SKILL.md",
+      "stage": "physical-design / implementation / integration",
+      "decision": "Review one placement or constraint intervention against original region requirements, native evidence and the actual comparison basis.",
+      "intent_questions": [
+        "What original region, access, clock/domain or power rationale must the proposed physical intervention preserve?",
+        "Which comparable native placed-object and implementation observations support the requested metric without withdrawing an unrelated restriction?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "FORMAT.md",
+        "README.md",
+        "REVIEW.md",
+        "SKILL.md",
+        "examples/create_example.py",
+        "examples/fixture.py",
+        "examples/horizontal.v",
+        "examples/reference_model.py",
+        "examples/run_native.py",
+        "examples/vertical.v",
+        "export_region.tcl",
+        "loader.tcl",
+        "native_region.py",
+        "physical_common.py",
+        "physical_core.py",
+        "physical_review.py",
+        "tests/test_physical.py"
+      ]
+    }
+  ]
+}

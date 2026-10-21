@@ -1,9 +1,14 @@
 ---
 name: coverage-change-audit
-description: Explain whether a functional coverage change reflects new exercised behavior, changed obligations, exclusions or scoring. Use the bundled comparator and optional PyUCIS import with native evidence; do not infer signoff from a percentage or invent missing bin semantics.
+description: Explain coverage changes through original obligations, native evidence, exclusions and metric definitions. Use the functional-bin comparator for functional coverage and the fault-denominator workflow for DFT test-coverage closure; preserve their separate semantics.
 ---
 
 # Coverage change audit
+
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
 
 Lead with the engineering question. Bundled scripts are optional instruments, not
 the boundary of your analysis: use the user's native tools or another validated,
@@ -11,6 +16,12 @@ source-backed method when appropriate. Keep that method's evidence separate from
 the bundled profile's qualification. In a full clone/installed bundle, optional
 questions, seeds and helper context follow [CONTEXT_PORT.md](../../CONTEXT_PORT.md);
 continue independently when no source, including DVIT, is connected.
+
+For fault-model populations, ATPG or fault-simulation coverage changes, use the
+[fault-coverage workflow](profiles/fault-denominator/WORKFLOW.md). Preserve the
+original fault objective, collapsed correspondence, classifications and exclusion
+rationale through correction and revalidation. Do not translate faults into
+functional bins or treat the owned injection example as commercial ATPG support.
 
 Answer the engineer's actual question about progress or measurement change. Use
 the comparator where its supported records fit, then explain which inference those

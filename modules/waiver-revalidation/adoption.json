@@ -1,0 +1,235 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "waiver-revalidation",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Waiver revalidation",
+      "entry": "SKILL.md",
+      "stage": "design / verification / lint / DFT scan insertion and closure / STA exception closure",
+      "decision": "Investigate whether a recorded waiver still applies to the current findings, premises and configuration.",
+      "intent_questions": [
+        "Which independently required finding population and current design roles does this waiver affect?",
+        "What original exclusion rationale, owner and configuration premises still hold after the change?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "example.json",
+        "examples/baseline.json",
+        "examples/current.json",
+        "examples/native/configuration.json",
+        "examples/native/top.sv",
+        "examples/notes.json",
+        "examples/policy.json",
+        "record.template.json",
+        "tests/test_ai_review.py",
+        "tests/test_waiver.py",
+        "verilator_capture.py",
+        "waiver_assist.py",
+        "waiver_core.py",
+        "waiver_revalidate.py"
+      ]
+    },
+    {
+      "id": "crossing-premises",
+      "title": "CDC/RDC premise applicability",
+      "entry": "profiles/crossing-premises/GUIDE.md",
+      "stage": "CDC/RDC closure",
+      "decision": "Review cdc/rdc premise applicability through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which current crossing population and original stability or readiness premise justify this exception?",
+        "Which actual source-update and destination/reset observations confirm or invalidate that premise in this configuration?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "profiles/crossing-premises/FORMAT.md",
+        "profiles/crossing-premises/GUIDE.md",
+        "profiles/crossing-premises/crossing_capture.py",
+        "profiles/crossing-premises/examples/create_example.py",
+        "profiles/crossing-premises/examples/crossing_path.sv",
+        "profiles/crossing-premises/examples/exception.txt",
+        "profiles/crossing-premises/examples/run_native.py",
+        "profiles/crossing-premises/tests/test_crossing.py",
+        "verilator_capture.py",
+        "waiver_assist.py",
+        "waiver_core.py",
+        "waiver_revalidate.py"
+      ]
+    },
+    {
+      "id": "scan-population",
+      "title": "Scan population and exclusion audit",
+      "entry": "profiles/scan-population/WORKFLOW.md",
+      "stage": "Scan insertion and closure",
+      "decision": "Review scan population and exclusion audit through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which independently required sequential population and current state-role premises define scan closure?",
+        "Which actual pre/post native membership, chain connectivity and current exclusion rationale account for every required state?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "profiles/scan-population/FORMAT.md",
+        "profiles/scan-population/GUIDE.md",
+        "profiles/scan-population/WORKFLOW.md",
+        "profiles/scan-population/examples/create_example.py",
+        "profiles/scan-population/examples/fixture.py",
+        "profiles/scan-population/examples/reference_inventory.py",
+        "profiles/scan-population/examples/run_native.py",
+        "profiles/scan-population/native_inventory.py",
+        "profiles/scan-population/population_core.py",
+        "profiles/scan-population/scan_common.py",
+        "profiles/scan-population/scan_population.py",
+        "profiles/scan-population/templates/context.json",
+        "profiles/scan-population/templates/contract.json",
+        "profiles/scan-population/templates/exclusions.json",
+        "profiles/scan-population/templates/population.json",
+        "profiles/scan-population/tests/test_population.py",
+        "verilator_capture.py",
+        "waiver_assist.py",
+        "waiver_core.py",
+        "waiver_revalidate.py"
+      ]
+    },
+    {
+      "id": "timing-exception",
+      "title": "Timing exception semantic reach",
+      "entry": "profiles/timing-exception/WORKFLOW.md",
+      "stage": "STA exception closure",
+      "decision": "Review timing exception semantic reach through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "What original exception rationale and current endpoint roles authorize its semantic reach?",
+        "Which actual native selector/application and path populations distinguish a supported rename from newly masked required timing?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "profiles/timing-exception/FORMAT.md",
+        "profiles/timing-exception/README.md",
+        "profiles/timing-exception/WORKFLOW.md",
+        "profiles/timing-exception/examples/create_example.py",
+        "profiles/timing-exception/examples/fixture.py",
+        "profiles/timing-exception/examples/reference_model.py",
+        "profiles/timing-exception/examples/run_native.py",
+        "profiles/timing-exception/export_reach.tcl",
+        "profiles/timing-exception/loader.tcl",
+        "profiles/timing-exception/native_reach.py",
+        "profiles/timing-exception/reach_common.py",
+        "profiles/timing-exception/reach_core.py",
+        "profiles/timing-exception/sta_exception.py",
+        "profiles/timing-exception/tests/test_reach.py",
+        "profiles/timing-exception/trace_exception.tcl",
+        "verilator_capture.py",
+        "waiver_assist.py",
+        "waiver_core.py",
+        "waiver_revalidate.py"
+      ]
+    }
+  ]
+}

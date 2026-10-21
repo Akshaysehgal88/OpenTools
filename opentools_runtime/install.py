@@ -13,7 +13,9 @@ RECEIPT = "opentools-install.json"
 ROOT_FILES = ("opentools.py", "SKILL.md", "USING_THE_GUIDES.md", "ARCHITECTURE.md", "INSTALL.md", "CONTEXT_PORT.md",
               "opentools_runtime/__init__.py", "opentools_runtime/common.py", "opentools_runtime/catalog.py",
               "opentools_runtime/install.py", "opentools_runtime/context.py", "opentools_runtime/cli.py",
-              "context_examples/provider.py", "context_examples/create_demo.py")
+              "context_examples/provider.py", "context_examples/create_demo.py",
+              "ONBOARDING.md", "INTENT.md", "DVIT.md", "opentools_runtime/onboarding.py",
+              "opentools_runtime/intent.py", "opentools_runtime/onboard_cli.py")
 
 
 def package_files(root, modules):

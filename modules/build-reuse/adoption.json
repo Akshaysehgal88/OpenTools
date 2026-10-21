@@ -1,0 +1,57 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "build-reuse",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Build reuse",
+      "entry": "SKILL.md",
+      "stage": "simulation / functional-verification / build",
+      "decision": "Explain artifact reuse eligibility from captured inputs, flow-specific phase evidence and verified files, preserving unknown closure and separate results.",
+      "intent_questions": [
+        "Which requested checks, assertions, coverage and visibility must a reused artifact retain?",
+        "Which inputs are actually consumed during compile, elaboration, linking and runtime, including generated dependencies and resolution order?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "build_reuse.py",
+        "example.json",
+        "examples/create_example.py",
+        "record.template.json",
+        "reuse_core.py",
+        "tests/test_reuse.py",
+        "verilator_evidence.py"
+      ]
+    }
+  ]
+}

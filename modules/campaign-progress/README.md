@@ -1,5 +1,15 @@
 # Campaign progress
 
+For checker integration and observation validity, use the
+[checker observation profile](profiles/checker-observation/README.md). It reviews
+accepted/completed identities, checker sampling and enable intervals, then reuses
+this module's exposure accounting.
+
+For source-backed combined transitions, use the
+[interaction obligation profile](profiles/interaction-obligations/README.md).
+It audits an explicit roster against existing scenario/checker windows and reuses
+named-goal accounting; separate feature passes do not close missing interactions.
+
 Compare saved campaign exports against declared objectives. Separate named
 coverage goals, effective event counts, required execution and resource observations.
 Use [SKILL.md](SKILL.md) with your existing AI agent and review process. The optional

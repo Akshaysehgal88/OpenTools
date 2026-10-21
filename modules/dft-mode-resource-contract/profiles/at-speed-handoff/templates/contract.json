@@ -1,0 +1,81 @@
+{
+  "format": "opentools.occ-contract.v1",
+  "expected": {
+    "run_ref": "selected-run",
+    "scope_ref": "selected-scope",
+    "design_ref": "selected-design",
+    "configuration_ref": "selected-configuration",
+    "domain_ref": "selected-domain",
+    "phase": "capture",
+    "recipe_ref": "selected-recipe",
+    "sta_run_ref": "selected-sta_run",
+    "sta_scenario_ref": "selected-sta_scenario",
+    "mapping": {
+      "unit_module": "scan_clock_path",
+      "unit_instance": "dut",
+      "role_map": {
+        "clock": "clock_in",
+        "reset": "reset_control",
+        "shift": "shift_mode",
+        "variant": "pulse_variant",
+        "start": "start_window",
+        "data": "parallel_data",
+        "scan_enable": "scan_control",
+        "serial_in": "serial_in",
+        "enable": "window_enable",
+        "generated_clock": "generated_clock",
+        "launch": "launch_state",
+        "capture": "capture_state",
+        "reset_n": "effective_reset_n",
+        "slot": "slot"
+      },
+      "clock_names": [
+        "functional_clock",
+        "occ_clock"
+      ],
+      "gate_pin": "clock_gate/Y",
+      "from_cell": "launch_ff",
+      "to_cell": "capture_ff",
+      "reset_released": 1
+    },
+    "behavior_sources": {
+      "unit.v": null,
+      "top.sv": null,
+      "models.sv": null,
+      "ports.hpp": null,
+      "main.cpp": null
+    },
+    "sta_sources": {
+      "unit.v": null,
+      "cells.lib": null,
+      "cells.lef": null,
+      "sta.tcl": null
+    },
+    "run_command_sha256": null,
+    "sta_command_sha256": null,
+    "native_profile": "openroad-a008522d8-verilator-5.020-loc-window.v1"
+  },
+  "recipe": {
+    "format": "opentools.occ-recipe.v1",
+    "recipe_ref": "selected-recipe",
+    "phase": "capture",
+    "scheme": "launch-on-capture",
+    "source_period_ns": 10,
+    "pulse_edge_indices": [
+      2,
+      3
+    ],
+    "control_guard_ns": 5,
+    "reset_released": 1,
+    "scan_enable": 0,
+    "allow_selected_false_path": false,
+    "require_selected_timed_path": true,
+    "require_native_atpg": false,
+    "selected_path": {
+      "from_cell": "launch_ff",
+      "to_cell": "capture_ff"
+    },
+    "source_ref": null,
+    "owner_ref": null
+  }
+}

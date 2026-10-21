@@ -28,13 +28,25 @@ def save(path, value):
     Path(path).write_text(json.dumps(value, indent=2, ensure_ascii=False, allow_nan=False) + "\n", encoding="utf-8")
 
 
-def hardware(sources, dependencies, top, type_name, parameters, interface_ref, configuration_ref, complete_inputs, evidence_dir):
+def fact_selection(names):
+    if names is None:
+        return None
+    require(isinstance(names, list) and 1 <= len(names) <= 5,
+            "Select one to five unique source identifiers")
+    result = [identifier(name) for name in names]
+    require(len(set(result)) == len(result), "Select unique source identifiers")
+    return result
+
+
+def hardware(sources, dependencies, top, type_name, parameters, interface_ref, configuration_ref, complete_inputs, evidence_dir,
+             observed_parameters=None):
     require(version("pyslang") == "12.0.0", "This adapter is qualified with pyslang 12.0.0")
     import pyslang
     from pyslang import ast, syntax
     identifier(top)
     require(all(identifier(n) for n in type_name.split("::")), "Invalid type name")
     require(isinstance(parameters, dict) and all(identifier(k) and type(v) is int for k, v in parameters.items()), "Parameters must map identifiers to integer values")
+    observed_parameters = fact_selection(observed_parameters)
     inventory = inputs(sources + dependencies)
     evidence_dir = Path(evidence_dir); evidence_dir.mkdir(parents=True, exist_ok=False)
     options = ast.CompilationOptions(); options.topModules = {top}
@@ -57,7 +69,20 @@ def hardware(sources, dependencies, top, type_name, parameters, interface_ref, c
     require(isinstance(symbol, ast.Type), "Selected symbol is not a type")
     record = symbol.canonicalType
     require(record.kind == ast.SymbolKind.PackedStructType, "Only packed structs are supported")
-    ref = source_ref(inventory, parameters)
+    ref = source_ref(inventory, parameters if observed_parameters is None else
+                     {"overrides": parameters, "observed_parameters": observed_parameters})
+    observed = {}; fact_refs = {}
+    if observed_parameters is not None:
+        for name in observed_parameters:
+            parameter = body.find(name)
+            require(parameter is not None and parameter.kind == ast.SymbolKind.Parameter,
+                    "Selected symbol is not a parameter: " + name)
+            require(parameter.type.canonicalType.isIntegral and not parameter.value.value.hasUnknown,
+                    "Only known integral parameter facts are supported: " + name)
+            value = int(parameter.value.value)
+            require(-(1 << 63) <= value < (1 << 63), "Selected parameter is outside signed64: " + name)
+            observed[name] = value
+            fact_refs[name] = f"{ref}#{manager.getFileName(parameter.location)}:{manager.getLineNumber(parameter.location)}:{top}.{name}"
     result = []
     for member in record:
         require(isinstance(member, ast.FieldSymbol), "Unexpected packed record member")
@@ -79,6 +104,9 @@ def hardware(sources, dependencies, top, type_name, parameters, interface_ref, c
                 "interface_ref": interface_ref, "configuration_ref": configuration_ref, "source_ref": ref, "frontend_ref": "pyslang 12.0.0",
                 "inputs_complete": complete_inputs, "fields_complete": True, "size_bits": record.bitWidth, "fields": result,
                 "provenance": {"sources": inventory, "requested_parameters": parameters, "actual_port_parameters": actual_parameters}}
+    if observed_parameters is not None:
+        snapshot["provenance"].update(fact_kind="native", fact_phase="elaboration", fact_selection=observed_parameters,
+                                      selected_integral_parameters=observed, parameter_fact_refs=fact_refs)
     require(inputs(sources + dependencies) == inventory, "Source inputs changed during extraction")
     fields(snapshot)
     save(evidence_dir / "frontend-layout.json", snapshot)
@@ -86,8 +114,9 @@ def hardware(sources, dependencies, top, type_name, parameters, interface_ref, c
 
 
 def software(header, dependencies, struct_name, profile, compiler, interface_ref, configuration_ref,
-             complete_inputs, complete_fields, evidence_dir, timeout=60):
+             complete_inputs, complete_fields, evidence_dir, timeout=60, constants=None):
     identifier(struct_name)
+    constants = fact_selection(constants)
     require(isinstance(profile, dict) and set(profile) <= {"fields", "defines"}, "C profile supports fields and defines only")
     selected = profile.get("fields")
     require(isinstance(selected, list) and selected, "Select C fields explicitly")
@@ -131,13 +160,24 @@ def software(header, dependencies, struct_name, profile, compiler, interface_ref
             fmt = ("," if n else "") + json.dumps(label) + ":%lld"
             code.append(f'printf({json.dumps(fmt)}, (long long)({constant}));')
         code.append('printf("}}");')
-    code += ['printf("]}\\n");', 'return 0;', '}']
+    if constants is None:
+        code += ['printf("]}\\n");']
+    else:
+        code.append('printf("],\\"configuration_constants\\":{");')
+        for index, constant in enumerate(constants):
+            code.append(f'_Static_assert(__builtin_classify_type({constant})==1 && __builtin_constant_p({constant}), "integral compiler constant required");')
+            code.append(f'_Static_assert((__int128)({constant}) >= LLONG_MIN && (__int128)({constant}) <= LLONG_MAX, "constant outside signed64");')
+            fmt = ("," if index else "") + json.dumps(constant) + ":%lld"
+            code.append(f'printf({json.dumps(fmt)}, (long long)({constant}));')
+        code.append('printf("}}\\n");')
+    code += ['return 0;', '}']
     probe = evidence_dir / "probe.c"; probe.write_text("\n".join(code) + "\n", encoding="utf-8")
     executable = evidence_dir / "probe"
     command = [compiler, "-std=gnu11", "-m64", "-O0", "-fno-short-enums", *[f"-D{k}={v}" for k, v in defines.items()], str(probe), "-o", str(executable)]
     run(command, "compile")
     result = json.loads(run([str(executable.resolve())], "probe"))
-    ref = source_ref(inventory, profile)
+    observed = result.pop("configuration_constants", None)
+    ref = source_ref(inventory, profile if constants is None else {"profile": profile, "constants": constants})
     for field in result["fields"]:
         field["evidence_ref"] = f"{ref}#{struct_name}.{field['name']};probe.c"
     snapshot = {"format": "opentools.record-layout.v1", "kind": "software", "basis": "c-object", "record": record,
@@ -146,6 +186,10 @@ def software(header, dependencies, struct_name, profile, compiler, interface_ref
                 "integer_representation": "binary-twos-complement",
                 "inputs_complete": complete_inputs, "fields_complete": complete_fields,
                 "provenance": {"sources": inventory, "profile": profile, "compiler_target": target}, **result}
+    if constants is not None:
+        require(isinstance(observed, dict) and set(observed) == set(constants), "Missing native constant observations")
+        snapshot["provenance"].update(fact_kind="native", fact_phase="compile", fact_selection=constants, selected_constants=observed,
+                                      constant_fact_refs={name: f"{ref}#probe.c:{name}" for name in constants})
     require(inputs(paths) == inventory, "Source inputs changed during extraction")
     fields(snapshot)
     return snapshot

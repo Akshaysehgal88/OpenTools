@@ -1,0 +1,51 @@
+{
+  "format": "opentools.module.v1",
+  "id": "power-delivery-scenario-basis",
+  "title": "Power-delivery scenario basis",
+  "description": "Review whether retained static IR evidence covers the requested physical supply, sources, corner, loading and operating scenario.",
+  "stages": [
+    "physical-design",
+    "power-integrity",
+    "integration"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "supply_review.py",
+      "purpose": "Read original native static reports and compare an independent scenario request.",
+      "requirements": [
+        "Python 3.10+ standard library for saved review"
+      ]
+    },
+    {
+      "path": "export_supply.tcl",
+      "purpose": "Read loaded physical supply objects and selected library operating conditions into new artifacts.",
+      "requirements": [
+        "OpenROAD v2.0-17598-ga008522d8 for qualified native support"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "REVIEW.md",
+    "SKILL.md",
+    "examples/branch.def",
+    "examples/cells.lef",
+    "examples/cells.lib.in",
+    "examples/create_example.py",
+    "examples/fixture.py",
+    "examples/reference_model.py",
+    "examples/run_native.py",
+    "examples/series.def",
+    "export_supply.tcl",
+    "loader.tcl",
+    "native_supply.py",
+    "supply_common.py",
+    "supply_core.py",
+    "supply_review.py",
+    "tests/test_supply.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

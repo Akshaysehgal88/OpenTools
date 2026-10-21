@@ -3,8 +3,46 @@
   "id": "waveform-capture",
   "title": "Waveform capture",
   "description": "Plan causal signal/history scope, resolve trace objects and aliases, preview native controls and deliberately expand insufficient captures.",
-  "stages": ["simulation", "functional-verification", "debug"],
+  "stages": [
+    "simulation",
+    "functional-verification",
+    "debug"
+  ],
   "workflow": "SKILL.md",
-  "helpers": [{"path": "waveform_capture.py", "purpose": "Assess plans and preview a qualified wrapper recipe without native execution; optionally import VCD declarations and write viewer setup.", "requirements": ["Python 3.10+ standard library for assess/render; optional native VCD/viewer support needs pyvcd==0.5.0"]}, {"path": "examples/verilator/run_example.py", "purpose": "Opt-in native timeout capture with selective history, controlled expansion and measured reproduction/cost observations.", "requirements": ["Linux, existing Verilator 5.020, GCC C++17, Make, Python 3.10+ and pyvcd==0.5.0"]}],
-  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "waveform_capture.py", "capture_core.py", "native_vcd.py", "requirements-native-example.txt", "example.json", "record.template.json", "examples/create_example.py", "examples/verilator/README.md", "examples/verilator/top.sv", "examples/verilator/runner.cpp", "examples/verilator/run_example.py", "tests/test_capture.py"]
+  "helpers": [
+    {
+      "path": "waveform_capture.py",
+      "purpose": "Assess plans and preview a qualified wrapper recipe without native execution; optionally import VCD declarations and write viewer setup.",
+      "requirements": [
+        "Python 3.10+ standard library for assess/render; optional native VCD/viewer support needs pyvcd==0.5.0"
+      ]
+    },
+    {
+      "path": "examples/verilator/run_example.py",
+      "purpose": "Opt-in native timeout capture with selective history, controlled expansion and measured reproduction/cost observations.",
+      "requirements": [
+        "Linux, existing Verilator 5.020, GCC C++17, Make, Python 3.10+ and pyvcd==0.5.0"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "waveform_capture.py",
+    "capture_core.py",
+    "native_vcd.py",
+    "requirements-native-example.txt",
+    "example.json",
+    "record.template.json",
+    "examples/create_example.py",
+    "examples/verilator/README.md",
+    "examples/verilator/top.sv",
+    "examples/verilator/runner.cpp",
+    "examples/verilator/run_example.py",
+    "tests/test_capture.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

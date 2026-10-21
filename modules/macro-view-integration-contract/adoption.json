@@ -1,0 +1,60 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "macro-view-integration-contract",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Macro view integration contract",
+      "entry": "SKILL.md",
+      "stage": "physical-design / integration / dft",
+      "decision": "Review one macro/view set against independent revision, corner, pin, supply, orientation and access requirements before physical integration or replacement.",
+      "intent_questions": [
+        "Which accepted macro revision, corner, pin roles, supplies and physical access requirements define intake?",
+        "Which actual logical, physical and timing objects correspond to that contract, including test or repair controls?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "examples/create_example.py",
+        "examples/fixture.py",
+        "examples/reference_model.py",
+        "examples/run_native.py",
+        "export_views.tcl",
+        "macro_common.py",
+        "native_views.py",
+        "review-record.json",
+        "tests/test_views.py",
+        "view_core.py",
+        "view_review.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "format": "opentools.module.v1",
+  "id": "dft-mode-resource-contract",
+  "title": "DFT mode resource contract",
+  "description": "Review DFT mode prerequisites and at-speed recipe, clock and exception alignment before test handoff.",
+  "stages": [
+    "DFT mode setup",
+    "DFT resource acceptance",
+    "DFT at-speed test handoff"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "dft_resources.py",
+      "purpose": "Read original saved native artifacts and compare independent phase-resource requirements.",
+      "requirements": [
+        "Python 3.10+; standard library only"
+      ]
+    },
+    {
+      "path": "profiles/at-speed-handoff/occ_handoff.py",
+      "purpose": "Compare selected native STA clock/exception evidence and measured OCC pulses/controls with an independent recipe.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified original OpenROAD/Verilator saved artifacts and independent recipe"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "REVIEW.md",
+    "SKILL.md",
+    "dft_common.py",
+    "dft_resources.py",
+    "examples/cells.lef",
+    "examples/cells.lib",
+    "examples/cells_model.sv",
+    "examples/create_example.py",
+    "examples/fixture.py",
+    "examples/main.cpp",
+    "examples/reference_model.py",
+    "examples/run_native.py",
+    "native_capture.py",
+    "resource_core.py",
+    "templates/context.json",
+    "templates/contract.json",
+    "tests/test_resources.py",
+    "profiles/at-speed-handoff/FORMAT.md",
+    "profiles/at-speed-handoff/GUIDE.md",
+    "profiles/at-speed-handoff/WORKFLOW.md",
+    "profiles/at-speed-handoff/examples/cells.lef",
+    "profiles/at-speed-handoff/examples/cells.lib",
+    "profiles/at-speed-handoff/examples/create_example.py",
+    "profiles/at-speed-handoff/examples/fixture.py",
+    "profiles/at-speed-handoff/examples/main.cpp",
+    "profiles/at-speed-handoff/examples/models.sv",
+    "profiles/at-speed-handoff/examples/reference_model.py",
+    "profiles/at-speed-handoff/examples/run_native.py",
+    "profiles/at-speed-handoff/native_occ.py",
+    "profiles/at-speed-handoff/occ_common.py",
+    "profiles/at-speed-handoff/occ_core.py",
+    "profiles/at-speed-handoff/occ_handoff.py",
+    "profiles/at-speed-handoff/templates/context.json",
+    "profiles/at-speed-handoff/templates/contract.json",
+    "profiles/at-speed-handoff/tests/test_handoff.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

@@ -1,0 +1,14 @@
+{
+  "format": "opentools.checker-observation-context.v1",
+  "run_ref": null, "campaign_ref": null, "scope_ref": null,
+  "configuration_ref": null, "model_ref": null,
+  "clock_ref": null, "edge": "positive", "sampling": "stable_preedge",
+  "reset_ref": null, "reset_active": null,
+  "checker_ref": null, "checker_source_ref": null,
+  "scope_basis_ref": null, "instrumentation_review_ref": null, "oracle_ref": null,
+  "dependencies_complete": null, "dependency_basis_ref": null,
+  "port_map": {"clock": null, "reset": null, "mode": null,
+    "req_valid": null, "req_ready": null, "req_id": null, "req_data": null,
+    "rsp_valid": null, "rsp_ready": null, "rsp_id": null, "rsp_data": null},
+  "window_ref": null
+}

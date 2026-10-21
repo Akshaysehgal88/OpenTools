@@ -1,9 +1,14 @@
 ---
 name: waiver-revalidation
-description: Review whether a recorded waiver still applies after configuration, finding-population, tool or scope changes. Use native exports and the bundled comparator to explain changes, unresolved assumptions and useful next evidence; do not approve or revoke exceptions.
+description: Review waiver, timing-exception or scan-exclusion applicability after configuration, population, tool or scope changes, using native exports, independent intent and rationale. Explain changes, unresolved premises and useful next evidence without approving or revoking exceptions.
 ---
 
 # Waiver revalidation
+
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
 
 Lead with the engineering question. Bundled scripts are optional instruments, not
 the boundary of your analysis: use the user's native tools or another validated,
@@ -21,7 +26,7 @@ finished review.
 Find the bundled scripts and examples relative to this SKILL.md. Use the user's
 selected exports and question. Read [FORMAT.md](FORMAT.md) when constructing inputs
 or identity maps; read [AI_USAGE.md](AI_USAGE.md) for packet/review formats and a
-worked invocation. The underlying native capture supports Verilator 5.020 only;
+worked invocation. The base lint capture supports Verilator 5.020 only;
 read [README.md](README.md) if capturing rather than comparing saved exports.
 
 ## Build the evidence basis
@@ -49,6 +54,31 @@ task support that interpretation. Never invent object identities, a complete
 population, effective configuration, or an equivalence between tool policies.
 
 ## Apply engineering judgment
+
+For STA exception closure, follow the
+[timing exception workflow](profiles/timing-exception/WORKFLOW.md). Inspect actual
+resolved selectors, native path reach and precedence, current endpoint intent,
+mode and clock/protocol premises. Retain added required paths even when a wildcard
+or count is unchanged. A reviewed rename must preserve meaning. The optional
+setup-false-path reader reuses parent waiver records; it cannot establish mixed
+exception precedence, hold reach or exception safety. Use the engineer's native
+methods for other scope, and preserve missing intent or history as open questions.
+
+For scan insertion/closure or non-scan rationale changes, follow the
+[scan population workflow](profiles/scan-population/WORKFLOW.md). Reconcile an
+independent required-state source with the full functional sequential census,
+actual chain membership and current exclusions. Keep allowed excluded state in
+the population. Inspect source when agreeing metadata might weaken required
+intent. The profile's OpenROAD reader and historical exclusion comparison are
+optional instruments; neither establishes ATPG coverage or replaces owner review.
+
+For CDC/RDC applicability, use the optional
+[crossing-premise workflow](profiles/crossing-premises/GUIDE.md) to trace source
+stability windows, clock/reset roles and source readiness before destination
+activity. Keep imported structural findings separate from observed premises.
+Inspect updates between destination samples, unknown boundaries and partial-reset
+paths; native functional traces do not establish metastability or physical RDC
+signoff. Continue with the user's native methods outside the bundled profile.
 
 - Explain population expansion as additional observed suppression, not a new
   hardware defect. Inspect whether the new finding falls outside the recorded

@@ -1,9 +1,14 @@
 ---
 name: result-applicability
-description: Review whether a saved semiconductor engineering result applies to a requested configuration and claim, using original manifests, explicit input/checker/runtime scope, native result status, artifact integrity and reviewed reuse rules. Use for verification handoffs, stale or copied reports, ECC/configuration mismatches and unavailable run provenance; operate the bundled comparator and qualified SiliconCompiler JSON reader when relevant.
+description: Review whether semiconductor engineering evidence covers a requested configuration, scenario and claim, using original manifests, native scope/status and artifact integrity. Use for handoffs, STA scenario coverage, stale reports, formal premises, equivalence/ECO boundaries and erratum/workaround maintenance; use bundled comparators and qualified readers when relevant.
 ---
 
 # Result applicability
+
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
 
 Lead with the engineering question. Bundled scripts are optional instruments, not
 the boundary of your analysis: use the user's native tools or another validated,
@@ -17,7 +22,42 @@ Establish what this particular result supports for the requested claim. Use
 boundaries. These scripts work locally with the standard library. The host
 assistant supplies the model; no DVIT or provider SDK is required.
 
+For proof setup, premise support or vacuity concerns, use the
+[formal assumptions workflow](profiles/formal-assumptions/WORKFLOW.md). It covers
+one recurring formal review stage across designs; wake and stream are bounded
+qualification examples. Preserve producer guarantees, activation obligations and
+native proof/BMC/cover meanings separately.
+
+For equivalence/ECO closure or reuse after design, mapping or mode changes, use the
+[equivalence comparison workflow](profiles/equivalence-boundary/WORKFLOW.md).
+Start with independent ECO intent and the existing approved mapping. Preserve
+compared designs, resolved parameters, native point/partition population and
+model semantics. An excluded required mode can invalidate a passing result's
+applicability; an outside-scope counterexample does not decide a narrower claim.
+Do not infer approval or expand a combinational result into sequential equivalence.
+
+For block-to-top timing budget handoff, use the
+[interface budget workflow](profiles/interface-budget/WORKFLOW.md). Preserve the
+original allocation, owner and latency intent; establish native model, reference
+edge, load and mapped-cone correspondence before combining block results. Keep
+observed timing failures separate from allocation agreement. Do not weaken the
+budget, infer a common window from names/periods or generate SDC automatically.
+
 ## Establish the question and original evidence
+
+For STA scenario planning and evidence coverage, use the
+[timing scenario workflow](profiles/timing-scenarios/WORKFLOW.md). Start with the
+independent required-mode/corner and nonapplicability sources, then reconcile
+actual native model/PVT, mode, power, RC and clock/test conditions. Preserve
+negative outcomes; repeated passing runs do not fill a missing required scenario.
+Do not weaken the denominator to match available reports or infer signoff from
+clean sampled paths. Use existing matching evidence before proposing another run.
+
+For the evidence review stage after a physical ECO, use the
+[ECO evidence workflow](profiles/eco-evidence/WORKFLOW.md). Preserve the original
+functional, scan/test, clock/reset and power obligations and report inventory.
+Review changed objects against each report's dependency scope and approval basis;
+prefer matching current results already retained before proposing another run.
 
 Identify the actual requested claim, scope and needed outcome. A lint completion,
 test pass, requirement satisfaction and integration signoff are different claims.
@@ -89,3 +129,9 @@ engineering interpretation. Explain the smallest next evidence or authorized
 check that could change the answer; stop when the existing evidence answers it.
 The review is advisory and does not approve a release, assert checker sufficiency
 or authenticate arbitrary evidence references.
+
+For supplied erratum/workaround maintenance, use the
+[maintenance workflow](profiles/erratum-workaround/WORKFLOW.md). Keep baseline
+producer behavior distinct from the workaround that masks it. A passing enabled
+workaround does not establish removal conditions. Revalidate dependent premises
+and bind supplied current approval to the exact notice, image, mode and intent.

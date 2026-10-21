@@ -3,8 +3,41 @@
   "id": "incremental-regression",
   "title": "Incremental regression",
   "description": "Recommend an explainable first regression stage with an independent full population, mandatory policy, explicit uncertainty and actual full-campaign feedback.",
-  "stages": ["verification", "simulation", "formal", "design", "validation"],
+  "stages": [
+    "verification",
+    "simulation",
+    "formal",
+    "design",
+    "validation"
+  ],
   "workflow": "SKILL.md",
-  "helpers": [{"path": "regression_select.py", "purpose": "Plan advisory selections and compare retained targeted/full results without dispatching jobs or proving semantic impact.", "requirements": ["Python 3.10+ standard library"]}],
-  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "selection_core.py", "regression_select.py", "example.json", "record.template.json", "examples/create_example.py", "examples/verilator/README.md", "examples/verilator/run_example.py", "examples/verilator/top.sv", "examples/verilator/shared_pkg.sv", "examples/verilator/glue_pkg.sv", "examples/verilator/runner.cpp", "tests/test_selection.py"]
+  "helpers": [
+    {
+      "path": "regression_select.py",
+      "purpose": "Plan advisory selections and compare retained targeted/full results without dispatching jobs or proving semantic impact.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "selection_core.py",
+    "regression_select.py",
+    "example.json",
+    "record.template.json",
+    "examples/create_example.py",
+    "examples/verilator/README.md",
+    "examples/verilator/run_example.py",
+    "examples/verilator/top.sv",
+    "examples/verilator/shared_pkg.sv",
+    "examples/verilator/glue_pkg.sv",
+    "examples/verilator/runner.cpp",
+    "tests/test_selection.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

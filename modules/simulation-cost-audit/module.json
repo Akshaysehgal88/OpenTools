@@ -3,13 +3,19 @@
   "id": "simulation-cost-audit",
   "title": "Simulation cost audit",
   "description": "Explain measured workflow costs with overlap-aware wall accounting, separate resources, scope-qualified comparisons and proportionate experiments.",
-  "stages": ["simulation", "functional-verification", "implementation"],
+  "stages": [
+    "simulation",
+    "functional-verification",
+    "implementation"
+  ],
   "workflow": "SKILL.md",
   "helpers": [
     {
       "path": "cost_audit.py",
       "purpose": "Audit saved measured timelines, compare stated context and read a qualified SiliconCompiler JSON accounting profile.",
-      "requirements": ["Python 3.10+; see FORMAT.md for native profile boundaries"]
+      "requirements": [
+        "Python 3.10+; see FORMAT.md for native profile boundaries"
+      ]
     }
   ],
   "files": [
@@ -25,6 +31,8 @@
     "requirements-native-test.txt",
     "sc_cost_import.py",
     "tests/test_cost.py",
-    "tests/test_sc_cost.py"
-  ]
+    "tests/test_sc_cost.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

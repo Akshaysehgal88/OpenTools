@@ -1,0 +1,36 @@
+{
+  "format": "opentools.module.v1",
+  "id": "low-power-quiescence-obligations",
+  "title": "Low-power quiescence obligations",
+  "description": "Review owner-level drain, admission and shutdown prerequisites throughout a sampled power or clock transition.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "low-power"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "quiescence_review.py",
+      "purpose": "Review independently required owners and prerequisites over sampled protected shutdown intervals.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "quiescence_core.py",
+    "quiescence_review.py",
+    "examples/create_example.py",
+    "examples/quiescence_path.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_quiescence.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

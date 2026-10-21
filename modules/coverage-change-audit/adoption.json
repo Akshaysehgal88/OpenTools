@@ -1,0 +1,116 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "coverage-change-audit",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Coverage change audit",
+      "entry": "SKILL.md",
+      "stage": "functional-verification / coverage / dft",
+      "decision": "Distinguish newly exercised behavior from changes to coverage definitions, options and denominator.",
+      "intent_questions": [
+        "Which intended behavior, expression and sampling/mode conditions define the original coverage obligation?",
+        "Does the reported change represent additional exercise, changed acceptance thresholds or a changed required population, and what source justifies each exclusion?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "coverage_audit.py",
+        "coverage_core.py",
+        "example.json",
+        "examples/create_example.py",
+        "record.template.json",
+        "requirements-ucis.txt",
+        "tests/test_coverage.py",
+        "ucis_import.py"
+      ]
+    },
+    {
+      "id": "fault-denominator",
+      "title": "Fault coverage denominator review",
+      "entry": "profiles/fault-denominator/WORKFLOW.md",
+      "stage": "Test coverage closure",
+      "decision": "Review fault coverage denominator review through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which original fault objective, native model/population and metric definition govern closure?",
+        "Which actual detections differ from classification, collapse or exclusion changes, and which source justifies each current exclusion?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "coverage_audit.py",
+        "coverage_core.py",
+        "profiles/fault-denominator/FORMAT.md",
+        "profiles/fault-denominator/README.md",
+        "profiles/fault-denominator/WORKFLOW.md",
+        "profiles/fault-denominator/examples/create_example.py",
+        "profiles/fault-denominator/examples/fault_network.sv",
+        "profiles/fault-denominator/examples/fixture.py",
+        "profiles/fault-denominator/examples/main.cpp",
+        "profiles/fault-denominator/examples/reference_model.py",
+        "profiles/fault-denominator/examples/run_native.py",
+        "profiles/fault-denominator/fault_audit.py",
+        "profiles/fault-denominator/fault_common.py",
+        "profiles/fault-denominator/fault_core.py",
+        "profiles/fault-denominator/native_fault.py",
+        "profiles/fault-denominator/review-record.json",
+        "profiles/fault-denominator/tests/test_faults.py",
+        "ucis_import.py"
+      ]
+    }
+  ]
+}

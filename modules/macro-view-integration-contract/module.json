@@ -1,0 +1,46 @@
+{
+  "format": "opentools.module.v1",
+  "id": "macro-view-integration-contract",
+  "title": "Macro view integration contract",
+  "description": "Review one macro/view set against independent revision, corner, pin, supply, orientation and access requirements before physical integration or replacement.",
+  "stages": [
+    "physical-design",
+    "integration",
+    "dft"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "view_review.py",
+      "purpose": "Read qualified saved native view exports and review one selected macro intake contract.",
+      "requirements": [
+        "Python 3.10+ standard library; native tools not required for saved-data review"
+      ]
+    },
+    {
+      "path": "export_views.tcl",
+      "purpose": "Export a selected loaded OpenROAD instance and library cell to new local JSON-line/ODB artifacts.",
+      "requirements": [
+        "OpenROAD v2.0-17598-ga008522d8 for the qualified native profile"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "examples/create_example.py",
+    "examples/fixture.py",
+    "examples/reference_model.py",
+    "examples/run_native.py",
+    "export_views.tcl",
+    "macro_common.py",
+    "native_views.py",
+    "review-record.json",
+    "tests/test_views.py",
+    "view_core.py",
+    "view_review.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

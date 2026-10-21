@@ -1,0 +1,42 @@
+{
+  "format": "opentools.module.v1",
+  "id": "property-activation-obligations",
+  "title": "Property activation obligations",
+  "description": "Review changed property bindings, clocks and disable conditions against independent required mode/event obligations and actual activation evidence.",
+  "stages": [
+    "formal",
+    "verification",
+    "integration"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "activation_check.py",
+      "purpose": "Read qualified saved Verilator bind/sample/cover evidence and review selected property activation obligations.",
+      "requirements": [
+        "Python 3.10+; native tools are not required for saved-data review"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "REVIEW.md",
+    "SKILL.md",
+    "activation_check.py",
+    "activation_core.py",
+    "capture-context.template.json",
+    "examples/checker.sv",
+    "examples/composition.vh",
+    "examples/create_example.py",
+    "examples/flush.sv",
+    "examples/main.cpp",
+    "examples/power.sv",
+    "examples/reference_model.py",
+    "examples/run_native.py",
+    "native_capture.py",
+    "tests/test_activation.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

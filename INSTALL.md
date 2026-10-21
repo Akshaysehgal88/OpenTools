@@ -47,6 +47,12 @@ DVIT configuration is changed. Native helper requirements remain in each module'
 README. Module manifests explicitly list packaged files, including examples
 and tests. Other local files are not copied.
 
+For first project adoption, follow [ONBOARDING.md](ONBOARDING.md). The existing
+AI host uses activity-specific intent questions, selected artifact discovery and
+local source-bound profiles. It validates native extraction with the team's tools
+before relying on new mappings. This is separate from copying the package or
+supplying model API credentials.
+
 ## Verify, update and remove
 
 ```sh

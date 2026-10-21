@@ -1,0 +1,62 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "incremental-regression",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Incremental regression",
+      "entry": "SKILL.md",
+      "stage": "verification / simulation / formal / design / validation",
+      "decision": "Recommend an explainable first regression stage with an independent full population, mandatory policy, explicit uncertainty and actual full-campaign feedback.",
+      "intent_questions": [
+        "Which independently required verification obligations and affected consumers define the full regression scope?",
+        "What source-backed change relationships justify the first test stage, and which deferred obligations remain explicitly open?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "example.json",
+        "examples/create_example.py",
+        "examples/verilator/README.md",
+        "examples/verilator/glue_pkg.sv",
+        "examples/verilator/run_example.py",
+        "examples/verilator/runner.cpp",
+        "examples/verilator/shared_pkg.sv",
+        "examples/verilator/top.sv",
+        "record.template.json",
+        "regression_select.py",
+        "selection_core.py",
+        "tests/test_selection.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "format": "opentools.module.v1",
+  "id": "timing-endpoint-review",
+  "title": "Timing endpoint review",
+  "description": "Reconcile native unconstrained endpoints with independent timing intent, clock/I/O contracts and current non-timed exemptions.",
+  "stages": [
+    "static-timing",
+    "integration",
+    "timing-completeness"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "endpoint_review.py",
+      "purpose": "Read qualified original native endpoint populations and review current intent, I/O/clock conditions and exemption premises.",
+      "requirements": [
+        "Python 3.10+ standard library; qualified saved native archive and independently sourced endpoint roles/contracts"
+      ]
+    },
+    {
+      "path": "export_endpoints.tcl",
+      "purpose": "Retain native endpoint census, unconstrained population, path classes and scoped constant observations.",
+      "requirements": [
+        "OpenROAD v2.0-17598-ga008522d8; see README.md for native support"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "WORKFLOW.md",
+    "endpoint_common.py",
+    "endpoint_core.py",
+    "endpoint_review.py",
+    "examples/cells.lef",
+    "examples/cells.lib",
+    "examples/create_example.py",
+    "examples/fixture.py",
+    "examples/reference_model.py",
+    "examples/run_native.py",
+    "export_endpoints.tcl",
+    "loader.tcl",
+    "native_endpoints.py",
+    "tests/test_endpoints.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

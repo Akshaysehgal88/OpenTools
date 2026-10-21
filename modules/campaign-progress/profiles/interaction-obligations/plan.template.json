@@ -1,0 +1,9 @@
+{
+  "format": "opentools.interaction-obligations.v1",
+  "review_ref": null, "claim": null, "scope_ref": null,
+  "configuration_ref": null, "model_ref": null, "owner_ref": null,
+  "population_ref": null, "population_complete": null, "basis_ref": null,
+  "scope_facts": {"retain": {"value": null, "basis_ref": null}},
+  "runs": [],
+  "obligations": []
+}

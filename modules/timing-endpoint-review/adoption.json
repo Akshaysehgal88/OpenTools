@@ -1,0 +1,61 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "timing-endpoint-review",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Timing endpoint review",
+      "entry": "SKILL.md",
+      "stage": "static-timing / integration / timing-completeness",
+      "decision": "Reconcile native unconstrained endpoints with independent timing intent, clock/I/O contracts and current non-timed exemptions.",
+      "intent_questions": [
+        "Which current interface and state roles require timing in the selected mode, including changed boot or test use?",
+        "Which native endpoint census, clock/path classes and current exemption premises support the intended treatment?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "WORKFLOW.md",
+        "endpoint_common.py",
+        "endpoint_core.py",
+        "endpoint_review.py",
+        "examples/create_example.py",
+        "examples/fixture.py",
+        "examples/reference_model.py",
+        "examples/run_native.py",
+        "export_endpoints.tcl",
+        "loader.tcl",
+        "native_endpoints.py",
+        "tests/test_endpoints.py"
+      ]
+    }
+  ]
+}

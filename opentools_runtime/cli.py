@@ -56,6 +56,8 @@ def main(argv=None):
     intake.add_argument("request")
     intake.add_argument("reply")
     intake.add_argument("--out", required=True)
+    from .onboard_cli import arguments as onboarding_arguments
+    onboarding_arguments(commands)
     args = parser.parse_args(argv)
     try:
         if args.command == "catalog":
@@ -66,6 +68,9 @@ def main(argv=None):
                 for entry in entries:
                     print(f"{entry['id']}: {entry['description']}")
             return 0
+        if args.command == "onboard":
+            from .onboard_cli import run
+            return run(args)
         if args.command == "doctor":
             result = {"version": __version__, "python": platform.python_version(), "system": platform.system(),
                       "package_root": str(ROOT), "workflows": [m["id"] for m in module_catalog()],

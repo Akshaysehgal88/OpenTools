@@ -5,6 +5,11 @@ description: Plan and validate focused waveform capture for a semiconductor inve
 
 # Waveform capture
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead the engineer's investigation using the existing AI host, simulator and
 workflow. Use [README.md](README.md), [FORMAT.md](FORMAT.md) and actual source,
 logs, transactions and hierarchy/visibility exports. The optional checker/renderer

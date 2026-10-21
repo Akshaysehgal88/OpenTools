@@ -1,0 +1,65 @@
+{
+  "format": "opentools.module.v1",
+  "id": "storage-first-access-readiness",
+  "title": "Storage first-access readiness",
+  "description": "Review memory initialization coverage, release and internal old-data reads before first access.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "firmware",
+    "low-power",
+    "dft"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "storage_review.py",
+      "purpose": "Replay target-word readiness and review release, internal reads and owned ECC/RMW outcomes.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "profiles/test-repair-handoff/handoff.py",
+      "purpose": "Review owned native physical repair views, mapping-epoch initialization and test-to-functional ownership.",
+      "requirements": [
+        "Python 3.10+ standard library; saved owned Verilator5.020 records"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "storage_core.py",
+    "storage_review.py",
+    "ecc39.py",
+    "examples/create_example.py",
+    "examples/ecc_profile.sv",
+    "examples/codec_probes.sv",
+    "examples/ram_wrapper.sv",
+    "examples/storage_tb.sv",
+    "examples/reference_manifest.json",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_storage.py",
+    "profiles/test-repair-handoff/AI_USAGE.md",
+    "profiles/test-repair-handoff/FORMAT.md",
+    "profiles/test-repair-handoff/README.md",
+    "profiles/test-repair-handoff/examples/create_example.py",
+    "profiles/test-repair-handoff/examples/fixture.py",
+    "profiles/test-repair-handoff/examples/main.cpp",
+    "profiles/test-repair-handoff/examples/memory_bank.sv",
+    "profiles/test-repair-handoff/examples/reference_model.py",
+    "profiles/test-repair-handoff/examples/run_native.py",
+    "profiles/test-repair-handoff/handoff.py",
+    "profiles/test-repair-handoff/handoff_core.py",
+    "profiles/test-repair-handoff/native_repair.py",
+    "profiles/test-repair-handoff/repair_common.py",
+    "profiles/test-repair-handoff/review-record.json",
+    "profiles/test-repair-handoff/tests/test_handoff.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

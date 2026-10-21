@@ -1,5 +1,9 @@
 # Descriptor layout check
 
+For generated parameter values, units and defaults, use the
+[configuration-consistency profile](profiles/configuration-consistency/README.md).
+It reuses the native frontends with opt-in resolved parameter/constant capture.
+
 Compare hardware and firmware representations of a shared binary record. The
 portable comparator checks field bit addresses, widths, signedness, encodings,
 size and alignment, and writes JSON and Markdown. Use [SKILL.md](SKILL.md) for the

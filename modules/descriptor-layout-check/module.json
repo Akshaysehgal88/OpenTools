@@ -2,7 +2,7 @@
   "format": "opentools.module.v1",
   "id": "descriptor-layout-check",
   "title": "Descriptor layout check",
-  "description": "Investigate whether hardware and firmware agree on field representation, ABI and shared binary layout.",
+  "description": "Review binary layout and selected configuration agreement using native elaboration/compiler facts and explicit intent.",
   "stages": [
     "design",
     "firmware",
@@ -25,6 +25,13 @@
         "pyslang 12.0.0",
         "Qualified native GCC/Linux target; see FORMAT.md"
       ]
+    },
+    {
+      "path": "profiles/configuration-consistency/configuration_review.py",
+      "purpose": "Compare selected resolved configuration values with independent required values, explicit units and source/phase bindings.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
     }
   ],
   "files": [
@@ -42,6 +49,22 @@
     "layout_core.py",
     "record.template.json",
     "requirements-hardware.txt",
-    "tests/test_layout.py"
-  ]
+    "tests/test_layout.py",
+    "profiles/configuration-consistency/AI_USAGE.md",
+    "profiles/configuration-consistency/FORMAT.md",
+    "profiles/configuration-consistency/README.md",
+    "profiles/configuration-consistency/REVIEW.md",
+    "profiles/configuration-consistency/WORKFLOW.md",
+    "profiles/configuration-consistency/configuration_core.py",
+    "profiles/configuration-consistency/configuration_review.py",
+    "profiles/configuration-consistency/examples/NATIVE.md",
+    "profiles/configuration-consistency/examples/configuration.h",
+    "profiles/configuration-consistency/examples/configuration.sv",
+    "profiles/configuration-consistency/examples/create_example.py",
+    "profiles/configuration-consistency/examples/defaults.h",
+    "profiles/configuration-consistency/examples/run_native.py",
+    "profiles/configuration-consistency/tests/test_configuration.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

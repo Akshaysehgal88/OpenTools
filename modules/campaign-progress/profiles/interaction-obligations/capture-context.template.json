@@ -1,0 +1,10 @@
+{
+  "format": "opentools.interaction-capture-context.v1",
+  "run_ref": null, "scope_ref": null, "configuration_ref": null, "model_ref": null,
+  "scenario_ref": null, "scenario_basis_ref": null,
+  "clock_ref": null, "reset_ref": null, "reset_active": null,
+  "port_map": {"clock": null, "reset": null, "hold": null, "retain": null,
+    "event": null, "ack": null, "pending": null, "visible": null},
+  "window_ref": null, "instrumentation_review_ref": null, "oracle_ref": null,
+  "scope_basis_ref": null, "dependencies_complete": null, "dependency_basis_ref": null
+}

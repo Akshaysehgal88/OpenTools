@@ -1,0 +1,12 @@
+{
+  "format": "opentools.checker-observation-intent.v1",
+  "claim_id": null, "claim": null, "owner_ref": null, "basis_ref": null,
+  "expected": {
+    "run_ref": null, "campaign_ref": null, "scope_ref": null,
+    "configuration_ref": null, "model_ref": null, "clock_ref": null,
+    "edge": "positive", "sampling": "stable_preedge", "reset_ref": null,
+    "reset_active": null, "checker_ref": null, "port_map": null,
+    "source_sha256": {"top.sv": null, "ports.hpp": null, "checker.hpp": null, "main.cpp": null}
+  },
+  "required_modes": null, "mode_basis_ref": null, "policy_ref": null
+}

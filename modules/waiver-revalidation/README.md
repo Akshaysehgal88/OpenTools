@@ -52,6 +52,27 @@ are unsupported.
 
 ## Review and integration
 
+For STA exception closure, the optional
+[timing exception profile](profiles/timing-exception/README.md) compares resolved
+native setup-exception reach with current path intent and the original mode,
+clock and role premises. It distinguishes reviewed renames from newly masked
+required paths and reuses the existing waiver records. Matching reach alone
+does not approve a timing exception.
+
+For scan insertion/closure, the optional
+[scan population profile](profiles/scan-population/GUIDE.md) reconciles an
+independent required state roster, actual native chain membership and current
+exclusion rationale. It reads a qualified OpenROAD inventory and reuses the
+existing comparator for selected exclusion drift. Membership is separate from
+ATPG/fault coverage.
+
+For selected CDC/RDC findings, the optional
+[crossing-premise profile](profiles/crossing-premises/GUIDE.md) adds observed
+data-stability and reset-readiness premises from a bound event journal. It reuses
+this comparator and preserves structural reports. Its native example uses an
+explicitly synthetic crossing population and actual functional RTL observations;
+it does not perform CDC/RDC analysis.
+
 Compare actual native populations. Use `--identity-map` for reviewed one-to-one
 renames; moved source locations can change finding IDs. Partial exports do not
 prove removal, and zero matches do not establish that an exception is obsolete.

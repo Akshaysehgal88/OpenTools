@@ -1,0 +1,37 @@
+{
+  "format": "opentools.module.v1",
+  "id": "retention-restore-consistency",
+  "title": "Retention and restore consistency",
+  "description": "Review retained and rebuilt state bundles against consumer exposure prerequisites and actual post-wake reads.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "low-power",
+    "firmware"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "restore_review.py",
+      "purpose": "Review scalar restore members, exposure history and attributed consumer reads in one bound transition window.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "restore_core.py",
+    "restore_review.py",
+    "examples/create_example.py",
+    "examples/restore_path.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_restore.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

@@ -1,0 +1,19 @@
+{
+  "format": "opentools.fault-coverage-review-record.v1",
+  "workflow_stage": "test coverage closure and revalidation",
+  "requested_claim": null,
+  "original_objective": null,
+  "fault_model_and_version": null,
+  "configuration_and_test_mode": null,
+  "native_metric_definitions": [],
+  "original_populations": [],
+  "collapsed_correspondence": [],
+  "pattern_and_constraint_evidence": [],
+  "native_classifications": [],
+  "exclusion_decisions": [],
+  "changes": [],
+  "missing_evidence": [],
+  "corrective_actions": [],
+  "revalidation": [],
+  "acceptance": {"state": "pending", "owner": null, "evidence": []}
+}

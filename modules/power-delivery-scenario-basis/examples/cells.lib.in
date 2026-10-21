@@ -1,0 +1,17 @@
+library (owned_supply) {
+time_unit : "1ns"; voltage_unit : "1V"; current_unit : "1mA";
+pulling_resistance_unit : "1kohm"; capacitive_load_unit (1,pf);
+input_threshold_pct_rise : 50; input_threshold_pct_fall : 50;
+output_threshold_pct_rise : 50; output_threshold_pct_fall : 50;
+slew_lower_threshold_pct_rise : 20; slew_upper_threshold_pct_rise : 80;
+slew_lower_threshold_pct_fall : 20; slew_upper_threshold_pct_fall : 80;
+nom_process : 1; nom_temperature : @TEMPERATURE@; nom_voltage : @VOLTAGE@;
+operating_conditions (owned_tt) { process : 1; voltage : @VOLTAGE@; temperature : @TEMPERATURE@; }
+default_operating_conditions : owned_tt;
+cell (LOAD) { area : 2;
+pg_pin (VDD) { pg_type : primary_power; voltage_name : VDD; }
+pg_pin (VSS) { pg_type : primary_ground; voltage_name : VSS; }
+pin (A) { direction : input; capacitance : 0.001; related_power_pin : VDD; related_ground_pin : VSS; }
+pin (Y) { direction : output; function : "A"; related_power_pin : VDD; related_ground_pin : VSS; }
+}
+}

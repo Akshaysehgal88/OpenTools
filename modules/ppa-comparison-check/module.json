@@ -29,6 +29,8 @@
     "ppa_check.py",
     "ppa_core.py",
     "record.template.json",
-    "tests/test_ppa.py"
-  ]
+    "tests/test_ppa.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

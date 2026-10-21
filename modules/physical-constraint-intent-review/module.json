@@ -1,0 +1,51 @@
+{
+  "format": "opentools.module.v1",
+  "id": "physical-constraint-intent-review",
+  "title": "Physical constraint intent review",
+  "description": "Review one placement or constraint intervention against original region requirements, native evidence and the actual comparison basis.",
+  "stages": [
+    "physical-design",
+    "implementation",
+    "integration"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "physical_review.py",
+      "purpose": "Read retained native geometry and review one intervention against independent region intent.",
+      "requirements": [
+        "Python 3.10+ standard library for saved review"
+      ]
+    },
+    {
+      "path": "export_region.tcl",
+      "purpose": "Collect loaded OpenROAD objects, selected paths and native placement-check results into new artifacts.",
+      "requirements": [
+        "OpenROAD v2.0-17598-ga008522d8 for qualified native support"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "REVIEW.md",
+    "SKILL.md",
+    "examples/cells.lef",
+    "examples/cells.lib",
+    "examples/create_example.py",
+    "examples/fixture.py",
+    "examples/horizontal.v",
+    "examples/reference_model.py",
+    "examples/run_native.py",
+    "examples/vertical.v",
+    "export_region.tcl",
+    "loader.tcl",
+    "native_region.py",
+    "physical_common.py",
+    "physical_core.py",
+    "physical_review.py",
+    "tests/test_physical.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

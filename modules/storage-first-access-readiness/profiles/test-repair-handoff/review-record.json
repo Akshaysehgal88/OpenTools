@@ -1,0 +1,16 @@
+{
+  "format": "opentools.memory-handoff-review-record.v1",
+  "workflow_stage": "memory test/repair to functional ownership",
+  "requested_claim": null,
+  "scope": {"configuration": null, "memory_population": [], "test_reset_epoch": null, "transition": null},
+  "receiving_owner": null,
+  "independent_requirements": [],
+  "native_artifacts": [],
+  "checks": [],
+  "native_results": [],
+  "findings": [],
+  "missing_evidence": [],
+  "corrective_actions": [],
+  "revalidation": [],
+  "acceptance": {"state": "pending", "owner": null, "evidence": []}
+}

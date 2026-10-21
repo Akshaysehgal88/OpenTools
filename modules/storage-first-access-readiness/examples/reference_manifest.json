@@ -1,0 +1,19 @@
+{
+  "repository": "https://github.com/lowRISC/opentitan",
+  "commit": "04b59b846c85c3c7b24cd0becc41c1acabc5d4b8",
+  "license": "Apache-2.0; source files and LICENSE remain upstream, not bundled here",
+  "files": {
+    "prim_secded_hamming_39_32_enc.sv": {
+      "url": "https://raw.githubusercontent.com/lowRISC/opentitan/04b59b846c85c3c7b24cd0becc41c1acabc5d4b8/hw/ip/prim/rtl/prim_secded_hamming_39_32_enc.sv",
+      "sha256": "d510dc23a3150a5f7b086cb465cfe679279489fc54678567d7889972efb76629"
+    },
+    "prim_secded_hamming_39_32_dec.sv": {
+      "url": "https://raw.githubusercontent.com/lowRISC/opentitan/04b59b846c85c3c7b24cd0becc41c1acabc5d4b8/hw/ip/prim/rtl/prim_secded_hamming_39_32_dec.sv",
+      "sha256": "1d01e347a42ae0e9de40c8dda1fb557f951c8db7c990ae2ba7c67e14073646af"
+    },
+    "LICENSE": {
+      "url": "https://raw.githubusercontent.com/lowRISC/opentitan/04b59b846c85c3c7b24cd0becc41c1acabc5d4b8/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    }
+  }
+}

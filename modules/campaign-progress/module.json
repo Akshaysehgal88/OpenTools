@@ -2,9 +2,90 @@
   "format": "opentools.module.v1",
   "id": "campaign-progress",
   "title": "Campaign progress",
-  "description": "Review objective-specific progress, qualified effective exposure, required execution and remaining obligations without automatic job control.",
-  "stages": ["verification", "simulation", "formal", "validation", "characterization"],
+  "description": "Review campaign progress, checker observation validity and explicit source-backed interaction evidence.",
+  "stages": [
+    "verification",
+    "simulation",
+    "formal",
+    "validation",
+    "characterization"
+  ],
   "workflow": "SKILL.md",
-  "helpers": [{"path": "campaign_progress.py", "purpose": "Summarize bound cumulative exports and separate named coverage, qualified event exposure, native states and resource observations.", "requirements": ["Python 3.10+ standard library"]}],
-  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "DECISION.md", "progress_core.py", "campaign_progress.py", "record.template.json", "example.json", "examples/create_example.py", "examples/verilator/README.md", "examples/verilator/run_example.py", "examples/verilator/top.sv", "examples/verilator/runner.cpp", "tests/test_progress.py"]
+  "helpers": [
+    {
+      "path": "campaign_progress.py",
+      "purpose": "Summarize bound cumulative exports and separate named coverage, qualified event exposure, native states and resource observations.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "profiles/checker-observation/observation_check.py",
+      "purpose": "Read retained native handshake journals and review checker identity, enable and completion correspondence.",
+      "requirements": [
+        "Python 3.10+ standard library; native tools not required for saved-data review"
+      ]
+    },
+    {
+      "path": "profiles/interaction-obligations/interaction_check.py",
+      "purpose": "Read retained native interaction journals and audit explicit combined-transition obligations, applicability and checker windows.",
+      "requirements": [
+        "Python 3.10+ standard library; native tools not required for saved-data review"
+      ]
+    }
+  ],
+  "files": [
+    "AI_USAGE.md",
+    "DECISION.md",
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "campaign_progress.py",
+    "example.json",
+    "examples/create_example.py",
+    "examples/verilator/README.md",
+    "examples/verilator/run_example.py",
+    "examples/verilator/runner.cpp",
+    "examples/verilator/top.sv",
+    "profiles/checker-observation/FORMAT.md",
+    "profiles/checker-observation/README.md",
+    "profiles/checker-observation/REVIEW.md",
+    "profiles/checker-observation/WORKFLOW.md",
+    "profiles/checker-observation/capture-context.template.json",
+    "profiles/checker-observation/examples/checker.hpp",
+    "profiles/checker-observation/examples/create_example.py",
+    "profiles/checker-observation/examples/mailbox.sv",
+    "profiles/checker-observation/examples/main.cpp",
+    "profiles/checker-observation/examples/reference_model.py",
+    "profiles/checker-observation/examples/run_native.py",
+    "profiles/checker-observation/examples/stream.sv",
+    "profiles/checker-observation/intent.template.json",
+    "profiles/checker-observation/native_capture.py",
+    "profiles/checker-observation/observation_check.py",
+    "profiles/checker-observation/observation_core.py",
+    "profiles/checker-observation/tests/test_observation.py",
+    "profiles/interaction-obligations/FORMAT.md",
+    "profiles/interaction-obligations/README.md",
+    "profiles/interaction-obligations/REVIEW.md",
+    "profiles/interaction-obligations/WORKFLOW.md",
+    "profiles/interaction-obligations/capture-context.template.json",
+    "profiles/interaction-obligations/corpus.template.json",
+    "profiles/interaction-obligations/examples/CONTRACT.md",
+    "profiles/interaction-obligations/examples/create_example.py",
+    "profiles/interaction-obligations/examples/interrupt.sv",
+    "profiles/interaction-obligations/examples/main.cpp",
+    "profiles/interaction-obligations/examples/maintenance.sv",
+    "profiles/interaction-obligations/examples/reference_model.py",
+    "profiles/interaction-obligations/examples/run_native.py",
+    "profiles/interaction-obligations/interaction_check.py",
+    "profiles/interaction-obligations/interaction_core.py",
+    "profiles/interaction-obligations/plan.template.json",
+    "profiles/interaction-obligations/saved_native.py",
+    "profiles/interaction-obligations/tests/test_interactions.py",
+    "progress_core.py",
+    "record.template.json",
+    "tests/test_progress.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

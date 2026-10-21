@@ -1,0 +1,118 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "descriptor-layout-check",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Descriptor layout check",
+      "entry": "SKILL.md",
+      "stage": "design / firmware / integration-verification",
+      "decision": "Review binary layout and selected configuration agreement using native elaboration/compiler facts and explicit intent.",
+      "intent_questions": [
+        "Which hardware/software consumer contract defines logical fields, physical storage, offsets, byte order and alignment?",
+        "Which resolved native type and compiler ABI observations correspond to the actual consumed configuration?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "example.json",
+        "examples/c-profile.json",
+        "examples/descriptor.h",
+        "examples/descriptor.sv",
+        "examples/pairing.json",
+        "layout_capture.py",
+        "layout_check.py",
+        "layout_core.py",
+        "record.template.json",
+        "requirements-hardware.txt",
+        "tests/test_layout.py"
+      ]
+    },
+    {
+      "id": "configuration-consistency",
+      "title": "Configuration semantic consistency",
+      "entry": "profiles/configuration-consistency/WORKFLOW.md",
+      "stage": "Configuration management",
+      "decision": "Review configuration semantic consistency through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which independently required semantic parameters, units, defaults and overrides define this configuration handoff?",
+        "Which actual resolved hardware and compiled software facts support the declared transformation and original selected-role population?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "layout_capture.py",
+        "layout_check.py",
+        "layout_core.py",
+        "profiles/configuration-consistency/AI_USAGE.md",
+        "profiles/configuration-consistency/FORMAT.md",
+        "profiles/configuration-consistency/README.md",
+        "profiles/configuration-consistency/REVIEW.md",
+        "profiles/configuration-consistency/WORKFLOW.md",
+        "profiles/configuration-consistency/configuration_core.py",
+        "profiles/configuration-consistency/configuration_review.py",
+        "profiles/configuration-consistency/examples/NATIVE.md",
+        "profiles/configuration-consistency/examples/configuration.h",
+        "profiles/configuration-consistency/examples/configuration.sv",
+        "profiles/configuration-consistency/examples/create_example.py",
+        "profiles/configuration-consistency/examples/defaults.h",
+        "profiles/configuration-consistency/examples/run_native.py",
+        "profiles/configuration-consistency/tests/test_configuration.py"
+      ]
+    }
+  ]
+}

@@ -52,7 +52,41 @@ python modules/result-applicability/examples/create_sc_example.py .local/sc-resu
 
 It records an `ECC_EN=0` lint run, not ECC functional verification.
 
+## Formal premise review
+
+Use the [formal assumptions profile](profiles/formal-assumptions/README.md) before
+using a proof in an integration claim. It reviews assumption ownership, producer
+guarantees and required activation under matching clock/reset/mode scope. Its
+optional saved-SBY reader distinguishes induction, BMC, counterexamples and
+bounded cover attempts; it executes no imported configurations.
+
+## Equivalence/ECO review
+
+Use the [equivalence comparison profile](profiles/equivalence-boundary/README.md)
+before accepting or reusing a native equivalence result. It reviews the compared
+designs, approved point mapping, model boundary and required modes. The optional
+saved-Yosys reader preserves native PASS/FAIL and counterexamples; it neither
+matches points automatically nor approves an ECO.
+
+## Interface timing budget handoff
+
+Use the [interface budget profile](profiles/interface-budget/README.md) after
+block-to-top allocations, reference edges, loads or models change. It compares
+both block assumptions with the integrated path and preserves timing debt,
+missing premises and budget ownership.
+
 ## Status and tests
+
+For STA scenario planning and run-coverage review, use the
+[timing scenario profile](profiles/timing-scenarios/README.md). It reconciles an
+independent obligation roster with actual model, mode, clock, power and RC evidence,
+and composes this comparator per scenario. Required analysis and observed timing
+failures remain separate; counts and sampled clean paths do not establish signoff.
+
+For report reuse after a physical ECO, use the
+[ECO evidence profile](profiles/eco-evidence/README.md). It reviews native changed
+objects, report dependencies, operating phases and supplied reuse conditions,
+and locates matching current results already retained.
 
 `0` applicable within scope or supplied reviewed reuse; `1` known mismatch;
 `2` unresolved; `3` invalid input/I/O. Mismatches take precedence while retaining
@@ -68,3 +102,10 @@ Set `OPENTOOLS_SC_MANIFEST` to the native example's final
 `build/top/job0/top.pkg.json` and install the pinned package to enable API cross-checks.
 See [FORMAT.md](FORMAT.md); the [manual template](record.template.json) and
 [manual example](example.json) are separate review formats.
+
+## Erratum and workaround maintenance
+
+Use the [erratum/workaround profile](profiles/erratum-workaround/README.md) before
+applying, removing or carrying forward a supplied workaround. It keeps underlying
+conditions, observed efficacy, dependent premises and current approval evidence
+separate. The native example qualifies a synthetic notice and owned model only.

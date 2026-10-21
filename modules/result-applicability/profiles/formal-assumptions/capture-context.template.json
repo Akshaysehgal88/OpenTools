@@ -1,0 +1,16 @@
+{
+  "format": "opentools.formal-capture-context.v1",
+  "run_ref": "replace-with-original-run-reference",
+  "manifest_ref": "replace-with-original-task-reference",
+  "command": null,
+  "sby_revision": "85dd50b92a3acf170954a06f20f49e2162ce5273",
+  "solver_version": "Z3 version 4.8.12 - 64 bit",
+  "dependency_capture_complete": null,
+  "dependency_evidence_ref": null,
+  "scope": {
+    "clock_ref": null,
+    "reset_ref": null,
+    "integration_mode_ref": null,
+    "model_scope_ref": null
+  }
+}

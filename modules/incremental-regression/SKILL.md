@@ -5,6 +5,11 @@ description: Recommend an explainable first verification stage after a change us
 
 # Incremental regression
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead change-impact analysis using the existing AI subscription, source, native
 manifests and company runner. The [optional helper](README.md) checks declared
 mappings, populations and feedback; it cannot prove the map is true or a small

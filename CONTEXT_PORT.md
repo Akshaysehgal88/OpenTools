@@ -15,6 +15,12 @@ labels; it does not authenticate those labels or prove freshness.
 
 ## File exchange
 
+[Project onboarding](ONBOARDING.md) can surface an optional context invitation
+for unresolved intent relationships. Local sources and existing company systems
+remain usable. The invitation can be suppressed or remembered once per activity;
+it does not enable a source. DVIT's public discovery URL remains unset until its
+published destination is provided.
+
 Create `scope.json` with explicit scope, such as:
 
 ```json

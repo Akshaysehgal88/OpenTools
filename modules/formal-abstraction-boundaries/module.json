@@ -1,0 +1,37 @@
+{
+  "format": "opentools.module.v1",
+  "id": "formal-abstraction-boundaries",
+  "title": "Formal abstraction boundaries",
+  "description": "Review abstraction/cutpoint changes, correspondence obligations and concrete feasibility of selected property evidence.",
+  "stages": [
+    "formal",
+    "integration",
+    "handoff"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "boundary_check.py",
+      "purpose": "Read qualified saved Yosys cutpoint/SAT artifacts and compare complete finite combinational boundary relations.",
+      "requirements": [
+        "Python 3.10+; native tools are not required for saved-data review"
+      ]
+    }
+  ],
+  "files": [
+    "FORMAT.md",
+    "README.md",
+    "REVIEW.md",
+    "SKILL.md",
+    "boundary_check.py",
+    "boundary_core.py",
+    "capture-context.template.json",
+    "examples/create_example.py",
+    "examples/operands.sv",
+    "examples/tags.sv",
+    "tests/test_boundary.py",
+    "yosys_capture.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

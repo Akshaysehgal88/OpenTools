@@ -1,0 +1,59 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "microarchitecture-contract-drift",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Microarchitecture contract drift",
+      "entry": "SKILL.md",
+      "stage": "microarchitecture / design / integration-verification",
+      "decision": "Review changed capacity obligations using actual configuration, producer-consumer semantics and explicit outstanding-demand evidence.",
+      "intent_questions": [
+        "Which product or integration demand changed, in what units, mode and counting interval?",
+        "Which resolved capacity, ownership, credits and release rules must cover that demand, independently of convenient observed occupancy?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "contract_core.py",
+        "contract_review.py",
+        "examples/create_example.py",
+        "examples/native/README.md",
+        "examples/native/capacity.sv",
+        "examples/native/run_example.py",
+        "requirements-native.txt",
+        "slang_capacity.py",
+        "tests/test_contract.py"
+      ]
+    }
+  ]
+}

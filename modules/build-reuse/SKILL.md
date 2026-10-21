@@ -5,6 +5,11 @@ description: Investigate redundant semiconductor compile and elaboration work, d
 
 # Build reuse
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead the investigation with the user's existing AI host, tools and subscription.
 Use [README.md](README.md), [FORMAT.md](FORMAT.md) and actual build/run records. The
 Python comparator is optional. Use native/company tools or separately validated

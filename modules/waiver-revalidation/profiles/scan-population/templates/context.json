@@ -1,0 +1,22 @@
+{
+  "format": "opentools.scan-context.v1",
+  "run_ref": "selected-run",
+  "scope": "selected-scope",
+  "design_ref": "selected-design",
+  "configuration_ref": "selected-configuration",
+  "population_ref": "selected-population",
+  "module": "control_partition",
+  "functional_master": "DFFR_CELL",
+  "scan_master": "SCANR_CELL",
+  "pins": {
+    "clock": "CK",
+    "reset": "RN",
+    "data": "D",
+    "state": "Q",
+    "scan_in": "SI",
+    "enable": "SE"
+  },
+  "mapping_basis_ref": null,
+  "library_basis_ref": null,
+  "power_basis_ref": null
+}

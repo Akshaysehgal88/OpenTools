@@ -1,0 +1,37 @@
+{
+  "format": "opentools.module.v1",
+  "id": "event-delivery-acknowledgement",
+  "title": "Event delivery and acknowledgement review",
+  "description": "Review isolated event observations through distinct interrupt, service, source-clear and wake routes against explicit caller obligations.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "firmware",
+    "low-power"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "event_review.py",
+      "purpose": "Review per-route event stages, ordering and availability in a bound isolated journal.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "event_core.py",
+    "event_review.py",
+    "examples/create_example.py",
+    "examples/event_path.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_event.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

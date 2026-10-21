@@ -1,0 +1,57 @@
+{
+  "format": "opentools.module.v1",
+  "id": "integration-interface-obligations",
+  "title": "Integration interface obligations",
+  "description": "Review endpoint meanings and transient ownership/completion obligations using connected ports, source contracts and native events.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "functional-verification"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "port_capture.py",
+      "purpose": "Capture selected native direct port bindings while leaving protocol meaning to source/native review.",
+      "requirements": [
+        "Python 3.11+",
+        "pyslang 12.0.0"
+      ]
+    },
+    {
+      "path": "profiles/transition-obligations/transition_review.py",
+      "purpose": "Review one identity/epoch-tagged exclusive handoff, distinct-source obligations and actual grant/consumer permission.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "RECORD.md",
+    "port_capture.py",
+    "requirements-native.txt",
+    "examples/create_inputs.py",
+    "examples/handshake.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_ports.py",
+    "profiles/transition-obligations/README.md",
+    "profiles/transition-obligations/FORMAT.md",
+    "profiles/transition-obligations/WORKFLOW.md",
+    "profiles/transition-obligations/AI_USAGE.md",
+    "profiles/transition-obligations/transition_core.py",
+    "profiles/transition-obligations/transition_review.py",
+    "profiles/transition-obligations/examples/create_example.py",
+    "profiles/transition-obligations/examples/reference_model.py",
+    "profiles/transition-obligations/examples/ownership_transfer.sv",
+    "profiles/transition-obligations/examples/run_native.py",
+    "profiles/transition-obligations/examples/NATIVE.md",
+    "profiles/transition-obligations/tests/test_transition.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

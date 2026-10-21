@@ -1,0 +1,62 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "waveform-capture",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Waveform capture",
+      "entry": "SKILL.md",
+      "stage": "simulation / functional-verification / debug",
+      "decision": "Plan causal signal/history scope, resolve trace objects and aliases, preview native controls and deliberately expand insufficient captures.",
+      "intent_questions": [
+        "Which causal question, event interval and receiving debug task must this capture answer?",
+        "Which actual elaborated signals, dependencies and instrumentation capabilities support the smallest adequate window?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "capture_core.py",
+        "example.json",
+        "examples/create_example.py",
+        "examples/verilator/README.md",
+        "examples/verilator/run_example.py",
+        "examples/verilator/runner.cpp",
+        "examples/verilator/top.sv",
+        "native_vcd.py",
+        "record.template.json",
+        "requirements-native-example.txt",
+        "tests/test_capture.py",
+        "waveform_capture.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "format": "opentools.module.v1",
+  "id": "data-ownership-visibility-handoff",
+  "title": "Data ownership and visibility handoff",
+  "description": "Review payload/control visibility, ownership reuse and scoped ordering-outcome evidence.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "firmware",
+    "software-integration"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "handoff_review.py",
+      "purpose": "Review one scalar producer/consumer handoff against independent mapping, payload, ordering and completion intent.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "profiles/ordering-boundary/ordering_review.py",
+      "purpose": "Review one owned publication-ordering claim, domain/control placement, model outcomes and actual observations.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "handoff_core.py",
+    "handoff_review.py",
+    "examples/create_example.py",
+    "examples/cache_model.py",
+    "examples/cache_handoff.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_handoff.py",
+    "profiles/ordering-boundary/README.md",
+    "profiles/ordering-boundary/FORMAT.md",
+    "profiles/ordering-boundary/WORKFLOW.md",
+    "profiles/ordering-boundary/REVIEW.md",
+    "profiles/ordering-boundary/AI_USAGE.md",
+    "profiles/ordering-boundary/ordering_core.py",
+    "profiles/ordering-boundary/ordering_review.py",
+    "profiles/ordering-boundary/examples/create_example.py",
+    "profiles/ordering-boundary/examples/reference_model.py",
+    "profiles/ordering-boundary/examples/buffered_publication.sv",
+    "profiles/ordering-boundary/examples/run_native.py",
+    "profiles/ordering-boundary/examples/NATIVE.md",
+    "profiles/ordering-boundary/tests/test_ordering.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

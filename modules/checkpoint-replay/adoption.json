@@ -1,0 +1,60 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "checkpoint-replay",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Checkpoint replay",
+      "entry": "SKILL.md",
+      "stage": "simulation / functional-verification / debug",
+      "decision": "Qualify checkpoint compatibility and selected restored observations with explicit external state, prefix identity, native controls and full-cost review.",
+      "intent_questions": [
+        "Which execution question and observation equivalence must this checkpoint replay preserve?",
+        "What native state, process/model, runtime input and external resource identities determine replay compatibility?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "checkpoint_replay.py",
+        "example.json",
+        "examples/create_example.py",
+        "examples/verilator/README.md",
+        "examples/verilator/run_example.py",
+        "examples/verilator/runner.cpp",
+        "examples/verilator/top.sv",
+        "record.template.json",
+        "replay_core.py",
+        "tests/test_replay.py"
+      ]
+    }
+  ]
+}

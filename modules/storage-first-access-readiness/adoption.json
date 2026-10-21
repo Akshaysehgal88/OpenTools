@@ -1,0 +1,120 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "storage-first-access-readiness",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Storage first-access readiness",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / firmware / low-power / dft",
+      "decision": "Review memory initialization coverage, release and internal old-data reads before first access.",
+      "intent_questions": [
+        "Which region, first masters and target words require initialization before release?",
+        "Does the actual wrapper perform an old-data/ECC read during partial writes, and which admitted initialization and mapping epoch make it safe?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "ecc39.py",
+        "examples/NATIVE.md",
+        "examples/codec_probes.sv",
+        "examples/create_example.py",
+        "examples/ecc_profile.sv",
+        "examples/ram_wrapper.sv",
+        "examples/reference_manifest.json",
+        "examples/run_native.py",
+        "examples/storage_tb.sv",
+        "storage_core.py",
+        "storage_review.py",
+        "tests/test_storage.py"
+      ]
+    },
+    {
+      "id": "test-repair-handoff",
+      "title": "MBIST, repair and functional memory handoff",
+      "entry": "profiles/test-repair-handoff/AI_USAGE.md",
+      "stage": "Memory test and repair integration",
+      "decision": "Review mbist, repair and functional memory handoff through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which test targets, repair mapping, initialization epoch and first functional consumers are independently required?",
+        "Which actual native ownership, repair-load, data/ECC and first-access observations establish the test-to-functional transition?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "ecc39.py",
+        "profiles/test-repair-handoff/AI_USAGE.md",
+        "profiles/test-repair-handoff/FORMAT.md",
+        "profiles/test-repair-handoff/README.md",
+        "profiles/test-repair-handoff/examples/create_example.py",
+        "profiles/test-repair-handoff/examples/fixture.py",
+        "profiles/test-repair-handoff/examples/main.cpp",
+        "profiles/test-repair-handoff/examples/memory_bank.sv",
+        "profiles/test-repair-handoff/examples/reference_model.py",
+        "profiles/test-repair-handoff/examples/run_native.py",
+        "profiles/test-repair-handoff/handoff.py",
+        "profiles/test-repair-handoff/handoff_core.py",
+        "profiles/test-repair-handoff/native_repair.py",
+        "profiles/test-repair-handoff/repair_common.py",
+        "profiles/test-repair-handoff/review-record.json",
+        "profiles/test-repair-handoff/tests/test_handoff.py",
+        "storage_core.py",
+        "storage_review.py"
+      ]
+    }
+  ]
+}

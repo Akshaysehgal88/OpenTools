@@ -5,6 +5,11 @@ description: Choose one justified next investigation step before expensive semic
 
 # Next-run planning
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead the investigation using the engineer's existing AI host, issue tracker and
 native workflow. Start with [RECORD.md](RECORD.md), the actual evidence packet and
 prior plans/results. Markdown is enough; [the helper](README.md) optionally checks

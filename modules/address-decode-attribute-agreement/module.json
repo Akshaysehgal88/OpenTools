@@ -1,0 +1,35 @@
+{
+  "format": "opentools.module.v1",
+  "id": "address-decode-attribute-agreement",
+  "title": "Address decode and attribute agreement",
+  "description": "Reconcile resolved address windows, effective permissions and attributes with explicit initiator scope, alias policy and required decode ranges.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "firmware"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "address_review.py",
+      "purpose": "Compare declared byte maps and scoped alias/range obligations without executing native tools.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "address_review.py",
+    "address_core.py",
+    "examples/create_example.py",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_address.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

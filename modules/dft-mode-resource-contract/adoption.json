@@ -1,0 +1,123 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "dft-mode-resource-contract",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "DFT mode resource contract",
+      "entry": "SKILL.md",
+      "stage": "DFT mode setup / DFT resource acceptance / DFT at-speed test handoff",
+      "decision": "Review DFT mode prerequisites and at-speed recipe, clock and exception alignment before test handoff.",
+      "intent_questions": [
+        "Which independently required test phases and authorized access policy need clock, reset, enable and power resources?",
+        "Which actual native connectivity, consumed constraints and shift/capture observations establish those resources without bypassing policy?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "FORMAT.md",
+        "README.md",
+        "REVIEW.md",
+        "SKILL.md",
+        "dft_common.py",
+        "dft_resources.py",
+        "examples/cells_model.sv",
+        "examples/create_example.py",
+        "examples/fixture.py",
+        "examples/main.cpp",
+        "examples/reference_model.py",
+        "examples/run_native.py",
+        "native_capture.py",
+        "resource_core.py",
+        "templates/context.json",
+        "templates/contract.json",
+        "tests/test_resources.py"
+      ]
+    },
+    {
+      "id": "at-speed-handoff",
+      "title": "At-speed launch/capture constraint alignment",
+      "entry": "profiles/at-speed-handoff/WORKFLOW.md",
+      "stage": "At-speed test handoff",
+      "decision": "Review at-speed launch/capture constraint alignment through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which original launch/capture recipe, mode and control-history requirements define this at-speed handoff?",
+        "Which actual native clock/exception populations and observed OCC pulses apply, while ATPG and physical pulse-quality claims remain separate?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "dft_common.py",
+        "dft_resources.py",
+        "native_capture.py",
+        "profiles/at-speed-handoff/FORMAT.md",
+        "profiles/at-speed-handoff/GUIDE.md",
+        "profiles/at-speed-handoff/WORKFLOW.md",
+        "profiles/at-speed-handoff/examples/create_example.py",
+        "profiles/at-speed-handoff/examples/fixture.py",
+        "profiles/at-speed-handoff/examples/main.cpp",
+        "profiles/at-speed-handoff/examples/models.sv",
+        "profiles/at-speed-handoff/examples/reference_model.py",
+        "profiles/at-speed-handoff/examples/run_native.py",
+        "profiles/at-speed-handoff/native_occ.py",
+        "profiles/at-speed-handoff/occ_common.py",
+        "profiles/at-speed-handoff/occ_core.py",
+        "profiles/at-speed-handoff/occ_handoff.py",
+        "profiles/at-speed-handoff/templates/context.json",
+        "profiles/at-speed-handoff/templates/contract.json",
+        "profiles/at-speed-handoff/tests/test_handoff.py",
+        "resource_core.py"
+      ]
+    }
+  ]
+}

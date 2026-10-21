@@ -1,0 +1,115 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "clock-mode-dependency-review",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Clock mode and dependency review",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / low-power / static-timing",
+      "decision": "Review selected clock lineage, owner prerequisites and readiness waits with separate static and native progress evidence.",
+      "intent_questions": [
+        "Which operating-mode transition needs progress, and which owner must produce each clock enable, ready or acknowledgement?",
+        "Which actual clock dependencies, initial conditions and independent escape paths support or prevent that progress?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "clock_core.py",
+        "clock_review.py",
+        "examples/NATIVE.md",
+        "examples/clock_path.sv",
+        "examples/create_example.py",
+        "examples/run_native.py",
+        "tests/test_clock.py"
+      ]
+    },
+    {
+      "id": "sta-lineage",
+      "title": "STA clock lineage and mode coverage",
+      "entry": "profiles/sta-lineage/WORKFLOW.md",
+      "stage": "STA clock setup",
+      "decision": "Review sta clock lineage and mode coverage through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which independent mode, clock lineage, consumers and source-availability premises define clock setup?",
+        "Which actual resolved native creation, clock/case and full relevant register collections implement that intent?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "clock_core.py",
+        "clock_review.py",
+        "profiles/sta-lineage/FORMAT.md",
+        "profiles/sta-lineage/README.md",
+        "profiles/sta-lineage/REVIEW.md",
+        "profiles/sta-lineage/WORKFLOW.md",
+        "profiles/sta-lineage/examples/create_example.py",
+        "profiles/sta-lineage/examples/fixture.py",
+        "profiles/sta-lineage/examples/reference_model.py",
+        "profiles/sta-lineage/examples/run_native.py",
+        "profiles/sta-lineage/export_clocks.tcl",
+        "profiles/sta-lineage/lineage_common.py",
+        "profiles/sta-lineage/lineage_core.py",
+        "profiles/sta-lineage/loader.tcl",
+        "profiles/sta-lineage/native_lineage.py",
+        "profiles/sta-lineage/sta_review.py",
+        "profiles/sta-lineage/tests/test_lineage.py",
+        "profiles/sta-lineage/trace_clocks.tcl"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "format": "opentools.equivalence-intent.v1",
+  "claim_id": null,
+  "claim": null,
+  "scope_ref": null,
+  "eco_ref": null,
+  "eco_intent_ref": null,
+  "owner_ref": null,
+  "run_ref": null,
+  "required_fields": {
+    "designs": {"value": null, "evidence_ref": null},
+    "mapping": {"value": null, "evidence_ref": null},
+    "model_boundary": {"value": null, "evidence_ref": null},
+    "engine_profile": {"value": null, "evidence_ref": null},
+    "partition": {"value": null, "evidence_ref": null}
+  },
+  "mode_input": null,
+  "required_modes": null,
+  "mode_basis_ref": null,
+  "mapping_review": {"status": "unknown", "reviewer_ref": null, "basis_ref": null}
+}

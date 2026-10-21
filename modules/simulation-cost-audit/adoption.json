@@ -1,0 +1,59 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "simulation-cost-audit",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Simulation cost audit",
+      "entry": "SKILL.md",
+      "stage": "simulation / functional-verification / implementation",
+      "decision": "Explain measured workflow costs with overlap-aware wall accounting, separate resources, scope-qualified comparisons and proportionate experiments.",
+      "intent_questions": [
+        "What useful engineering work and required outputs define the simulation campaign objective?",
+        "Which measured timestamps, resource observations and overlapping phases account for its cost without confusing allocated and consumed resources?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "cost_audit.py",
+        "cost_core.py",
+        "example.json",
+        "examples/create_example.py",
+        "record.template.json",
+        "requirements-native-test.txt",
+        "sc_cost_import.py",
+        "tests/test_cost.py",
+        "tests/test_sc_cost.py"
+      ]
+    }
+  ]
+}

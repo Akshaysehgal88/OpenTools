@@ -1,0 +1,46 @@
+{
+  "format": "opentools.module.v1",
+  "id": "microarchitecture-contract-drift",
+  "title": "Microarchitecture contract drift",
+  "description": "Review changed capacity obligations using actual configuration, producer-consumer semantics and explicit outstanding-demand evidence.",
+  "stages": [
+    "microarchitecture",
+    "design",
+    "integration-verification"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "contract_review.py",
+      "purpose": "Review explicit capacity bounds and inspect changed values without executing the design.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "slang_capacity.py",
+      "purpose": "Capture selected known integral parameter values; semantic roles remain explicitly mapped.",
+      "requirements": [
+        "Python 3.11+",
+        "pyslang 12.0.0"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "contract_review.py",
+    "contract_core.py",
+    "slang_capacity.py",
+    "requirements-native.txt",
+    "examples/create_example.py",
+    "examples/native/README.md",
+    "examples/native/capacity.sv",
+    "examples/native/run_example.py",
+    "tests/test_contract.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

@@ -1,0 +1,76 @@
+{
+  "format": "opentools.module.v1",
+  "id": "clock-mode-dependency-review",
+  "title": "Clock mode and dependency review",
+  "description": "Review selected clock lineage, owner prerequisites and readiness waits with separate static and native progress evidence.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "low-power",
+    "static-timing"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "clock_review.py",
+      "purpose": "Analyze declared positive clock-transition prerequisites and candidate dependency cycles.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "profiles/sta-lineage/sta_review.py",
+      "purpose": "Compare original native STA clock objects and endpoint coverage against a selected-mode contract.",
+      "requirements": [
+        "Python 3.10+ standard library for saved review"
+      ]
+    },
+    {
+      "path": "profiles/sta-lineage/trace_clocks.tcl",
+      "purpose": "Retain resolved native generated-clock constructor inputs in a qualified single-pass flow.",
+      "requirements": [
+        "Pinned OpenROAD v2.0-17598-ga008522d8 native ABI"
+      ]
+    },
+    {
+      "path": "profiles/sta-lineage/export_clocks.tcl",
+      "purpose": "Collect final native clocks, cases and register clock coverage into new artifacts.",
+      "requirements": [
+        "OpenROAD v2.0-17598-ga008522d8"
+      ]
+    }
+  ],
+  "files": [
+    "AI_USAGE.md",
+    "FORMAT.md",
+    "README.md",
+    "SKILL.md",
+    "clock_core.py",
+    "clock_review.py",
+    "examples/NATIVE.md",
+    "examples/clock_path.sv",
+    "examples/create_example.py",
+    "examples/run_native.py",
+    "profiles/sta-lineage/FORMAT.md",
+    "profiles/sta-lineage/README.md",
+    "profiles/sta-lineage/REVIEW.md",
+    "profiles/sta-lineage/WORKFLOW.md",
+    "profiles/sta-lineage/examples/cells.lef",
+    "profiles/sta-lineage/examples/cells.lib",
+    "profiles/sta-lineage/examples/create_example.py",
+    "profiles/sta-lineage/examples/fixture.py",
+    "profiles/sta-lineage/examples/reference_model.py",
+    "profiles/sta-lineage/examples/run_native.py",
+    "profiles/sta-lineage/export_clocks.tcl",
+    "profiles/sta-lineage/lineage_common.py",
+    "profiles/sta-lineage/lineage_core.py",
+    "profiles/sta-lineage/loader.tcl",
+    "profiles/sta-lineage/native_lineage.py",
+    "profiles/sta-lineage/sta_review.py",
+    "profiles/sta-lineage/tests/test_lineage.py",
+    "profiles/sta-lineage/trace_clocks.tcl",
+    "tests/test_clock.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

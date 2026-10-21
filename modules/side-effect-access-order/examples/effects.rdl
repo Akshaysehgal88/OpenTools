@@ -1,0 +1,8 @@
+addrmap effects {
+    reg {
+        field { sw=rw; hw=rw; we; woclr; reset=0; } causes[1:0];
+    } pending @0x0;
+    reg {
+        field { sw=r; hw=rw; we; rclr; reset=0; } causes[1:0];
+    } diagnostic @0x4;
+};

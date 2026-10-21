@@ -1,0 +1,48 @@
+{
+  "format": "opentools.module.v1",
+  "id": "stage-handoff-readiness",
+  "title": "Execution-stage handoff readiness",
+  "description": "Review receiving-stage requirements against loaded image identity, entry/stack setup, transfer state and actual first accesses.",
+  "stages": [
+    "design",
+    "firmware",
+    "integration-verification",
+    "bring-up"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "handoff_review.py",
+      "purpose": "Review one typed handoff journal against independent successor requirements and observed first-use consequences.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    },
+    {
+      "path": "image_capture.py",
+      "purpose": "Capture file identity and resolved load/entry metadata for the supported static x86-64 ELF profile.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "REVIEW.md",
+    "FORMAT.md",
+    "handoff_core.py",
+    "handoff_review.py",
+    "image_capture.py",
+    "requirements-native.txt",
+    "examples/create_example.py",
+    "examples/reference_model.py",
+    "examples/receiver.S",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_handoff.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

@@ -1,0 +1,58 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "memory-forward-progress-dependencies",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Memory forward-progress dependencies",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / formal / performance",
+      "decision": "Review retained-resource wait cycles, enabled escapes and conditional reachable blocking observations.",
+      "intent_questions": [
+        "Which transaction class holds which resources while waiting, including units, capacity and release conditions?",
+        "Which reachable native prefix and actual escape, timeout, fairness or external-release premises distinguish blocking from a candidate graph cycle?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "examples/NATIVE.md",
+        "examples/create_example.py",
+        "examples/episode_model.py",
+        "examples/resource_episode.sv",
+        "examples/run_native.py",
+        "progress_core.py",
+        "progress_review.py",
+        "tests/test_progress.py"
+      ]
+    }
+  ]
+}

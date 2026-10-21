@@ -1,0 +1,60 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "stage-handoff-readiness",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Execution-stage handoff readiness",
+      "entry": "SKILL.md",
+      "stage": "design / firmware / integration-verification / bring-up",
+      "decision": "Review receiving-stage requirements against loaded image identity, entry/stack setup, transfer state and actual first accesses.",
+      "intent_questions": [
+        "Which receiving-stage image, entry, stack and mode-specific prerequisites are independently required at transfer?",
+        "Which actual loaded artifacts, control-transfer state and first accesses establish readiness rather than later successful initialization?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "REVIEW.md",
+        "SKILL.md",
+        "examples/NATIVE.md",
+        "examples/create_example.py",
+        "examples/reference_model.py",
+        "examples/run_native.py",
+        "handoff_core.py",
+        "handoff_review.py",
+        "image_capture.py",
+        "requirements-native.txt",
+        "tests/test_handoff.py"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "format": "opentools.yosys-boundary-context.v1",
+  "run_ref": "replace-with-original-run-reference",
+  "scope": {
+    "boundary_ref": null,
+    "mode_ref": null,
+    "model_class": "finite_combinational_relation",
+    "basis_ref": null
+  },
+  "property_ref": null,
+  "original_command": null,
+  "dependency_capture_complete": null,
+  "dependency_basis_ref": null
+}

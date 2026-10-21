@@ -1,0 +1,179 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "campaign-progress",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Campaign progress",
+      "entry": "SKILL.md",
+      "stage": "verification / simulation / formal / validation / characterization",
+      "decision": "Review campaign progress, checker observation validity and explicit source-backed interaction evidence.",
+      "intent_questions": [
+        "Which original objective, required population and acceptance evidence define useful campaign progress?",
+        "Which work was accepted, completed and actually checked under the intended mode, rather than only submitted or counted?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "DECISION.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "campaign_progress.py",
+        "example.json",
+        "examples/create_example.py",
+        "examples/verilator/README.md",
+        "examples/verilator/run_example.py",
+        "examples/verilator/runner.cpp",
+        "examples/verilator/top.sv",
+        "progress_core.py",
+        "record.template.json",
+        "tests/test_progress.py"
+      ]
+    },
+    {
+      "id": "checker-observation",
+      "title": "Checker observation validity",
+      "entry": "profiles/checker-observation/WORKFLOW.md",
+      "stage": "Functional checker integration",
+      "decision": "Review checker observation validity through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which independent acceptance/completion events and modes must this checker actually observe?",
+        "Which native clock, identity, enable and comparison actions establish qualified checking rather than equal or stimulus-only counts?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "campaign_progress.py",
+        "profiles/checker-observation/FORMAT.md",
+        "profiles/checker-observation/README.md",
+        "profiles/checker-observation/REVIEW.md",
+        "profiles/checker-observation/WORKFLOW.md",
+        "profiles/checker-observation/capture-context.template.json",
+        "profiles/checker-observation/examples/create_example.py",
+        "profiles/checker-observation/examples/mailbox.sv",
+        "profiles/checker-observation/examples/main.cpp",
+        "profiles/checker-observation/examples/reference_model.py",
+        "profiles/checker-observation/examples/run_native.py",
+        "profiles/checker-observation/examples/stream.sv",
+        "profiles/checker-observation/intent.template.json",
+        "profiles/checker-observation/native_capture.py",
+        "profiles/checker-observation/observation_check.py",
+        "profiles/checker-observation/observation_core.py",
+        "profiles/checker-observation/tests/test_observation.py",
+        "progress_core.py"
+      ]
+    },
+    {
+      "id": "interaction-obligations",
+      "title": "Cross-mode obligation evidence",
+      "entry": "profiles/interaction-obligations/WORKFLOW.md",
+      "stage": "Functional scenario closure",
+      "decision": "Review cross-mode obligation evidence through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "Which original shared-state or resource relationships make these combined transitions required?",
+        "Which actual native combined windows, applicability sources and checker actions cover that independent population?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "campaign_progress.py",
+        "profiles/interaction-obligations/FORMAT.md",
+        "profiles/interaction-obligations/README.md",
+        "profiles/interaction-obligations/REVIEW.md",
+        "profiles/interaction-obligations/WORKFLOW.md",
+        "profiles/interaction-obligations/capture-context.template.json",
+        "profiles/interaction-obligations/corpus.template.json",
+        "profiles/interaction-obligations/examples/CONTRACT.md",
+        "profiles/interaction-obligations/examples/create_example.py",
+        "profiles/interaction-obligations/examples/interrupt.sv",
+        "profiles/interaction-obligations/examples/main.cpp",
+        "profiles/interaction-obligations/examples/maintenance.sv",
+        "profiles/interaction-obligations/examples/reference_model.py",
+        "profiles/interaction-obligations/examples/run_native.py",
+        "profiles/interaction-obligations/interaction_check.py",
+        "profiles/interaction-obligations/interaction_core.py",
+        "profiles/interaction-obligations/plan.template.json",
+        "profiles/interaction-obligations/saved_native.py",
+        "profiles/interaction-obligations/tests/test_interactions.py",
+        "progress_core.py"
+      ]
+    }
+  ]
+}

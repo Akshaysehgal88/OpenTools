@@ -1,0 +1,22 @@
+{
+  "format": "opentools.scan-contract.v1",
+  "expected": {
+    "run_ref": "selected-run",
+    "scope": "selected-scope",
+    "design_ref": "selected-design",
+    "configuration_ref": "selected-configuration",
+    "population_ref": "selected-population",
+    "sources": {
+      "seed.v": null,
+      "cells.lib": null,
+      "cells.lef": null,
+      "flow.tcl": null,
+      "population.json": null,
+      "exclusions.json": null
+    },
+    "command_sha256": null,
+    "native_profile": "openroad-a008522d8-flat-scalar-reset-scan.v1"
+  },
+  "requirements_basis_ref": null,
+  "owner_ref": null
+}

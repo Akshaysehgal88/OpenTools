@@ -5,6 +5,11 @@ weights and goals. The read-only comparator produces JSON and Markdown using the
 Python standard library. Use [SKILL.md](SKILL.md) for AI-assisted interpretation
 and [AI_USAGE.md](AI_USAGE.md) for review inputs and outputs.
 
+For DFT test-coverage closure, use the
+[fault-denominator profile](profiles/fault-denominator/README.md). It retains
+original/collapsed fault populations, native classes and exclusion decisions
+with their own measurement definitions.
+
 ## Quick start
 
 From the repository root:

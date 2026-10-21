@@ -1,0 +1,57 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "ppa-comparison-check",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "PPA comparison check",
+      "entry": "SKILL.md",
+      "stage": "design / physical-design / implementation",
+      "decision": "Explain which power, performance and area comparisons are supported by each metric's experiment and measurement basis.",
+      "intent_questions": [
+        "Which product or integration objective is being compared, and what exact power, timing or area quantity represents it?",
+        "Are workload, activity, constraints, libraries, implementation phase and measurement populations comparable for each metric?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "example.json",
+        "examples/create_example.py",
+        "orfs_import.py",
+        "ppa_check.py",
+        "ppa_core.py",
+        "record.template.json",
+        "tests/test_ppa.py"
+      ]
+    }
+  ]
+}

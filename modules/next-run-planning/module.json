@@ -3,8 +3,38 @@
   "id": "next-run-planning",
   "title": "Next-run planning",
   "description": "Choose a discriminating next investigation step using prior evidence, explicit controls, attainable observations and an outcome-to-decision map.",
-  "stages": ["verification", "simulation", "formal", "debug", "validation"],
+  "stages": [
+    "verification",
+    "simulation",
+    "formal",
+    "debug",
+    "validation"
+  ],
   "workflow": "SKILL.md",
-  "helpers": [{"path": "experiment_ledger.py", "purpose": "Review saved plans, exact repeated designs and bound actual results without launching work or judging semantic truth.", "requirements": ["Python 3.10+ standard library"]}],
-  "files": ["README.md", "FORMAT.md", "SKILL.md", "AI_USAGE.md", "RECORD.md", "experiment_core.py", "experiment_ledger.py", "example.json", "record.template.json", "result.template.json", "examples/create_example.py", "examples/INVESTIGATIONS.md", "tests/test_experiments.py"]
+  "helpers": [
+    {
+      "path": "experiment_ledger.py",
+      "purpose": "Review saved plans, exact repeated designs and bound actual results without launching work or judging semantic truth.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "RECORD.md",
+    "experiment_core.py",
+    "experiment_ledger.py",
+    "example.json",
+    "record.template.json",
+    "result.template.json",
+    "examples/create_example.py",
+    "examples/INVESTIGATIONS.md",
+    "tests/test_experiments.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
 }

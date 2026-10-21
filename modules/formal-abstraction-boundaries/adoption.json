@@ -1,0 +1,58 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "formal-abstraction-boundaries",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Formal abstraction boundaries",
+      "entry": "SKILL.md",
+      "stage": "formal / integration / handoff",
+      "decision": "Review abstraction/cutpoint changes, correspondence obligations and concrete feasibility of selected property evidence.",
+      "intent_questions": [
+        "Which original property and concrete behavior must remain represented across this abstraction boundary?",
+        "Which native cutpoints, invariants, interface/time mappings and witnesses distinguish conservative expansion from an unsupported restriction?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "FORMAT.md",
+        "README.md",
+        "REVIEW.md",
+        "SKILL.md",
+        "boundary_check.py",
+        "boundary_core.py",
+        "capture-context.template.json",
+        "examples/create_example.py",
+        "examples/operands.sv",
+        "examples/tags.sv",
+        "tests/test_boundary.py",
+        "yosys_capture.py"
+      ]
+    }
+  ]
+}

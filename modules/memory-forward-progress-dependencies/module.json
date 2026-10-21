@@ -1,0 +1,38 @@
+{
+  "format": "opentools.module.v1",
+  "id": "memory-forward-progress-dependencies",
+  "title": "Memory forward-progress dependencies",
+  "description": "Review retained-resource wait cycles, enabled escapes and conditional reachable blocking observations.",
+  "stages": [
+    "design",
+    "integration-verification",
+    "formal",
+    "performance"
+  ],
+  "workflow": "SKILL.md",
+  "helpers": [
+    {
+      "path": "progress_review.py",
+      "purpose": "Review explicit resource quantities, retained waits, closure premises and finite progress observations.",
+      "requirements": [
+        "Python 3.10+ standard library"
+      ]
+    }
+  ],
+  "files": [
+    "README.md",
+    "FORMAT.md",
+    "SKILL.md",
+    "AI_USAGE.md",
+    "progress_core.py",
+    "progress_review.py",
+    "examples/create_example.py",
+    "examples/episode_model.py",
+    "examples/resource_episode.sv",
+    "examples/run_native.py",
+    "examples/NATIVE.md",
+    "tests/test_progress.py",
+    "adoption.json"
+  ],
+  "adoption": "adoption.json"
+}

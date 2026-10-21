@@ -1,9 +1,17 @@
 ---
 name: descriptor-layout-check
-description: Review agreement between hardware and firmware binary record representations using native layout exports, explicit byte mapping and field/encoding pairing. Distinguish direct object copy from serialization and layout findings from runtime protocol defects.
+description: Review hardware/firmware binary layouts and selected configuration correspondence using native exports and explicit representation, units and intent. Use for field/ABI/encoding pairing or generated-variant parameter/default handoff; distinguish agreement from runtime protocol or signoff claims.
 ---
 
 # Descriptor layout check
+
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
+For generated configuration values, unit transformations and stale defaults, follow
+the [configuration workflow](profiles/configuration-consistency/WORKFLOW.md).
 
 Lead with the engineering question. Bundled scripts are optional instruments, not
 the boundary of your analysis: use the user's native tools or another validated,

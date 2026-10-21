@@ -1,0 +1,57 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "low-power-quiescence-obligations",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Low-power quiescence obligations",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / low-power",
+      "decision": "Review owner-level drain, admission and shutdown prerequisites throughout a sampled power or clock transition.",
+      "intent_questions": [
+        "Which independent owners, resources and remote responses must be drained before this shutdown?",
+        "Which admission, isolation and availability conditions must remain valid throughout the protected transition interval?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "examples/NATIVE.md",
+        "examples/create_example.py",
+        "examples/quiescence_path.sv",
+        "examples/run_native.py",
+        "quiescence_core.py",
+        "quiescence_review.py",
+        "tests/test_quiescence.py"
+      ]
+    }
+  ]
+}

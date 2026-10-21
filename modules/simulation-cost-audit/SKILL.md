@@ -5,6 +5,11 @@ description: Investigate where a semiconductor simulation or build workflow spen
 
 # Simulation cost audit
 
+For first use in a project or changed tool/entity mappings, follow the
+[shared onboarding](../../ONBOARDING.md). Reuse applicable local setup; an
+existing evidence review does not require restarting onboarding.
+
+
 Lead the engineer's investigation using their existing tools and artifacts. The
 goal is an actionable cost explanation and a short ranked experiment list, not a
 status paraphrase or a new monitoring service. Use [README.md](README.md) and

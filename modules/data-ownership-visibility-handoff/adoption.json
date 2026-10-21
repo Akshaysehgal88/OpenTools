@@ -1,0 +1,113 @@
+{
+  "format": "opentools.adoption-contract.v1",
+  "module": "data-ownership-visibility-handoff",
+  "workflows": [
+    {
+      "id": "default",
+      "title": "Data ownership and visibility handoff",
+      "entry": "SKILL.md",
+      "stage": "design / integration-verification / firmware / software-integration",
+      "decision": "Review payload/control visibility, ownership reuse and scoped ordering-outcome evidence.",
+      "intent_questions": [
+        "Which physical payload/control objects and ownership lifecycle must this producer-to-consumer handoff preserve?",
+        "Which actual coherence path, maintenance target/completion, ordering and consumer reads establish visibility before reclaim and reuse?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "AI_USAGE.md",
+        "FORMAT.md",
+        "README.md",
+        "SKILL.md",
+        "examples/NATIVE.md",
+        "examples/cache_handoff.sv",
+        "examples/cache_model.py",
+        "examples/create_example.py",
+        "examples/run_native.py",
+        "handoff_core.py",
+        "handoff_review.py",
+        "tests/test_handoff.py"
+      ]
+    },
+    {
+      "id": "ordering-boundary",
+      "title": "Memory ordering and atomicity boundary",
+      "entry": "profiles/ordering-boundary/WORKFLOW.md",
+      "stage": "Ordering and atomicity integration",
+      "decision": "Review memory ordering and atomicity boundary through existing correction, handoff and revalidation.",
+      "intent_questions": [
+        "What exact visibility or atomicity claim is required across which memory or I/O domains?",
+        "Which selected native model, barrier placement and allowed/observed outcomes support that claim at its original strength?"
+      ],
+      "evidence_roles": [
+        {
+          "id": "intent",
+          "meaning": "Original independently required behavior, objective or acceptance contract",
+          "required": true
+        },
+        {
+          "id": "context",
+          "meaning": "Actual selected revision, configuration, mode and native tool/model basis",
+          "required": true
+        },
+        {
+          "id": "native",
+          "meaning": "Original native observations and outcomes for the selected engineering question",
+          "required": true
+        },
+        {
+          "id": "correspondence",
+          "meaning": "Source-backed logical-to-native entity and population relationships",
+          "required": false
+        }
+      ],
+      "revalidate_when": [
+        "Original requirement, applicability, exclusion rationale or receiving decision changes",
+        "Selected native entity, source, configuration, mode, tool/model version or extraction method changes",
+        "A dependent relationship or observation premise is changed, missing or contradicted"
+      ],
+      "references": [
+        "handoff_core.py",
+        "handoff_review.py",
+        "profiles/ordering-boundary/AI_USAGE.md",
+        "profiles/ordering-boundary/FORMAT.md",
+        "profiles/ordering-boundary/README.md",
+        "profiles/ordering-boundary/REVIEW.md",
+        "profiles/ordering-boundary/WORKFLOW.md",
+        "profiles/ordering-boundary/examples/NATIVE.md",
+        "profiles/ordering-boundary/examples/buffered_publication.sv",
+        "profiles/ordering-boundary/examples/create_example.py",
+        "profiles/ordering-boundary/examples/reference_model.py",
+        "profiles/ordering-boundary/examples/run_native.py",
+        "profiles/ordering-boundary/ordering_core.py",
+        "profiles/ordering-boundary/ordering_review.py",
+        "profiles/ordering-boundary/tests/test_ordering.py"
+      ]
+    }
+  ]
+}
