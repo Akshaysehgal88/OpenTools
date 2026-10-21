@@ -1,9 +1,18 @@
 # Native save/restore qualification recipe
 
+Use this recipe to qualify a checkpoint mechanism before wiring it into a
+simulation runner. It demonstrates the work that must accompany a native save:
+inventory state, validate the requested continuation, compare with a control and
+exercise omitted-state controls. It supplements the simulator's serialization
+feature and the [portable reviewer](../../README.md); it does not replace your
+runner's checkpoint storage or dispatch policy.
+
 This example implements native `--savable` serialization for one inspected
 Verilator **5.020** model plus an explicit C++ wrapper. It is an opt-in Linux
 build/run exercise. It does not install tools, change a company runner or make
 another testbench savable.
+
+## Build and run
 
 From the checkpoint-replay module directory, with an existing native executable,
 runtime root, GCC supporting C++17 and GNU Make:
@@ -12,12 +21,43 @@ runtime root, GCC supporting C++17 and GNU Make:
 python3 examples/verilator/run_example.py --verilator /path/to/verilator_bin --verilator-root /path/to/share/verilator --directory native-example --negative-controls --overhead-pairs 6
 ```
 
+Replace the two tool paths with the existing installation. Expected recipe exit:
+**0**, with `matched_selected_observables` for the normal control/restore pair.
+The deliberately defective controls are retained as expected findings; they do
+not turn the normal restored run into a failure. Defaults are prefix step 64,
+128 suffix steps and seed 17. `--prefix-steps`, `--suffix-steps` and `--seed`
+change this owned exercise, not an arbitrary company's checkpoint policy.
+
 The output directory must be new with an existing parent. Build commands, copied
 sources/hashes, executable, native checkpoints, raw process journals, normalized
 records, compatibility/qualification reports and scoped timings remain there.
 The temporary build uses an owned space-free directory because GNU Make is
 sensitive to spaces. Runtime/output paths can contain spaces. The installer never
 runs this example or installs Verilator/GCC/Make.
+
+## Review a retained collection
+
+These commands run from the module directory without a simulator. Keep the
+complete `native-example` archive, including its executable and state files:
+
+```sh
+python checkpoint_replay.py check native-example/checkpoint.json native-example/request.json native-example/profile.json --artifact-root native-example --json-out native-example/new-compatibility.json
+python checkpoint_replay.py qualify native-example/checkpoint.json native-example/request.json native-example/profile.json native-example/control.json native-example/restored.json --artifact-root native-example --json-out native-example/new-qualification.json --markdown-out native-example/new-qualification.md
+```
+
+Both exit **0** for the original normal pair. Outputs require fresh names. Read
+`new-qualification.md` for the bounded decision and JSON for exact bindings,
+file observations, differences and unknowns. The reader never executes archived
+commands or restores their checkpoint.
+
+| Output | What to use it for |
+|---|---|
+| `profile.json`, `checkpoint.json`, `request.json` | Required state, original captured context and independent continuation request. |
+| `control.json`, `restored.json`, invocation journals | Ordered selected observations and original native outcomes. |
+| `compatibility.json`, `qualification.json` | Preflight and normal continuation decisions. |
+| `summary.json` | Normal result, negative controls, horizon and scoped native timings. |
+| `source-manifest.json`, `sources/`, `generated/` | Source identity and inspected native serialization implementation. |
+| `sampling-cost.json`, `recipe-timing.json` | Observation-cost pairs and whole-recipe cost boundary. |
 
 ## Model and captured state
 
@@ -89,7 +129,25 @@ The tiny prefix may cost less than capture/restore. Compare full repeated-task c
 before adoption, including first capture and qualification amortization. No SoC
 speedup, universal state equivalence or useful production milestone is inferred.
 
-## Native tests
+## Adaptation and handoff
+
+1. Ask your AI assistant to read this wrapper, the generated save operators and
+   your actual testbench. Trace every driver/reference state consumer before
+   marking the state inventory complete.
+2. Choose your flow's stable capture boundary and exact observation channels.
+   Map them into the [record format](../../FORMAT.md), retaining original native
+   process results, consumed inputs and binary/configuration identity.
+3. Qualify a faithful control/restore pair and independent negative controls in
+   the installed simulator. Preserve a separate identity for exploratory branches.
+4. Review full repeated-task cost and failure handling with the runner owner.
+   Requalify after relevant simulator, ABI, wrapper, state or input changes.
+
+Keep the native archive, profile rationale, reports and adoption decision in your
+project's evidence store. The module's [SKILL.md](../../SKILL.md) guides AI-led
+review. An optional DVIT connection can add dependency/intent context; the recipe
+and portable review require none.
+
+## Run the tests
 
 ```sh
 OPENTOOLS_CHECKPOINT_NATIVE=/path/to/verilator_bin VERILATOR_ROOT=/path/to/share/verilator python3 -m unittest discover -s tests -v

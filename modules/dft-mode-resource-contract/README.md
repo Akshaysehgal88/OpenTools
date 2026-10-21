@@ -1,69 +1,154 @@
 # DFT mode resource contract
 
-Review the clock, reset, power, isolation and access conditions required before
-shift/capture or test-access acceptance. Use this stage after mode-control or
-constraint changes and when accepting a new test configuration.
+Use this module when accepting a test-mode configuration or after changing mode
+controls, reset masking, clock selection, access policy, supply/isolation assumptions
+or constraints. It reviews whether the resources needed for **shift, capture and
+unload** are present under the original mode contract.
 
-The AI workflow reconciles the team's mode table, native reports and observations,
-then records missing resources, responsible owners and recheck conditions. It
-works with your existing agent and engineering tools. Start with [SKILL.md](SKILL.md)
-and retain the [review record](REVIEW.md) beside the original artifacts.
+This belongs between scan insertion/mode setup and test-access acceptance.
+DFT, DFX verification, reset/clock, low-power and integration owners can use it
+to reconcile a mode table with native connectivity and observed behavior.
 
-For OCC recipe or STA scenario changes, use the
-[at-speed handoff profile](profiles/at-speed-handoff/GUIDE.md). It compares native
-clock/exception evidence with observed pulses and independent control guards,
-while retaining separate pattern/ATPG and timing qualification limits.
+A stitched chain or a passing functional run does not establish manufacturing
+access, released reset or useful scan activity. This review supplements scan
+insertion, mode diagnostics and native simulations. It replaces manual
+reconciliation of the selected chain's resource prerequisites; it does not replace
+ATPG, power-aware verification or timing/security signoff.
 
-## Saved-data helper
+| Activity | Scope |
+|---|---|
+| Default: mode resources | Native chain connectivity and finite shift/capture/unload resource conditions. |
+| [At-speed handoff](profiles/at-speed-handoff/README.md) | Independent OCC recipe versus observed pulses, control guards, STA clocks/cases and exception applicability. |
 
-Python 3.10+; standard library only. The qualified reader accepts one reset-capable
-scan chain/domain from OpenROAD `v2.0-17598-ga008522d8` and a finite shift/capture/unload
-trace from Verilator 5.020. It checks native connectivity, explicit root case values,
-logger bindings and original artifact identities before comparing requirements.
-The collection includes the original executable; the reader never executes it.
+## First use with retained native evidence
 
-```sh
-python dft_resources.py capture artifacts run context.json --output evidence.json
-python dft_resources.py review artifacts contract.json evidence.json \
-  --json-out review.json --markdown-out review.md
-```
-
-Fill the [context](templates/context.json) from the source mapping and the
-[contract](templates/contract.json) from independently established requirements.
-Keep source identities from the run request. See [formats and native limits](FORMAT.md).
-Outputs must be new files. Review exits: `0` bounded resources supported,
-`1` resource mismatch, `2` incomplete or quarantined evidence, `3` invalid input.
-Capture exits `0` for a complete saved run even when its native behavior failed.
-
-## Qualification
-
-The owned example uses two different partition interfaces and four/eight-bit scan
-chains. OpenROAD performs replacement and stitching; Verilator runs the stitched
-netlist. Controls cover reset clamping and supported masking, manufacturing denial,
-functional debug, supply/isolation proxies, clock selection, capture enable and
-constraint disagreement/unknowns. An independent finite model checks every step.
-
-With the pinned tools already available on Linux:
+Python 3.10+ and the standard library suffice for saved-data review. Run from
+`modules/dft-mode-resource-contract`. Use a complete retained example at
+`.local/dft-native`, or collect one on Linux with existing
+**OpenROAD v2.0-17598-ga008522d8**, **Verilator 5.020**, a C++/Make toolchain and
+the runtime libraries required by your tool distribution:
 
 ```sh
-python examples/run_native.py out --openroad /path/to/openroad \
-  --verilator /path/to/verilator_bin --verilator-root /path/to/verilator-runtime
-OPENTOOLS_DFT_RESOURCE_EXAMPLE="$PWD/out" python -m unittest discover -s tests -v
+python examples/run_native.py .local/dft-native --openroad /path/to/openroad --verilator /path/to/verilator_bin --verilator-root /path/to/share/verilator
 ```
 
-Configure runtime libraries for your tool distribution. Generation does not
-download tools. Saved-data review and tests also run on Windows. Without the
-example environment variable, native-corpus tests are skipped.
+Replace the native tool paths. Generation installs nothing. The two owned
+partition interfaces use four/eight-bit scan chains; OpenROAD replaces/stitches
+the cells and Verilator runs the stitched netlist. Choose a new output directory.
 
-These examples use an ideal owned cell library and Boolean supply/isolation/access
-proxies. They qualify the review mechanism, without ATPG coverage, characterized
-timing, electrical power, security authorization or production signoff. Native
-propagated reset values remain unresolved in this profile; explicit case values
-and finite observed levels do not replace that evidence.
+Capture and review the supported reset-mask case:
 
-Install this module alone with the [project-local installer](../../INSTALL.md).
-Optional DVIT or other scoped context uses the [context interface](../../CONTEXT_PORT.md).
-No model API or DVIT connection is required.
+```sh
+python dft_resources.py capture .local/dft-native register-bank-supported-mask/run .local/dft-native/register-bank-supported-mask/context.json --output .local/dft-native/register-bank-supported-mask/recaptured.json
+python dft_resources.py review .local/dft-native .local/dft-native/register-bank-supported-mask/contract.json .local/dft-native/register-bank-supported-mask/recaptured.json --json-out .local/dft-native/register-bank-supported-mask/new-review.json --markdown-out .local/dft-native/register-bank-supported-mask/new-review.md
+```
+
+Expected review exit: **0**, `BOUNDED_RESOURCES_SUPPORTED`. Inspect the Markdown
+for the phase disposition and JSON for native status, observed steps, resource
+evidence, findings and gaps.
+
+Compare the functional-debug case:
+
+```sh
+python dft_resources.py review .local/dft-native .local/dft-native/register-bank-debug-is-not-manufacturing/contract.json .local/dft-native/register-bank-debug-is-not-manufacturing/evidence.json --json-out .local/dft-native/register-bank-debug-is-not-manufacturing/new-review.json --markdown-out .local/dft-native/register-bank-debug-is-not-manufacturing/new-review.md
+```
+
+Expected exit: **1**, `RESOURCE_MISMATCH`, even though that native behavior run
+passes. Functional debug availability does not satisfy the independently required
+manufacturing-mode/access contract.
+
+Capture's exit 0 means valid intake, including a native FAIL. Both review outputs
+are required and must be distinct new files with existing parent directories.
+Keep the complete collection: the report rechecks artifacts relative to its
+explicit root, not just the captured JSON.
+
+## Helper and records
+
+| Operation | Feature |
+|---|---|
+| `dft_resources.py capture ROOT WORKDIR CONTEXT --output RECEIPT` | Reads original native connectivity, source/role mappings, mode cases, observations and outcomes. Verifies artifact identity without executing commands. |
+| `dft_resources.py review ROOT CONTRACT RECEIPT --json-out JSON --markdown-out MD` | Revalidates the originals and captured fields, compares independent requirements by phase, and preserves native verdict, mismatches and missing evidence. |
+
+Fill [templates/context.json](templates/context.json) from the original source
+mapping and [templates/contract.json](templates/contract.json) from independent
+mode requirements. [FORMAT.md](FORMAT.md) lists the exact artifact package.
+
+The context selects design/configuration/scope/mode/domain/run, chain and wrapper
+instance, twelve input and six observed-output roles, source/measurement bases
+and dependency completeness. The contract binds expected original identities,
+source hashes, consumed mode SDC and run command; it states clock period and
+separate phase requirements, minimum samples, selected clock and resource levels.
+
+Keep explicit root case values, same-net connectivity and propagated leaf-reset
+observations separate. This reader retains an unresolved native leaf value.
+`require_propagated_reset: true` therefore remains unsupported; a finite observed
+released pin or root case does not supply the stronger native propagation proof.
+
+The qualified protocol requires released reset, manufacturing mode/access, power
+available, isolation inactive and scan enable **1/0/1** for shift/capture/unload.
+At least a full chain is shifted and unloaded, with useful changing state and
+varying serial unload data. Another protocol needs a separately qualified reader
+or the broader AI/manual review.
+
+## Integrate into test-mode acceptance
+
+1. Identify the original mode table, selected domain/chain and receiving acceptance
+   criteria. Involve the reset, access, power and DFT owners where their premises
+   differ.
+2. Retain the native replaced/stitched netlist, database/preview, library/setup,
+   mode SDC and tool completion evidence. Do not infer successful Tcl execution
+   solely from process exit 0.
+3. Map actual chain connectivity and wrapper observation roles. Preserve original
+   source identities from the run request and inspect logger/model semantics.
+4. Capture the finite phase trace and review it against independently written
+   resource requirements. Keep manufacturing access distinct from functional debug.
+5. Route known mismatches and missing reset/power/dependency evidence to their
+   owners. Correct the original configuration/constraints or sourced requirement,
+   then recollect and revalidate.
+6. Hand off the mode contract, original artifacts, reports, limitations and
+   receiving decision. Repeat after relevant control, mode, chain or setup changes.
+
+## AI-led adoption
+
+Give a file/tool-enabled assistant [SKILL.md](SKILL.md), the original mode table,
+native setup, connectivity and observations:
+
+> Establish what this selected test phase needs before accepting activity. Trace
+> reset masking, manufacturing access, selected clock, scan enable, power and
+> isolation from source through native evidence. Separate observed finite behavior
+> from unresolved propagation or stronger acceptance requirements.
+
+Use [ONBOARDING.md](../../ONBOARDING.md), module `dft-mode-resource-contract` /
+activity `default`. The [REVIEW.md](REVIEW.md) record captures owner actions.
+Your existing AI and engineering tools suffice. Optional
+[context sources](../../CONTEXT_PORT.md), including DVIT, can add scoped
+mode/dependency intent without being required or automatically installed.
+
+## Results and qualification
+
+| Review exit | Meaning |
+|---:|---|
+| 0 | Bounded resources supported for the selected chain/phases. |
+| 1 | Known resource mismatch. |
+| 2 | Incomplete or `QUARANTINED` evidence; resolve identity/applicability before attribution. |
+| 3 | Invalid input/artifact or I/O. |
+
+Argument errors use exit 2. Quarantine takes precedence over attributing a result;
+otherwise known mismatches retain coexisting gaps.
+
+The saved reader supports one reset-capable, common-root chain/domain of 1–32
+cells with the documented six-functional-pin mapping and qualified tool versions.
+The owned ideal library and Boolean supply/isolation/access proxies establish no
+electrical power behavior, characterized timing, ATPG coverage, authorization or
+production signoff. Other tools/cells/protocols need native qualification.
+
+Set `OPENTOOLS_DFT_RESOURCE_EXAMPLE` to the retained collection to include tests:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Native-corpus tests otherwise skip. Saved-data review and tests also run on Windows.
 
 ---
 

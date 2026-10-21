@@ -1,76 +1,157 @@
 # Timing endpoint review
 
-Reconcile native unconstrained endpoints with current timing intent and explicit
-non-timed exemptions. Keep output ports, register data pins and constant objects
-visible even when timing-path queries return nothing. Produces JSON and Markdown.
+Use this module before accepting timing completeness or carrying endpoint
+exemptions forward. It reconciles **the complete native endpoint population
+with current timing intent**, including endpoints for which path queries return
+nothing.
 
-Use [SKILL.md](SKILL.md) with your existing AI agent and STA flow. The optional
-reader requires Python 3.10+ standard library; saved-data review works on Windows
-and Linux. [WORKFLOW.md](WORKFLOW.md) describes the review and owner handoff.
+This fits in STA setup/completeness review after clock, I/O constraint, mode,
+role or constant-premise changes. STA, integration and endpoint owners can use
+it alongside native `check_setup` and path reports.
+A zero-path output or unclocked source must not disappear from the reviewed
+population; `INF` unconstrained slack is not a numeric pass.
 
-## Quick start
+The activity supplements native diagnostics and exemption review. It replaces
+manual census/intent reconciliation. It does not infer timing intent, approve
+exemptions or establish complete timing signoff.
 
-From the repository root, with Linux OpenROAD
-**v2.0-17598-ga008522d8** in its normal runtime environment:
+## First use
 
-```sh
-python modules/timing-endpoint-review/examples/run_native.py endpoint-runs \
-  --openroad /path/to/openroad
-python modules/timing-endpoint-review/endpoint_review.py review \
-  endpoint-runs/block-interface-missing-output \
-  endpoint-runs/block-interface-missing-output/contract.json \
-  endpoint-runs/block-interface-missing-output/evidence.json \
-  --json-out endpoints.json --markdown-out endpoints.md
-```
-
-Expected exit **1**: the functional output lacks its required external timing.
-The intentionally non-timed diagnostic and constant endpoints remain visible and
-need their own current rationale. The macro-interface context exercises clock
-loss, a different reset polarity, and a separate interface timing contract.
-
-Read a qualified archive without running native tools:
+Saved-data review needs Python 3.10+ and the standard library. From
+`modules/timing-endpoint-review`, use a complete retained collection at
+`.local/endpoint-native`, or generate one on Linux with existing
+**OpenROAD v2.0-17598-ga008522d8** and its runtime:
 
 ```sh
-python modules/timing-endpoint-review/endpoint_review.py capture RUN CONTEXT.json \
-  --output evidence.json
+python examples/run_native.py .local/endpoint-native --openroad /path/to/openroad
 ```
 
-Outputs must be new files. See [FORMAT.md](FORMAT.md) for original artifact and
-intent records. A full clone or project-local install includes the workflow,
-helper, exporter and examples; no inference SDK or DVIT dependency is installed.
+Replace the executable path. The recipe installs nothing and needs a new output.
+Block-interface and macro-interface contexts vary clock/reset polarity and
+interface requirements while exercising the same review stage.
 
-## Supported native scope
-
-One fresh flat mapped `top`, one clock and a scalar output/register-data endpoint
-census, with explicit mode/reset/power cases and I/O-delay inputs. The closed
-loader imports no existing SDC, timing exceptions or parasitics. The reader checks
-the pinned producer and original sources, setup, command and native artifacts.
-
-It retains the native `check_setup` unconstrained population and the actual
-PathEnd classifications independently. A report member may have zero paths.
-Unconstrained `INF` slack is retained as a native string, not a numerical pass.
-Output-delay margins are read from output-delay path ends; register setup margins
-are not reinterpreted as I/O delays. Input-delay assumptions are bound consumed
-setup declarations, not a generic posthoc native getter.
-
-Native simulated constants are separate from case/forced values. The observation
-is scoped to the selected model and conditions; it does not establish physical
-tie integrity, reset safety, all-mode constancy or functional correctness.
-Other endpoint types, hierarchy, mixed exceptions, incremental-flow history,
-hold, CDC/RDC and complete STA/signoff require separately qualified methods.
-
-## Results and tests
-
-Exit 0: bounded endpoint intent accounted. Exit 1: review required. Exit 2:
-incomplete/quarantined evidence. Exit 3: invalid input/I/O. Findings may coexist
-with gaps; a successful native check command does not establish a clean report.
+Capture and review the missing functional-output constraint:
 
 ```sh
-OPENTOOLS_STA_ENDPOINT_NATIVE=/path/to/endpoint-runs \
-  python -m unittest discover -s modules/timing-endpoint-review/tests -v
+python endpoint_review.py capture .local/endpoint-native/block-interface-missing-output .local/endpoint-native/block-interface-missing-output/context.json --output .local/endpoint-native/block-interface-missing-output/recaptured.json
+python endpoint_review.py review .local/endpoint-native/block-interface-missing-output .local/endpoint-native/block-interface-missing-output/contract.json .local/endpoint-native/block-interface-missing-output/recaptured.json --json-out .local/endpoint-native/block-interface-missing-output/new-review.json --markdown-out .local/endpoint-native/block-interface-missing-output/new-review.md
 ```
 
-Without a native archive, input tests run and the native-corpus class is skipped.
+Expected review exit: **1**, `ENDPOINT_REVIEW_REQUIRED`. The functional output
+lacks its required external timing. Diagnostic and constant endpoints remain in
+the denominator with their own current exemption rationale.
+
+Compare the complete intent/control:
+
+```sh
+python endpoint_review.py review .local/endpoint-native/block-interface-complete .local/endpoint-native/block-interface-complete/contract.json .local/endpoint-native/block-interface-complete/evidence.json --json-out .local/endpoint-native/block-interface-complete/new-review.json --markdown-out .local/endpoint-native/block-interface-complete/new-review.md
+```
+
+Expected exit: **0**, `BOUNDED_ENDPOINT_INTENT_ACCOUNTED`. This need not mean
+zero unconstrained endpoints: two explicit exemptions are accounted within the
+selected contract. Open Markdown for disposition and JSON for the native census,
+independent roster, path classes, admitted exemptions, findings/gaps/quarantine.
+
+Both report flags are required. Outputs must be distinct new paths. Capture exit
+0 means valid intake; a successful native diagnostic command alone does not
+establish a clean report.
+
+## Helpers and native export
+
+| Helper | Contribution |
+|---|---|
+| `export_endpoints.tcl` | Retains actual native unconstrained report, output/data endpoint census, clock associations, case/forced/simulated constants and selected PathEnd classes. |
+| `endpoint_review.py capture RUN_DIR CONTEXT --output FILE` | Validates original producer/source/setup/command/artifacts and captures retained facts without executing Tcl. |
+| `endpoint_review.py review RUN_DIR CONTRACT EVIDENCE --json-out JSON --markdown-out MD` | Revalidates originals, reconciles independent endpoint roles/requirements and checks current exemption premises. |
+
+For a qualified loaded setup, from a fresh native artifact directory:
+
+```tcl
+source export_endpoints.tcl
+opentools_export_endpoints run_ref {reset_n power_ok run_enable}
+```
+
+Replace run/case-port identities. It writes `native.jsonl`, `unconstrained.txt`,
+`native.odb` and `consumed.sdc` in the native working directory. The Python
+batch reader additionally requires the original context/contract, sources,
+invocation, execution and completion identities in [FORMAT.md](FORMAT.md).
+A generic export alone does not qualify another loader.
+
+## Supply current intent and exemptions
+
+The independent contract binds original run/scope/design/configuration/mode/power,
+source/command identities, requirements/owner, clock/cases and input-delay basis.
+Its complete endpoint roster states output/data kind, current role, whether
+timing is required, source/target clock, required output delay and any constant
+premise.
+
+Exemptions separately name endpoint, permitted current role, mode/power scope,
+reason/source/approval basis and optional constant value. A non-timed label is
+not an exemption. A changed role or contrary native value remains a finding;
+unknown applicability stays open.
+
+Native report membership and path-query results are independent. A reported
+unconstrained endpoint can have no PathEnd. The unconstrained-inclusive query
+also returns constrained paths, so query flags/counts cannot substitute for
+actual native classification.
+
+Output-delay margins retain their I/O meaning; register setup margins cannot
+be reinterpreted as output-delay requirements. Input-delay assumptions are bound
+consumed setup, not a generic posthoc getter. Time uses the pinned native ns UI;
+formatted precision is not an engineering tolerance.
+
+## Integrate into STA completeness review
+
+1. Establish original endpoint roles and timing/exemption intent with receiving
+   owners before filtering reports.
+2. Retain native unconstrained diagnostics and the full output/register-data
+   census, including constants and zero-path objects.
+3. Source clock/case/I/O assumptions and explicit current exemption premises.
+   Keep simulated constants separate from forced/case assumptions.
+4. Capture and review all selected endpoints. Route missing external timing,
+   unclocked sources, changed roles and stale premises to their owners.
+5. Correct original setup or sourced requirement, rerun native checks and
+   revalidate. Do not remove an endpoint from the roster to clear a finding.
+6. Hand off original intent, native artifacts, report and receiving decision.
+   Repeat after endpoint, role, mode, clock or constraint changes.
+
+## AI-first adoption and outcome
+
+Give a file/tool-enabled assistant [SKILL.md](SKILL.md),
+[WORKFLOW.md](WORKFLOW.md), original timing intent and native reports:
+
+> Reconcile every selected native endpoint with current timing intent. Preserve
+> zero-path and constant objects, distinguish native path classes, and inspect
+> the source/authority of each exemption in the current mode. Ask for missing
+> clock/I/O or premise evidence instead of filtering it away.
+
+Use [ONBOARDING.md](../../ONBOARDING.md), module `timing-endpoint-review` /
+activity `default`. Existing AI/STA methods suffice. Optional DVIT context can
+connect endpoint roles/exemptions to original interface requirements; local use
+requires no connection.
+
+| Review exit | Meaning |
+|---:|---|
+| 0 | Bounded endpoint intent accounted. |
+| 1 | Known timing/role/exemption finding; gaps remain. |
+| 2 | Incomplete or quarantined evidence. |
+| 3 | Invalid/changed native package or I/O. |
+
+Argument errors use exit 2. Source/reference hashes do not authenticate approval.
+
+Qualification covers a fresh flat mapped scalar top, one clock, explicit binary/
+unknown cases and I/O inputs, no imported SDC/exceptions/parasitics. Physical tie
+integrity, all-mode constancy, reset safety, hierarchy, incremental history,
+hold, CDC/RDC and complete timing closure need separately qualified methods.
+
+Set `OPENTOOLS_STA_ENDPOINT_NATIVE` to the retained collection and run:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Saved-data review works on Windows/Linux. Without an archive, input tests run and
+native-corpus tests skip.
 
 ---
 

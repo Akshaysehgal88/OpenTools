@@ -1,81 +1,173 @@
 # Coverage change audit
 
-Separate new functional coverage hits from changes to bins, exclusions, thresholds,
-weights and goals. The read-only comparator produces JSON and Markdown using the
-Python standard library. Use [SKILL.md](SKILL.md) for AI-assisted interpretation
-and [AI_USAGE.md](AI_USAGE.md) for review inputs and outputs.
+Use this module when a coverage percentage improves and the closure review needs
+to know **what changed**: exercised behavior, the population, a bin definition,
+an exclusion, a threshold, a weight or a goal. It compares per-instance functional
+coverpoint snapshots while preserving the original obligations and their meaning.
 
-For DFT test-coverage closure, use the
-[fault-denominator profile](profiles/fault-denominator/README.md). It retains
-original/collapsed fault populations, native classes and exclusion decisions
-with their own measurement definitions.
+This activity fits between coverage export/merge and the coverage-closure review,
+and after model or exclusion changes. Coverage owners, DV engineers and reviewers
+can use it alongside the simulator's coverage tool. It supplements native scores
+and exclusion approval; it replaces manual population and scoring-option diffs.
+It does not generate a coverage model or decide whether an exclusion is justified.
 
-## Quick start
+For DFT fault-coverage closure, use the separate
+[fault-denominator activity](profiles/fault-denominator/README.md). Original and
+collapsed faults, native classes and ATPG-style measurement definitions have
+different semantics from functional bins.
 
-From the repository root:
+## First use
 
-```sh
-python modules/coverage-change-audit/examples/create_example.py .local/coverage-example
-python modules/coverage-change-audit/coverage_audit.py compare .local/coverage-example/baseline.json .local/coverage-example/current.json --json-out .local/coverage-report.json --markdown-out .local/coverage-report.md
-```
-
-Expected exit: **1**. Changing 20 unhit bins to ignore bins raises the synthetic
-fraction from 180/200 to 180/180, with zero newly hit bins. The report retains the
-original population and identifies the kind changes. Output paths must be new.
-
-## UCIS XML import
-
-Optional reader: PyUCIS `0.2.0.22787133465`, tested with Python 3.14.
-Install it in your own environment:
+Python 3.10+ and the standard library suffice for normalized JSON comparison.
+Run from `modules/coverage-change-audit`:
 
 ```sh
-python -m pip install -r modules/coverage-change-audit/requirements-ucis.txt
-python modules/coverage-change-audit/coverage_audit.py inspect-ucis run.xml --output inventory.json --context-template context.json
+python examples/create_example.py .local/coverage-first-use
+python coverage_audit.py compare .local/coverage-first-use/baseline.json .local/coverage-first-use/current.json --json-out .local/coverage-first-use/review.json --markdown-out .local/coverage-first-use/review.md
 ```
 
-Fill in run/configuration/producer identities and semantic definitions from the
-original coverage model. Retain every bin of each selected coverpoint instance.
-Set `population_complete` only for a complete selected population. Context is bound
-to the XML SHA-256 and cannot override native counts, kinds or options.
+Expected exit: **1**, `review_required`. The example changes twenty unhit bins
+from regular to ignore. The displayed fraction rises from **180/200 to 180/180**,
+with **zero newly hit bins**. Open `review.md` for the population/kind changes;
+`review.json` retains original rows, context, definitions, issues and progress
+counts. The percentage increase alone is not new exercised behavior.
+
+For an unchanged control:
 
 ```sh
-python modules/coverage-change-audit/coverage_audit.py import-ucis run.xml --context context.json --output snapshot.json
+python coverage_audit.py compare .local/coverage-first-use/baseline.json .local/coverage-first-use/baseline.json --json-out .local/coverage-first-use/unchanged.json
 ```
 
-Repeat for the other run, then compare. To generate and reimport synthetic XML,
-run `examples/create_example.py NEW_DIRECTORY --ucis` from this module directory.
-Commercial simulator exports require separate qualification.
+Expected exit: **0**, `unchanged_within_scope`. Example directories and report
+files must be new. Reports never overwrite the source exports.
 
-## Report interpretation
+## Features and helper responsibilities
 
-- Fractions count regular bins meeting the point's `at_least` threshold, divided
-  by regular bins. Ignore and illegal bins remain separate; zero denominator is null.
-- New hits and newly satisfied bins are different: lowering a threshold can satisfy
-  a bin without additional activity. Weight/goal changes are reported separately.
-- Changed or unknown definitions limit progress claims. Names and source lines alone
-  do not establish equal semantics. Reviewed renames use an explicit identity map.
-- Partial populations mean items were not observed, not proven removed. Changed
-  scope/configuration/producer blocks cross-context hit-progress claims.
+| Entry point | What it does |
+|---|---|
+| `coverage_audit.py compare BASELINE CURRENT` | Compares point/bin populations, kinds, counts, semantic definitions, thresholds, weights, goals and context. Reports new hits separately from newly satisfied bins. |
+| `compare --identity-map MAP` | Applies explicit reviewed one-to-one bin renames. It pairs identities, without asserting semantic equivalence. |
+| `inspect-ucis XML --output INVENTORY --context-template CONTEXT` | Inventories supported native XML counts/kinds/options and creates a digest-bound semantic context template. |
+| `import-ucis XML --context CONTEXT --output SNAPSHOT` | Imports every bin of each selected point, adding sourced semantic metadata without overriding native measurements. |
+| `ucis_import.py` | The optional library used by the two XML subcommands; it is not a separate CLI or a new coverage database engine. |
 
-The XML profile supports per-instance coverpoints with explicit options and bin
-kinds, and one range/count per bin. Crosses, code coverage, sequences, multi-range
-bins, default kinds, per-bin weights and external exclusion overlays are unsupported.
-The pinned reader loses range semantics; supply them through digest-bound context
-or leave definitions unknown. Native aggregate scores retain their own semantics.
+`compare` prints Markdown by default; `--format json` changes stdout.
+`--json-out` and `--markdown-out` save both handoff forms.
 
-## Status and tests
+## Inputs: preserve meaning as well as identities
 
-Compare: `0` unchanged within scope, `1` review required, `2` incomplete, `3` error.
-Import: `0` declared complete population, `2` partial, `3` error. Argument errors
-use exit 2. Population completeness alone does not establish semantic completeness.
+[FORMAT.md](FORMAT.md) defines `opentools.coverage-snapshot.v1`. Each snapshot
+records run, scope, configuration, model, producer/version and source identities,
+plus whether the selected population is complete.
+
+Each point retains its ID, definition and definition source, `at_least`,
+`weight`, `goal` and complete bin list. Each bin has an ID, kind, nonnegative
+count, definition and source. Definitions must capture resolved semantics:
+sampling event/condition, expression, ranges and configuration dependence as
+applicable. Names and source lines alone do not establish equivalent behavior.
+Unknown definitions remain `null`.
+
+The reported fraction is regular bins meeting `at_least` divided by regular
+bins. Ignore and illegal bins remain separate. A zero denominator is `null`;
+there is no cross-point weighted percentage. Native hierarchy/goal-normalized
+scores keep their original definitions in the native report.
+
+A lower threshold can satisfy a bin with no new hit. A rename map cannot make
+changed definitions comparable. Partial exports show what was observed, not proof
+that missing bins were removed. Cross-context changes can block hit-progress
+attribution even when each snapshot is individually valid.
+
+## Optional UCIS XML path
+
+The qualified reader uses **PyUCIS 0.2.0.22787133465**, tested with Python 3.14.
+Install the pinned optional dependency into your own environment, not a shared
+EDA Python environment:
 
 ```sh
-python -m unittest discover -s modules/coverage-change-audit/tests -v
+python -m pip install -r requirements-ucis.txt
+python coverage_audit.py inspect-ucis run.xml --output inventory.json --context-template context.json
 ```
 
-XML tests skip when the optional dependency is absent. See [FORMAT.md](FORMAT.md)
-for validated inputs; [record.template.json](record.template.json) and
-[example.json](example.json) are manual review records.
+Complete `context.json` from the original run/configuration and coverage model.
+Keep the exact XML digest and native point/bin IDs. Retain every bin of each
+selected coverpoint instance, supply semantic definitions with source evidence,
+and declare population completeness only when supported. Context cannot change
+native counts, kinds, options or thresholds.
+
+```sh
+python coverage_audit.py import-ucis run.xml --context context.json --output snapshot.json
+```
+
+Repeat for the other export, then compare the snapshots. For a runnable synthetic
+XML round trip with source-defined context:
+
+```sh
+python examples/create_example.py .local/coverage-xml --ucis
+python coverage_audit.py inspect-ucis .local/coverage-xml/current.xml --output .local/coverage-xml/inventory.json --context-template .local/coverage-xml/unfilled-context.json
+python coverage_audit.py import-ucis .local/coverage-xml/current.xml --context .local/coverage-xml/current.context.json --output .local/coverage-xml/reimported.json
+```
+
+The inventory template is deliberately unfilled; the example's separate
+`current.context.json` contains its independently specified synthetic definitions.
+
+Support is per-instance coverpoints with explicit options/kinds and one range/count
+per bin. Crosses, code coverage, sequences, multi-range bins, default kinds,
+per-bin weights and external exclusion overlays are outside this profile. The
+pinned reader loses range semantics, so context must supply them or leave them
+unknown. Commercial simulator XML exports require separate qualification.
+
+## Integrate into coverage closure
+
+1. Choose the original closure scope and objective with the coverage owner.
+   Retain the baseline before changing the model or exclusions.
+2. Export native populations and source identities for both runs. Establish that
+   the configuration, measurement definitions and selected scope are comparable.
+3. Map semantic definitions from the resolved coverage model. Use a reviewed
+   identity map for actual bin renames; do not match by name similarity.
+4. Run the comparator. Separate newly exercised bins from threshold effects,
+   changed kinds, population changes, illegal hits and unreviewed definitions.
+5. Review changes with model and exclusion owners using original requirement
+   rationale. The tool's recognition of an ignore bin does not approve it.
+6. Correct the model/export or run additional verification as appropriate, then
+   re-export and revalidate. Hand off the original objective, both exports,
+   semantic context, report and owner decisions together.
+
+## AI-first setup and interpretation
+
+Give a file/tool-enabled assistant [SKILL.md](SKILL.md),
+[AI_USAGE.md](AI_USAGE.md), the original coverage objective and native exports:
+
+> Explain the reported coverage change against the original required behavior.
+> Find the consumed model and exclusion rationale, preserve the complete selected
+> population, and distinguish additional hits from changed definitions or scoring.
+> Ask for missing sampling/configuration evidence. Propose owner actions and
+> revalidation; do not infer closure from a higher percentage.
+
+Use [ONBOARDING.md](../../ONBOARDING.md), module `coverage-change-audit` /
+activity `default`, for project-local installation. Your existing AI host can
+review wider native evidence and adapt a validated exporter. Optional DVIT
+intent/dependency context can connect changed bins and exclusions back to product
+requirements; the module works independently with local sources.
+
+| Exit | Interpretation |
+|---:|---|
+| Compare 0 | Unchanged within the supplied scope. |
+| Compare 1 | Changes or illegal hits require review. |
+| Compare 2 | Collection, context or semantic gaps; inspect retained findings too. |
+| Import 0 / 2 | Declared complete / partial selected population. This alone says nothing about semantic completeness. |
+| 3 | Invalid input, unsupported native shape, dependency or I/O error. |
+
+Argument errors use exit 2. `incomplete` takes status precedence while retaining
+`review_required` and known changes. No status approves exclusions or establishes
+verification completeness/signoff.
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+XML tests skip if the optional reader is absent. The
+[manual review record](record.template.json) captures interpretation and follow-up
+beyond the deterministic comparison.
 
 ---
 

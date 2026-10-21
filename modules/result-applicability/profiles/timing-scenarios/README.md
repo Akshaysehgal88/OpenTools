@@ -1,74 +1,157 @@
 # Timing scenario coverage
 
-Compare selected native timing runs with independently required operating
-scenarios. Check the actual model, mode, clock, power-state and RC basis before
-counting a run toward an obligation. Preserve timing failures separately from
-whether the required scenario was analyzed.
+Use this activity during STA run planning and coverage review to establish whether
+the **independently required operating scenarios were actually analyzed** with
+corresponding model, mode, clock, power-state and RC evidence.
 
-Use [WORKFLOW.md](WORKFLOW.md) with your existing AI agent and company tools.
-The optional Python reader reuses the parent result-applicability records;
-it requires Python 3.10+ standard library. Saved-data review works on Windows and
-Linux. No model API, DVIT connection or replacement scheduler is required.
+This fits before timing-result handoff and after changes to the scenario matrix,
+libraries, clock/mode setup or analysis scope. STA and scenario owners can use it
+alongside their native run manager. Several clean runs can still cover the same
+obligation and leave a required mode/corner unobserved.
 
-## Example
+The activity supplements native timing and scenario planning. It replaces manual
+required-versus-observed scenario reconciliation. It does not generate a Cartesian
+mode/corner product, schedule runs or establish signoff sufficiency.
 
-Native collection is qualified on Linux with OpenROAD
-**v2.0-17598-ga008522d8**, in its normal runtime environment. From this directory:
+## First use
 
-```sh
-python examples/run_native.py runs --openroad /path/to/openroad
-python scenario_review.py review runs \
-  runs/requirements/wake-sequence.plan.json \
-  runs/requirements/wake-sequence.omitted.corpus.json \
-  --json-out scenarios.json --markdown-out scenarios.md
-```
-
-Expected exit **1**: three passing runs cover only two of three independently
-required obligations. A repeated functional run does not cover the missing
-low-voltage wake scenario. The manufacturing-capture example exercises the same
-review stage with a different mode/clock recipe and nonapplicable combination.
-
-Read one qualified saved run without launching native tools:
+Saved-data review needs Python 3.10+ and the standard library. Run from
+`modules/result-applicability/profiles/timing-scenarios`. Use a complete retained
+collection at `.local/scenarios-native`, or collect one on Linux with existing
+**OpenROAD v2.0-17598-ga008522d8** and its configured runtime:
 
 ```sh
-python scenario_review.py capture runs RUN_REFERENCE --output capture.json
+python examples/run_native.py .local/scenarios-native --openroad /path/to/openroad
 ```
 
-Review and capture require new output paths. [FORMAT.md](FORMAT.md) describes the
-explicit plan, selected inventory and original artifact bindings.
+Replace the tool path. The recipe installs nothing and needs a new output.
+Original plans/corpora are written before native execution. Wake-sequence and
+manufacturing-capture contexts exercise the same required-scenario review.
 
-## Native boundary
-
-One fresh flat `top`, one library and one clock per process, one scalar register
-pair, explicit operating conditions and case ports. The reader checks actual
-selected min/max PVT objects, library/source bytes, clock definition/coverage,
-register pin census, native cases and the selected maximum-setup representative.
-The closed loader imports no SDC, timing exceptions or parasitic files.
-
-The example libraries contain illustrative owned scalar timing tables. Their
-voltage and temperature values are native **model conditions**, not measured
-supply/temperature or characterized silicon behavior. Interconnect is unannotated;
-the native annotation report is retained. Power-state/mode roles and scenario
-exclusions are supplied source declarations, not physical power measurements.
-
-This profile does not qualify hold timing, all structural paths, extracted RC,
-OCV/derates, mixed exceptions or signoff. Use the team's validated native methods
-for other scope. Clean selected paths and scenario counts cannot prove sufficiency.
-The workflow remains usable beyond this reader's support boundary.
-
-## Results and tests
-
-Exit 0: declared obligations accounted within scope. Exit 1: missing/inapplicable
-scenario or observed selected-path timing failure. Exit 2: unresolved evidence.
-Exit 3: invalid input/I/O. Findings can coexist with gaps or quarantined runs;
-read all three lists. Native outcomes remain visible even when applicability fails.
+Inspect one saved run and the omitted-scenario corpus:
 
 ```sh
-OPENTOOLS_STA_SCENARIO_NATIVE=/path/to/runs \
-  python -m unittest discover -s tests -v
+python scenario_review.py capture .local/scenarios-native wake-sequence-functional-nominal-normal --output .local/scenarios-native/recaptured.json
+python scenario_review.py review .local/scenarios-native .local/scenarios-native/requirements/wake-sequence.plan.json .local/scenarios-native/requirements/wake-sequence.omitted.corpus.json --json-out .local/scenarios-native/omitted-review.json --markdown-out .local/scenarios-native/omitted-review.md
 ```
 
-Without an archive, input tests run and the native-corpus class is skipped.
+Expected review exit: **1**, `SCENARIO_REVIEW_REQUIRED`. Three passing runs cover
+only two of three required obligations: repeating functional nominal analysis
+does not supply the missing low-voltage wake scenario.
+
+Compare the complete corpus:
+
+```sh
+python scenario_review.py review .local/scenarios-native .local/scenarios-native/requirements/wake-sequence.plan.json .local/scenarios-native/requirements/wake-sequence.complete.corpus.json --json-out .local/scenarios-native/complete-review.json --markdown-out .local/scenarios-native/complete-review.md
+```
+
+Expected exit: **0**, `DECLARED_SCENARIOS_ACCOUNTED`. This accounts for the
+declared scenario population, not timing signoff. Open Markdown for obligations
+and JSON for per-candidate applicability audits, native outcomes, covered counts,
+findings, gaps and quarantined runs.
+
+Both report flags are required. Outputs must be distinct new paths. Capture exit
+0 means valid intake. Keep the original complete run directories; saved review
+executes no retained Tcl or native command.
+
+## Helper and records
+
+| Operation | Responsibility |
+|---|---|
+| `scenario_review.py capture ROOT RUN_REF --output FILE` | Reads and validates native run artifacts, retaining original evidence plus a parent result snapshot. |
+| `scenario_review.py review ROOT PLAN CORPUS --json-out JSON --markdown-out MD` | Composes result applicability per candidate, matches independent obligations and preserves timing failures separately from scenario accounting. |
+
+[FORMAT.md](FORMAT.md) defines the plan, corpus and original native context/
+execution package:
+
+- **Plan:** original scope/design/configuration, requirements source/owner and
+  independent obligations. Each is required, explicitly nonapplicable or unknown,
+  with its own requested field values and evidence.
+- **Corpus:** actual distinct archive run IDs selected for review. Another actual
+  repeat may be retained, but cannot cover an unmatched obligation by count.
+- **Native package:** original context/setup, model/library sources, invocation,
+  actual tool/artifact identities, native clocks/cases/census/path and annotation
+  report.
+
+Required requested fields include source/library/physical-library identities,
+selected min/max PVT, mode/corner/power role, native cases, clock definition,
+RC view and reader profile. Missing foundation fields cannot be dropped to get
+acceptance. Additional unsupported claims remain unresolved.
+
+Model PVT values use process, volts and degrees C, normalized to six decimal
+places for native representation consistency—not an engineering tolerance.
+Clock/PVT values and case integers retain exact types through the parent audit.
+Power/mode roles are supplied source declarations, not measured physical state.
+
+Nonapplicability needs the identified combination, source decision, reason and
+exclusion reference. A run missing from the collection is not automatically an
+inapplicable scenario.
+
+## Integrate into STA scenario review
+
+1. Establish the original required scenario population with design/power/STA
+   owners, including documented nonapplicable combinations.
+2. Retain the native run inventory independently of that roster. Record actual
+   consumed libraries/models, min/max operating conditions, clock/cases and RC basis.
+3. Map each selected run to the documented evidence fields, preserving original
+   IDs, native result and source/command/artifact identity.
+4. Review required-versus-observed correspondence. Inspect missing/foreign runs
+   and source/model/mode differences separately from a failed timing observation.
+5. Run or locate the missing matching analysis, correct setup or revisit a sourced
+   requirement with its owner. Reimport and revalidate after correction.
+6. Hand off the original plan, native collection, report, remaining analyses and
+   receiving decision. Repeat after scenario or model-basis changes.
+
+An applicable failed observation can account for analysis coverage while retaining
+the actual timing failure. The supplied snapshot classifies only a selected
+maximum-setup representative, not a complete STA verdict. Clean sampled paths and
+scenario counts cannot establish all-path sufficiency.
+
+## AI-first adoption and native boundary
+
+Give a file/tool-enabled assistant [WORKFLOW.md](WORKFLOW.md), original scenario
+requirements, mode/power/clock sources and native run inventory:
+
+> Reconcile required scenarios with actual analyses. Check consumed models,
+> selected PVT, native clock/case coverage and RC evidence before counting a run.
+> Preserve timing failures and sourced nonapplicability separately; ask for missing
+> mode or analysis basis instead of inferring coverage from run counts.
+
+Use [ONBOARDING.md](../../../../ONBOARDING.md), module `result-applicability` /
+activity `timing-scenarios`. Your current AI/company tools suffice. Optional DVIT
+intent/dependency context can reveal omitted or stale scenario obligations;
+independent operation requires no connection.
+
+The native profile uses a fresh flat `top`, one library/clock, scalar register
+pair, explicit operating conditions and case ports. The closed loader imports no
+SDC, exceptions or parasitic files. The native annotation report is retained;
+interconnect is unannotated.
+
+Illustrative owned timing tables and PVT labels are model conditions, not
+characterized silicon or physical supply/temperature measurements. Hold timing,
+all structural paths, extracted RC, OCV/derates, mixed exceptions, other loaders/
+commercial tools and signoff need separate qualification.
+
+## Outcomes and tests
+
+| Review exit | Meaning |
+|---:|---|
+| 0 | Declared obligations accounted within scope. |
+| 1 | Missing/inapplicable required scenario or observed selected-path timing failure. |
+| 2 | Unresolved evidence. |
+| 3 | Invalid/changed native input or I/O. |
+
+Argument errors use exit 2. Read findings, gaps and quarantined-run lists together.
+Native outcomes remain visible even when applicability fails.
+
+Set `OPENTOOLS_STA_SCENARIO_NATIVE` to the retained collection and run:
+
+```sh
+python -m unittest discover -s tests -v
+```
+
+Saved-data review works on Windows/Linux. Without an archive, input tests run and
+native-corpus tests skip.
 
 ---
 
